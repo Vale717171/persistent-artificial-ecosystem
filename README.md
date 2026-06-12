@@ -47,6 +47,22 @@ npm run serve
 
 You can also use any static file server. A server is recommended because browsers may block `fetch("data/world.json")` from local `file://` pages.
 
+## Long-Term Analysis
+
+Generate a Markdown stability report from an in-memory copy of the current world:
+
+```bash
+node scripts/long-run-report.js
+```
+
+By default this simulates 1,000 ticks and writes `reports/long-run-1000.md` without modifying `data/world.json`.
+
+You can pass a custom tick count and output path:
+
+```bash
+node scripts/long-run-report.js 2500 reports/long-run-2500.md
+```
+
 ## GitHub Pages Deployment
 
 1. Push this repository to GitHub.

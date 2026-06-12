@@ -344,6 +344,16 @@ function simulateTick(rng, world) {
   world.events = [...events, ...world.events].slice(0, MAX_EVENTS);
 }
 
+function evolveWorld(world, ticks) {
+  ensureRng(world);
+  const rng = createRng(world.rng.state);
+  for (let i = 0; i < ticks; i += 1) {
+    simulateTick(rng, world);
+  }
+  world.rng.state = rng.state();
+  return world;
+}
+
 function main() {
   const ticks = Number.parseInt(process.argv[2] ?? "1", 10);
   if (!Number.isInteger(ticks) || ticks < 1) {
@@ -351,14 +361,15 @@ function main() {
   }
 
   const world = loadWorld();
-  ensureRng(world);
-  const rng = createRng(world.rng.state);
-  for (let i = 0; i < ticks; i += 1) {
-    simulateTick(rng, world);
-  }
-  world.rng.state = rng.state();
+  evolveWorld(world, ticks);
   saveWorld(world);
   console.log(`Evolved world to tick ${world.tick}.`);
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = {
+  evolveWorld
+};
