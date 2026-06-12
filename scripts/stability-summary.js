@@ -83,6 +83,9 @@ function summarizeRuns(runs, seedCount, ticks) {
     source: "data/world.json",
     seedCount,
     ticksPerSeed: ticks,
+    interpretation: `Across ${seedCount} seeds × ${formatNumber(ticks)} ticks, none collapsed or exploded under the current parameters.`,
+    caveat:
+      "The dynamic label is based on this project's simple classification criteria. It is not proof of general stability.",
     outcomeDistribution,
     statistics: {
       finalLivingSpecies: stats(runs.map((run) => run.finalLivingSpecies)),
@@ -160,7 +163,8 @@ function renderHtml(summary) {
     <main>
       <p class="lede">Generated at ${escapeHtml(summary.generatedAt)} from <code>${escapeHtml(summary.source)}</code></p>
       <h1>Multi-Seed Stability Summary</h1>
-      <p class="note">${summary.seedCount} seeds x ${summary.ticksPerSeed} ticks. This report uses in-memory copies only and does not modify <code>data/world.json</code>.</p>
+      <p class="note">${summary.seedCount} seeds × ${formatNumber(summary.ticksPerSeed)} ticks. This report uses in-memory copies only and does not modify <code>data/world.json</code>.</p>
+      <p class="note"><strong>${escapeHtml(summary.interpretation)}</strong> ${escapeHtml(summary.caveat)}</p>
 
       <h2>Outcome Distribution</h2>
       ${htmlTable(
@@ -181,6 +185,7 @@ function renderHtml(summary) {
       ${htmlTable(["Seed", "Outcome", "Living species", "Biodiversity", "Population", "Immigration", "Speciation", "Extinction"], runRows(summary.notableRuns.best))}
 
       <h2>Classification Criteria</h2>
+      <p class="note">The outcome distribution is a classification under the current simple criteria and parameter set, not a guarantee about all possible seeds, longer runs, or richer ecosystem rules.</p>
       <ul>
         ${Object.entries(summary.classificationCriteria)
           .map(([key, value]) => `<li><strong>${escapeHtml(classificationText(key))}:</strong> ${escapeHtml(value)}</li>`)

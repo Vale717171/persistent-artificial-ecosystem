@@ -78,7 +78,9 @@ Run a multi-seed stability sweep:
 node scripts/stability-summary.js
 ```
 
-By default this tests 30 seeds x 1,000 ticks and writes `reports/stability-summary.json` and `reports/stability-summary.html`.
+By default this tests 30 seeds × 1,000 ticks and writes `reports/stability-summary.json` and `reports/stability-summary.html`.
+
+The current reference sweep should be read modestly: Across 30 seeds × 1,000 ticks, none collapsed or exploded under the current parameters. The `dynamic` label comes from the project's simple classification criteria, not from a proof of general ecological stability.
 
 ## GitHub Pages Deployment
 

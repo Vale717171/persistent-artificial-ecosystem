@@ -32,6 +32,7 @@ jobs:
 
       - name: Commit updated state
         run: |
+          # Each changed tick is intentionally committed as a fossil layer.
           if git diff --quiet -- data/world.json; then
             echo "No world state changes to commit."
             exit 0

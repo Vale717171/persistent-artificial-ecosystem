@@ -162,6 +162,12 @@ code {
   font-weight: 800;
 }
 
+.report-caveat {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
 .status-section {
   grid-column: 1 / -1;
 }

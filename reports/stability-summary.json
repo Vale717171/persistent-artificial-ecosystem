@@ -1,8 +1,10 @@
 {
-  "generatedAt": "2026-06-12T18:29:05.981Z",
+  "generatedAt": "2026-06-12T20:08:40.949Z",
   "source": "data/world.json",
   "seedCount": 30,
   "ticksPerSeed": 1000,
+  "interpretation": "Across 30 seeds × 1,000 ticks, none collapsed or exploded under the current parameters.",
+  "caveat": "The dynamic label is based on this project's simple classification criteria. It is not proof of general stability.",
   "outcomeDistribution": {
     "dynamic": 30
   },
