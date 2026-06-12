@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "tick": 8,
-  "updatedAt": "2026-06-12T23:43:19.437Z",
+  "tick": 9,
+  "updatedAt": "2026-06-13T05:43:19.437Z",
   "map": {
     "width": 12,
     "height": 8,
@@ -10,243 +10,243 @@
         "x": 0,
         "y": 0,
         "biome": "forest",
-        "food": 4
+        "food": 6
       },
       {
         "x": 1,
         "y": 0,
+        "biome": "forest",
+        "food": 4
+      },
+      {
+        "x": 2,
+        "y": 0,
+        "biome": "forest",
+        "food": 5
+      },
+      {
+        "x": 3,
+        "y": 0,
+        "biome": "grassland",
+        "food": 10
+      },
+      {
+        "x": 4,
+        "y": 0,
+        "biome": "grassland",
+        "food": 10
+      },
+      {
+        "x": 5,
+        "y": 0,
+        "biome": "grassland",
+        "food": 10
+      },
+      {
+        "x": 6,
+        "y": 0,
+        "biome": "wetland",
+        "food": 7
+      },
+      {
+        "x": 7,
+        "y": 0,
+        "biome": "wetland",
+        "food": 0
+      },
+      {
+        "x": 8,
+        "y": 0,
+        "biome": "wetland",
+        "food": 9
+      },
+      {
+        "x": 9,
+        "y": 0,
+        "biome": "forest",
+        "food": 8
+      },
+      {
+        "x": 10,
+        "y": 0,
+        "biome": "forest",
+        "food": 6
+      },
+      {
+        "x": 11,
+        "y": 0,
+        "biome": "mountain",
+        "food": 8
+      },
+      {
+        "x": 0,
+        "y": 1,
         "biome": "forest",
         "food": 2
       },
       {
-        "x": 2,
-        "y": 0,
+        "x": 1,
+        "y": 1,
         "biome": "forest",
+        "food": 0
+      },
+      {
+        "x": 2,
+        "y": 1,
+        "biome": "grassland",
+        "food": 10
+      },
+      {
+        "x": 3,
+        "y": 1,
+        "biome": "grassland",
+        "food": 10
+      },
+      {
+        "x": 4,
+        "y": 1,
+        "biome": "grassland",
+        "food": 10
+      },
+      {
+        "x": 5,
+        "y": 1,
+        "biome": "desert",
+        "food": 9
+      },
+      {
+        "x": 6,
+        "y": 1,
+        "biome": "wetland",
+        "food": 2
+      },
+      {
+        "x": 7,
+        "y": 1,
+        "biome": "wetland",
         "food": 3
       },
       {
-        "x": 3,
-        "y": 0,
-        "biome": "grassland",
-        "food": 10
-      },
-      {
-        "x": 4,
-        "y": 0,
-        "biome": "grassland",
-        "food": 10
-      },
-      {
-        "x": 5,
-        "y": 0,
-        "biome": "grassland",
-        "food": 10
-      },
-      {
-        "x": 6,
-        "y": 0,
-        "biome": "wetland",
-        "food": 3
-      },
-      {
-        "x": 7,
-        "y": 0,
-        "biome": "wetland",
-        "food": 9
-      },
-      {
         "x": 8,
-        "y": 0,
-        "biome": "wetland",
-        "food": 6
+        "y": 1,
+        "biome": "grassland",
+        "food": 10
       },
       {
         "x": 9,
-        "y": 0,
-        "biome": "forest",
-        "food": 6
-      },
-      {
-        "x": 10,
-        "y": 0,
-        "biome": "forest",
-        "food": 4
-      },
-      {
-        "x": 11,
-        "y": 0,
-        "biome": "mountain",
-        "food": 7
-      },
-      {
-        "x": 0,
-        "y": 1,
-        "biome": "forest",
-        "food": 0
-      },
-      {
-        "x": 1,
         "y": 1,
         "biome": "forest",
         "food": 9
       },
       {
-        "x": 2,
+        "x": 10,
         "y": 1,
-        "biome": "grassland",
-        "food": 10
-      },
-      {
-        "x": 3,
-        "y": 1,
-        "biome": "grassland",
-        "food": 10
-      },
-      {
-        "x": 4,
-        "y": 1,
-        "biome": "grassland",
-        "food": 10
-      },
-      {
-        "x": 5,
-        "y": 1,
-        "biome": "desert",
+        "biome": "mountain",
         "food": 8
       },
       {
-        "x": 6,
+        "x": 11,
         "y": 1,
-        "biome": "wetland",
+        "biome": "mountain",
         "food": 9
       },
       {
+        "x": 0,
+        "y": 2,
+        "biome": "forest",
+        "food": 6
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "biome": "grassland",
+        "food": 10
+      },
+      {
+        "x": 2,
+        "y": 2,
+        "biome": "grassland",
+        "food": 10
+      },
+      {
+        "x": 3,
+        "y": 2,
+        "biome": "desert",
+        "food": 9
+      },
+      {
+        "x": 4,
+        "y": 2,
+        "biome": "desert",
+        "food": 8
+      },
+      {
+        "x": 5,
+        "y": 2,
+        "biome": "desert",
+        "food": 6
+      },
+      {
+        "x": 6,
+        "y": 2,
+        "biome": "grassland",
+        "food": 10
+      },
+      {
         "x": 7,
-        "y": 1,
-        "biome": "wetland",
-        "food": 0
+        "y": 2,
+        "biome": "grassland",
+        "food": 10
       },
       {
         "x": 8,
-        "y": 1,
+        "y": 2,
         "biome": "grassland",
         "food": 10
       },
       {
         "x": 9,
-        "y": 1,
-        "biome": "forest",
+        "y": 2,
+        "biome": "mountain",
         "food": 7
       },
       {
         "x": 10,
-        "y": 1,
+        "y": 2,
+        "biome": "mountain",
+        "food": 9
+      },
+      {
+        "x": 11,
+        "y": 2,
         "biome": "mountain",
         "food": 7
       },
       {
-        "x": 11,
-        "y": 1,
-        "biome": "mountain",
-        "food": 8
+        "x": 0,
+        "y": 3,
+        "biome": "wetland",
+        "food": 7
       },
       {
-        "x": 0,
-        "y": 2,
-        "biome": "forest",
+        "x": 1,
+        "y": 3,
+        "biome": "grassland",
+        "food": 10
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "biome": "grassland",
+        "food": 10
+      },
+      {
+        "x": 3,
+        "y": 3,
+        "biome": "desert",
         "food": 4
       },
       {
-        "x": 1,
-        "y": 2,
-        "biome": "grassland",
-        "food": 10
-      },
-      {
-        "x": 2,
-        "y": 2,
-        "biome": "grassland",
-        "food": 10
-      },
-      {
-        "x": 3,
-        "y": 2,
-        "biome": "desert",
-        "food": 8
-      },
-      {
-        "x": 4,
-        "y": 2,
-        "biome": "desert",
-        "food": 6
-      },
-      {
-        "x": 5,
-        "y": 2,
-        "biome": "desert",
-        "food": 5
-      },
-      {
-        "x": 6,
-        "y": 2,
-        "biome": "grassland",
-        "food": 10
-      },
-      {
-        "x": 7,
-        "y": 2,
-        "biome": "grassland",
-        "food": 10
-      },
-      {
-        "x": 8,
-        "y": 2,
-        "biome": "grassland",
-        "food": 10
-      },
-      {
-        "x": 9,
-        "y": 2,
-        "biome": "mountain",
-        "food": 6
-      },
-      {
-        "x": 10,
-        "y": 2,
-        "biome": "mountain",
-        "food": 8
-      },
-      {
-        "x": 11,
-        "y": 2,
-        "biome": "mountain",
-        "food": 6
-      },
-      {
-        "x": 0,
-        "y": 3,
-        "biome": "wetland",
-        "food": 4
-      },
-      {
-        "x": 1,
-        "y": 3,
-        "biome": "grassland",
-        "food": 10
-      },
-      {
-        "x": 2,
-        "y": 3,
-        "biome": "grassland",
-        "food": 10
-      },
-      {
-        "x": 3,
-        "y": 3,
-        "biome": "desert",
-        "food": 10
-      },
-      {
         "x": 4,
         "y": 3,
         "biome": "desert",
@@ -256,7 +256,7 @@
         "x": 5,
         "y": 3,
         "biome": "desert",
-        "food": 6
+        "food": 7
       },
       {
         "x": 6,
@@ -266,21 +266,21 @@
       },
       {
         "x": 7,
-        "y": 3,
-        "biome": "forest",
-        "food": 8
-      },
-      {
-        "x": 8,
         "y": 3,
         "biome": "forest",
         "food": 0
       },
       {
+        "x": 8,
+        "y": 3,
+        "biome": "forest",
+        "food": 2
+      },
+      {
         "x": 9,
         "y": 3,
         "biome": "mountain",
-        "food": 10
+        "food": 6
       },
       {
         "x": 10,
@@ -322,7 +322,7 @@
         "x": 4,
         "y": 4,
         "biome": "desert",
-        "food": 6
+        "food": 7
       },
       {
         "x": 5,
@@ -332,23 +332,23 @@
       },
       {
         "x": 6,
+        "y": 4,
+        "biome": "forest",
+        "food": 2
+      },
+      {
+        "x": 7,
+        "y": 4,
+        "biome": "forest",
+        "food": 9
+      },
+      {
+        "x": 8,
         "y": 4,
         "biome": "forest",
         "food": 0
       },
       {
-        "x": 7,
-        "y": 4,
-        "biome": "forest",
-        "food": 6
-      },
-      {
-        "x": 8,
-        "y": 4,
-        "biome": "forest",
-        "food": 10
-      },
-      {
         "x": 9,
         "y": 4,
         "biome": "mountain",
@@ -388,7 +388,7 @@
         "x": 3,
         "y": 5,
         "biome": "forest",
-        "food": 10
+        "food": 0
       },
       {
         "x": 4,
@@ -436,7 +436,7 @@
         "x": 11,
         "y": 5,
         "biome": "desert",
-        "food": 8
+        "food": 10
       },
       {
         "x": 0,
@@ -478,7 +478,7 @@
         "x": 6,
         "y": 6,
         "biome": "mountain",
-        "food": 7
+        "food": 8
       },
       {
         "x": 7,
@@ -508,7 +508,7 @@
         "x": 11,
         "y": 6,
         "biome": "desert",
-        "food": 7
+        "food": 8
       },
       {
         "x": 0,
@@ -544,7 +544,7 @@
         "x": 5,
         "y": 7,
         "biome": "mountain",
-        "food": 8
+        "food": 9
       },
       {
         "x": 6,
@@ -588,7 +588,7 @@
     {
       "id": "mossling",
       "name": "Mossling",
-      "population": 111,
+      "population": 134,
       "traits": {
         "preferredBiome": "forest",
         "size": 2,
@@ -601,7 +601,7 @@
     {
       "id": "reedgrazer",
       "name": "Reedgrazer",
-      "population": 36,
+      "population": 41,
       "traits": {
         "preferredBiome": "wetland",
         "size": 4,
@@ -614,7 +614,7 @@
     {
       "id": "dustskipper",
       "name": "Dustskipper",
-      "population": 43,
+      "population": 52,
       "traits": {
         "preferredBiome": "desert",
         "size": 1,
@@ -630,7 +630,7 @@
       "population": 6,
       "traits": {
         "preferredBiome": "mountain",
-        "size": 6,
+        "size": 7,
         "speed": 1,
         "fertility": 3,
         "resilience": 8,
@@ -639,6 +639,49 @@
     }
   ],
   "events": [
+    {
+      "tick": 9,
+      "type": "population",
+      "message": "Dustskipper changed by +10 births and -1 deaths.",
+      "impact": {
+        "species": "dustskipper",
+        "births": 10,
+        "deaths": 1,
+        "population": 52
+      }
+    },
+    {
+      "tick": 9,
+      "type": "population",
+      "message": "Reedgrazer changed by +6 births and -1 deaths.",
+      "impact": {
+        "species": "reedgrazer",
+        "births": 6,
+        "deaths": 1,
+        "population": 41
+      }
+    },
+    {
+      "tick": 9,
+      "type": "population",
+      "message": "Mossling changed by +26 births and -3 deaths.",
+      "impact": {
+        "species": "mossling",
+        "births": 26,
+        "deaths": 3,
+        "population": 134
+      }
+    },
+    {
+      "tick": 9,
+      "type": "mutation",
+      "message": "Cragback mutation shifted size up.",
+      "impact": {
+        "species": "cragback",
+        "trait": "size",
+        "delta": 1
+      }
+    },
     {
       "tick": 8,
       "type": "population",
@@ -1107,14 +1150,23 @@
         "dustskipper": 43,
         "cragback": 6
       }
+    },
+    {
+      "tick": 9,
+      "populations": {
+        "mossling": 134,
+        "reedgrazer": 41,
+        "dustskipper": 52,
+        "cragback": 6
+      }
     }
   ],
   "extinctions": [],
   "rng": {
     "algorithm": "xorshift32",
     "seed": 439041101,
-    "state": 1826426339
+    "state": 2582402113
   },
-  "latestTickAt": "2026-06-12T23:43:19.437Z",
+  "latestTickAt": "2026-06-13T05:43:19.437Z",
   "tickIntervalHours": 6
 }
