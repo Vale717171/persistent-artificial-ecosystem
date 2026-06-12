@@ -2,16 +2,28 @@
 
 A tiny GitHub-native artificial ecosystem. The app is static, the world state is JSON, and GitHub Actions can evolve the simulation on a schedule by committing updated files back to the repository.
 
-## MVP Features
+![Persistent Artificial Ecosystem dashboard](docs/ecosystem-screenshot.jpg)
+
+Live demo: <https://vale717171.github.io/persistent-artificial-ecosystem/>
+
+## What It Is
+
+This is a small artificial ecosystem that treats GitHub as the habitat. There is no backend server, database, queue, or hosted worker. The world lives in [`data/world.json`](data/world.json), GitHub Actions evolves that JSON on a schedule, and GitHub Pages displays the latest committed state.
+
+Every scheduled commit becomes part of the fossil layer: the repository history is the persistence model and the audit trail.
+
+## Current Features
 
 - Static web app deployable with GitHub Pages.
 - No backend server or database.
 - Persistent world state stored in [`data/world.json`](data/world.json).
 - Local and GitHub Actions simulation runner.
-- Grid map with biomes and food values.
+- Grid map with biomes, food values, and per-cell details.
 - Species with simple traits: preferred biome, size, speed, fertility, resilience, and metabolism.
 - Reproduction, mutation, death, and extinction events.
-- Browser UI for the map, species list, recent events, and population trends.
+- Browser UI for world status, map, species list, event timeline, fossil record, and population trends.
+- Biodiversity index, living/extinct species counts, total population, and average food metrics.
+- Cache-busted `data/world.json` loading so the Pages UI asks for fresh state on every page load.
 
 ## Local Setup
 
@@ -58,6 +70,14 @@ Each run:
 
 This makes GitHub itself the persistence layer. The commit history becomes a durable timeline of ecosystem changes.
 
+## Reddit-Ready Short Explanation
+
+I built a tiny artificial ecosystem that lives entirely inside a GitHub repo.
+
+There is no backend. The world state is just `data/world.json`. A scheduled GitHub Action runs a small Node simulation, mutates the JSON, and commits it back to `main`. GitHub Pages then renders the latest committed state as a dashboard: grid map, biomes, food, species traits, population trends, event timeline, biodiversity, and a fossil record when species go extinct.
+
+It is intentionally simple, but the fun part is the persistence model: GitHub history is the ecosystem's memory.
+
 ## Architecture
 
 ```text
@@ -65,6 +85,8 @@ This makes GitHub itself the persistence layer. The commit history becomes a dur
 ├── index.html                  Static app shell
 ├── styles.css                  UI styling
 ├── app.js                      Reads JSON state and renders the UI
+├── docs/
+│   └── ecosystem-screenshot.jpg README screenshot
 ├── data/
 │   └── world.json              Persistent world state
 ├── scripts/

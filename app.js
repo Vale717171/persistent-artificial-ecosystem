@@ -6,12 +6,30 @@ const BIOME_COLORS = {
   desert: "#d5a64d"
 };
 
+const EVENT_LABELS = {
+  seed: "Seed",
+  population: "Population",
+  mutation: "Mutation",
+  disturbance: "Disturbance",
+  bloom: "Food bloom",
+  disease: "Disease",
+  extinction: "Extinction"
+};
+
 async function loadWorld() {
-  const response = await fetch("data/world.json", { cache: "no-store" });
+  const dataUrl = `data/world.json?v=${Date.now()}`;
+  const response = await fetch(dataUrl, {
+    cache: "no-store",
+    headers: { "cache-control": "no-cache" }
+  });
+
   if (!response.ok) {
     throw new Error(`Could not load world data: ${response.status}`);
   }
-  return response.json();
+
+  const world = await response.json();
+  world.loadedFrom = dataUrl;
+  return world;
 }
 
 function formatDate(value) {
@@ -21,9 +39,65 @@ function formatDate(value) {
   }).format(new Date(value));
 }
 
+function formatNumber(value) {
+  return new Intl.NumberFormat().format(value);
+}
+
+function formatTraitName(key) {
+  return key.replace(/[A-Z]/g, (letter) => ` ${letter.toLowerCase()}`);
+}
+
+function getWorldStats(world) {
+  const livingSpecies = world.species.filter((species) => species.population > 0);
+  const extinctInSpeciesList = world.species.filter((species) => species.population === 0).length;
+  const extinctSpecies = Math.max(extinctInSpeciesList, world.extinctions.length);
+  const totalPopulation = world.species.reduce((sum, species) => sum + species.population, 0);
+  const proportions = livingSpecies
+    .map((species) => species.population / Math.max(1, totalPopulation))
+    .filter((share) => share > 0);
+  const biodiversity = proportions.reduce((sum, share) => sum - share * Math.log(share), 0);
+  const averageFood =
+    world.map.cells.reduce((sum, cell) => sum + cell.food, 0) / Math.max(1, world.map.cells.length);
+
+  return {
+    livingSpecies: livingSpecies.length,
+    extinctSpecies,
+    totalPopulation,
+    biodiversity,
+    averageFood
+  };
+}
+
 function renderMeta(world) {
   document.querySelector("#tick").textContent = world.tick;
   document.querySelector("#updated-at").textContent = formatDate(world.updatedAt);
+  document.querySelector("#data-source").textContent = "fresh JSON loaded";
+}
+
+function renderStatus(world) {
+  const stats = getWorldStats(world);
+  const status = document.querySelector("#world-status");
+  const items = [
+    ["Tick", world.tick],
+    ["Updated", formatDate(world.updatedAt)],
+    ["Living species", stats.livingSpecies],
+    ["Extinct species", stats.extinctSpecies],
+    ["Total population", formatNumber(stats.totalPopulation)],
+    ["Biodiversity index", stats.biodiversity.toFixed(3)],
+    ["Average food", stats.averageFood.toFixed(1)],
+    ["Recent events", world.events.length]
+  ];
+
+  status.innerHTML = items
+    .map(
+      ([label, value]) => `
+        <div class="status-item">
+          <span>${label}</span>
+          <strong>${value}</strong>
+        </div>
+      `
+    )
+    .join("");
 }
 
 function renderLegend(world) {
@@ -42,6 +116,28 @@ function renderLegend(world) {
     .join("");
 }
 
+function speciesForBiome(world, biome) {
+  return world.species
+    .filter((species) => species.population > 0 && species.traits.preferredBiome === biome)
+    .map((species) => species.name);
+}
+
+function renderCellDetails(world, cell) {
+  const details = document.querySelector("#cell-details");
+  const speciesNames = speciesForBiome(world, cell.biome);
+
+  details.innerHTML = `
+    <div>
+      <span class="detail-kicker">Selected cell</span>
+      <strong>(${cell.x}, ${cell.y}) ${cell.biome}</strong>
+    </div>
+    <dl>
+      <div><dt>Food</dt><dd>${cell.food}/10</dd></div>
+      <div><dt>Likely species</dt><dd>${speciesNames.length ? speciesNames.join(", ") : "none currently adapted"}</dd></div>
+    </dl>
+  `;
+}
+
 function renderMap(world) {
   const map = document.querySelector("#map");
   map.style.gridTemplateColumns = `repeat(${world.map.width}, minmax(0, 1fr))`;
@@ -49,17 +145,35 @@ function renderMap(world) {
   map.innerHTML = world.map.cells
     .map((cell) => {
       const foodPercent = `${Math.max(8, cell.food * 10)}%`;
+      const adaptedSpecies = speciesForBiome(world, cell.biome).join(", ") || "none";
+
       return `
-        <div
+        <button
+          type="button"
           class="cell"
-          title="(${cell.x}, ${cell.y}) ${cell.biome}, food ${cell.food}"
+          data-x="${cell.x}"
+          data-y="${cell.y}"
+          aria-label="Cell ${cell.x}, ${cell.y}. ${cell.biome}. Food ${cell.food}. Adapted species: ${adaptedSpecies}."
+          title="(${cell.x}, ${cell.y}) ${cell.biome}. Food ${cell.food}/10. Adapted species: ${adaptedSpecies}."
           style="background:${BIOME_COLORS[cell.biome]}; --food-level:${foodPercent};"
         >
           ${cell.food}
-        </div>
+        </button>
       `;
     })
     .join("");
+
+  map.addEventListener("click", (event) => {
+    const cellButton = event.target.closest(".cell");
+    if (!cellButton) return;
+    const x = Number(cellButton.dataset.x);
+    const y = Number(cellButton.dataset.y);
+    const cell = world.map.cells.find((candidate) => candidate.x === x && candidate.y === y);
+    if (cell) renderCellDetails(world, cell);
+  });
+
+  const richestCell = [...world.map.cells].sort((a, b) => b.food - a.food)[0];
+  if (richestCell) renderCellDetails(world, richestCell);
 }
 
 function renderSpecies(world) {
@@ -68,14 +182,15 @@ function renderSpecies(world) {
   list.innerHTML = world.species
     .map((species) => {
       const traits = Object.entries(species.traits)
-        .map(([key, value]) => `<span class="trait"><span>${key}</span><strong>${value}</strong></span>`)
+        .map(([key, value]) => `<span class="trait"><span>${formatTraitName(key)}</span><strong>${value}</strong></span>`)
         .join("");
+      const state = species.population > 0 ? "living" : "extinct";
 
       return `
-        <article class="species-card">
+        <article class="species-card ${state}">
           <div class="species-topline">
             <span class="species-name">${species.name}</span>
-            <span class="population">${species.population} alive</span>
+            <span class="population">${species.population} alive · ${state}</span>
           </div>
           <div class="traits">${traits}</div>
         </article>
@@ -87,11 +202,12 @@ function renderSpecies(world) {
 function renderEvents(world) {
   const events = document.querySelector("#events");
   events.innerHTML = world.events
-    .slice(0, 12)
+    .slice(0, 20)
     .map(
       (event) => `
-        <li class="event">
-          <span class="event-type">Tick ${event.tick} · ${event.type}</span>
+        <li class="event event-${event.type}">
+          <span class="event-type">${EVENT_LABELS[event.type] ?? event.type}</span>
+          <span class="event-tick">Tick ${event.tick}</span>
           ${event.message}
         </li>
       `
@@ -140,15 +256,39 @@ function renderTrends(world) {
   `;
 }
 
+function renderFossilRecord(world) {
+  const fossilRecord = document.querySelector("#fossil-record");
+  if (world.extinctions.length === 0) {
+    fossilRecord.innerHTML = `
+      <p class="empty-state">No species has gone extinct yet. The fossil record is waiting.</p>
+    `;
+    return;
+  }
+
+  fossilRecord.innerHTML = world.extinctions
+    .map(
+      (entry) => `
+        <article class="fossil">
+          <span class="event-type">Tick ${entry.tick}</span>
+          <strong>${entry.name}</strong>
+          <p>${entry.message}</p>
+        </article>
+      `
+    )
+    .join("");
+}
+
 async function init() {
   try {
     const world = await loadWorld();
     renderMeta(world);
+    renderStatus(world);
     renderLegend(world);
     renderMap(world);
     renderSpecies(world);
     renderEvents(world);
     renderTrends(world);
+    renderFossilRecord(world);
   } catch (error) {
     document.body.innerHTML = `<main class="layout"><p>${error.message}</p></main>`;
   }

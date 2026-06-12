@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="cache-control" content="no-cache">
     <title>Persistent Artificial Ecosystem</title>
     <link rel="stylesheet" href="styles.css">
   </head>
@@ -12,19 +13,26 @@
         <p class="eyebrow">GitHub-native artificial ecosystem</p>
         <h1>Persistent Artificial Ecosystem</h1>
       </div>
-      <div class="meta-panel" aria-label="World metadata">
+      <div class="meta-panel" aria-label="Current world metadata">
         <span>Tick <strong id="tick">0</strong></span>
         <span>Updated <strong id="updated-at">loading</strong></span>
+        <span id="data-source">loading data</span>
       </div>
     </header>
 
     <main class="layout">
+      <section class="status-section" aria-labelledby="status-title">
+        <h2 id="status-title">World Status</h2>
+        <div id="world-status" class="status-grid"></div>
+      </section>
+
       <section class="map-section" aria-labelledby="map-title">
         <div class="section-heading">
           <h2 id="map-title">World Map</h2>
           <div id="legend" class="legend" aria-label="Biome legend"></div>
         </div>
         <div id="map" class="map" aria-label="Ecosystem grid map"></div>
+        <aside id="cell-details" class="cell-details" aria-live="polite"></aside>
       </section>
 
       <section aria-labelledby="species-title">
@@ -40,8 +48,13 @@
       </section>
 
       <section aria-labelledby="events-title">
-        <h2 id="events-title">Recent Events</h2>
+        <h2 id="events-title">Event Timeline</h2>
         <ol id="events" class="events"></ol>
+      </section>
+
+      <section aria-labelledby="fossil-title">
+        <h2 id="fossil-title">Fossil Record</h2>
+        <div id="fossil-record" class="fossil-record"></div>
       </section>
     </main>
 
