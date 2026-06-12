@@ -94,13 +94,75 @@ section {
 .species-list,
 .events,
 .status-grid,
+.memory-grid,
 .fossil-record {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--panel);
 }
 
+.about-section {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.about-copy,
+.long-run-card {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.about-copy p {
+  max-width: 72ch;
+  margin-bottom: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+}
+
+.long-run-card dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 16px;
+  margin: 0 0 14px;
+}
+
+.long-run-card div {
+  min-width: 0;
+}
+
+.long-run-card dt {
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.long-run-card dd {
+  margin: 3px 0 0;
+  font-weight: 800;
+}
+
+.long-run-card a {
+  color: var(--accent);
+  font-weight: 800;
+}
+
 .status-section {
+  grid-column: 1 / -1;
+}
+
+.memory-section {
   grid-column: 1 / -1;
 }
 
@@ -110,7 +172,14 @@ section {
   overflow: hidden;
 }
 
-.status-item {
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  overflow: hidden;
+}
+
+.status-item,
+.memory-item {
   display: grid;
   gap: 6px;
   padding: 14px;
@@ -118,7 +187,8 @@ section {
   border-bottom: 1px solid var(--line);
 }
 
-.status-item span {
+.status-item span,
+.memory-item span {
   color: var(--muted);
   font-size: 0.78rem;
   font-weight: 800;
@@ -126,9 +196,14 @@ section {
   text-transform: uppercase;
 }
 
-.status-item strong {
+.status-item strong,
+.memory-item strong {
   font-size: clamp(1.1rem, 2vw, 1.65rem);
   line-height: 1.1;
+}
+
+.memory-item strong {
+  font-size: clamp(0.95rem, 1.4vw, 1.2rem);
 }
 
 .map-section {
@@ -167,6 +242,8 @@ section {
 .map {
   display: grid;
   gap: 4px;
+  width: 100%;
+  min-width: 0;
   aspect-ratio: 12 / 8;
   min-height: 320px;
 }
@@ -176,7 +253,9 @@ section {
   display: grid;
   place-items: center;
   width: 100%;
+  min-width: 0;
   min-height: 28px;
+  padding: 0;
   border: 0;
   border-radius: 4px;
   color: rgba(0, 0, 0, 0.72);
@@ -407,7 +486,12 @@ section {
     justify-content: start;
   }
 
+  .about-section {
+    grid-template-columns: 1fr;
+  }
+
   .status-grid,
+  .memory-grid,
   .cell-details dl {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -415,6 +499,8 @@ section {
 
 @media (max-width: 520px) {
   .status-grid,
+  .memory-grid,
+  .long-run-card dl,
   .traits,
   .cell-details dl {
     grid-template-columns: 1fr;

@@ -12,6 +12,15 @@ This is a small artificial ecosystem that treats GitHub as the habitat. There is
 
 Every scheduled commit becomes part of the fossil layer: the repository history is the persistence model and the audit trail.
 
+## Why GitHub?
+
+GitHub is not just hosting for this project. It is the machinery of the world:
+
+- **Actions are the clock:** scheduled workflow runs advance the simulation every six hours.
+- **JSON is the world state:** `data/world.json` is the current map, species list, event log, and RNG state.
+- **Commits are the fossil record:** each automated state update becomes a permanent historical layer.
+- **Pages is the observatory:** the static web UI lets visitors inspect the latest committed world.
+
 ## Current Features
 
 - Static web app deployable with GitHub Pages.

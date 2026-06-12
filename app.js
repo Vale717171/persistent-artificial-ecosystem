@@ -79,10 +79,51 @@ function getWorldStats(world) {
   };
 }
 
+function getWorldMemory(world) {
+  const retainedEvents = [...world.events].sort((a, b) => a.tick - b.tick);
+  const oldestEvent = retainedEvents[0];
+  const newestEvent = retainedEvents[retainedEvents.length - 1];
+  const noveltyEvents = world.events.filter((event) => event.type === "immigration" || event.type === "speciation");
+  const intervalHours = world.tickIntervalHours ?? 6;
+  const ageHours = world.tick * intervalHours;
+  const ageDays = ageHours / 24;
+
+  return {
+    oldestEvent,
+    newestEvent,
+    noveltyEvents: noveltyEvents.length,
+    ageText: ageDays >= 1 ? `${ageDays.toFixed(1)} days` : `${ageHours} hours`
+  };
+}
+
 function renderMeta(world) {
   document.querySelector("#tick").textContent = world.tick;
   document.querySelector("#updated-at").textContent = formatDate(world.updatedAt);
   document.querySelector("#data-source").textContent = `cadence: every ${world.tickIntervalHours ?? 6} hours`;
+}
+
+function renderWorldMemory(world) {
+  const memory = getWorldMemory(world);
+  const container = document.querySelector("#world-memory");
+  const items = [
+    ["Oldest retained event", memory.oldestEvent ? `Tick ${memory.oldestEvent.tick}: ${EVENT_LABELS[memory.oldestEvent.type] ?? memory.oldestEvent.type}` : "none"],
+    ["Newest event", memory.newestEvent ? `Tick ${memory.newestEvent.tick}: ${EVENT_LABELS[memory.newestEvent.type] ?? memory.newestEvent.type}` : "none"],
+    ["Known extinctions", world.extinctions.length],
+    ["Known novelty events", memory.noveltyEvents],
+    ["Current tick", world.tick],
+    ["Approx age", memory.ageText]
+  ];
+
+  container.innerHTML = items
+    .map(
+      ([label, value]) => `
+        <div class="memory-item">
+          <span>${label}</span>
+          <strong>${value}</strong>
+        </div>
+      `
+    )
+    .join("");
 }
 
 function renderStatus(world) {
@@ -303,6 +344,7 @@ async function init() {
     const world = await loadWorld();
     renderMeta(world);
     renderStatus(world);
+    renderWorldMemory(world);
     renderLegend(world);
     renderMap(world);
     renderSpecies(world);

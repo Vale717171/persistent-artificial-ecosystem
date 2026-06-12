@@ -21,9 +21,38 @@
     </header>
 
     <main class="layout">
+      <section class="about-section" aria-labelledby="about-title">
+        <div class="about-copy">
+          <h2 id="about-title">About This World</h2>
+          <p>
+            This abstract world evolves every 6 hours. GitHub Actions runs the simulation,
+            <code>data/world.json</code> stores the current state, and Git commit history acts
+            as the fossil record. The system is autonomous, not user-controlled, and is a toy
+            ecosystem rather than a biological model.
+          </p>
+        </div>
+        <aside class="long-run-card" aria-labelledby="long-run-title">
+          <h2 id="long-run-title">Long-Run Stability</h2>
+          <dl>
+            <div><dt>Classification</dt><dd>remained dynamic</dd></div>
+            <div><dt>Living species</dt><dd>4 to 6</dd></div>
+            <div><dt>Biodiversity</dt><dd>1.073 to 1.108</dd></div>
+            <div><dt>Immigration</dt><dd>13 events</dd></div>
+            <div><dt>Speciation</dt><dd>10 events</dd></div>
+            <div><dt>Extinction</dt><dd>21 events</dd></div>
+          </dl>
+          <a href="reports/long-run-1000.md">Read the 1,000-tick report</a>
+        </aside>
+      </section>
+
       <section class="status-section" aria-labelledby="status-title">
         <h2 id="status-title">World Status</h2>
         <div id="world-status" class="status-grid"></div>
+      </section>
+
+      <section class="memory-section" aria-labelledby="memory-title">
+        <h2 id="memory-title">World Memory</h2>
+        <div id="world-memory" class="memory-grid"></div>
       </section>
 
       <section class="map-section" aria-labelledby="map-title">
