@@ -1,0 +1,265 @@
+:root {
+  color-scheme: light;
+  --ink: #18201b;
+  --muted: #5c675f;
+  --paper: #f7f6ef;
+  --panel: #ffffff;
+  --line: #d9ded5;
+  --forest: #2f7d4f;
+  --grassland: #b5b63c;
+  --wetland: #3f8f9a;
+  --mountain: #8a8075;
+  --desert: #d5a64d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.app-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px clamp(16px, 4vw, 48px);
+  border-bottom: 1px solid var(--line);
+  background: #eef3ec;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1;
+}
+
+h2 {
+  margin-bottom: 14px;
+  font-size: 1.05rem;
+}
+
+.meta-panel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.meta-panel span {
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+  gap: 24px;
+  padding: 24px clamp(16px, 4vw, 48px) 48px;
+}
+
+section {
+  min-width: 0;
+}
+
+.map-section,
+.chart-wrap,
+.species-list,
+.events {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.map-section {
+  padding: 16px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.map {
+  display: grid;
+  gap: 4px;
+  aspect-ratio: 12 / 8;
+  min-height: 320px;
+}
+
+.cell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 28px;
+  border-radius: 4px;
+  color: rgba(0, 0, 0, 0.72);
+  font-size: 0.72rem;
+  font-weight: 800;
+  outline: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.cell::after {
+  content: "";
+  position: absolute;
+  inset: auto 4px 4px 4px;
+  height: var(--food-level);
+  max-height: 42%;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.species-list {
+  display: grid;
+  gap: 0;
+  overflow: hidden;
+}
+
+.species-card {
+  padding: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.species-card:last-child {
+  border-bottom: 0;
+}
+
+.species-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.species-name {
+  font-weight: 800;
+}
+
+.population {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.traits {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.trait {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.chart-wrap {
+  padding: 12px;
+}
+
+.trend-chart {
+  display: block;
+  width: 100%;
+  height: 260px;
+}
+
+.events {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+
+.event {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.event:last-child {
+  border-bottom: 0;
+}
+
+.event-type {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 820px) {
+  .app-header,
+  .layout {
+    display: block;
+  }
+
+  .meta-panel {
+    justify-content: start;
+    margin-top: 18px;
+  }
+
+  .layout > section {
+    margin-bottom: 24px;
+  }
+
+  .section-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .legend {
+    justify-content: start;
+  }
+}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Persistent Artificial Ecosystem</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">GitHub-native artificial ecosystem</p>
+        <h1>Persistent Artificial Ecosystem</h1>
+      </div>
+      <div class="meta-panel" aria-label="World metadata">
+        <span>Tick <strong id="tick">0</strong></span>
+        <span>Updated <strong id="updated-at">loading</strong></span>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="map-section" aria-labelledby="map-title">
+        <div class="section-heading">
+          <h2 id="map-title">World Map</h2>
+          <div id="legend" class="legend" aria-label="Biome legend"></div>
+        </div>
+        <div id="map" class="map" aria-label="Ecosystem grid map"></div>
+      </section>
+
+      <section aria-labelledby="species-title">
+        <h2 id="species-title">Species</h2>
+        <div id="species-list" class="species-list"></div>
+      </section>
+
+      <section aria-labelledby="trend-title">
+        <h2 id="trend-title">Population Trends</h2>
+        <div class="chart-wrap">
+          <svg id="trend-chart" class="trend-chart" role="img" aria-label="Population trend chart"></svg>
+        </div>
+      </section>
+
+      <section aria-labelledby="events-title">
+        <h2 id="events-title">Recent Events</h2>
+        <ol id="events" class="events"></ol>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

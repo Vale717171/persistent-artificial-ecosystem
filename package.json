@@ -1,0 +1,14 @@
+{
+  "name": "persistent-artificial-ecosystem",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A GitHub-native persistent artificial ecosystem for GitHub Pages.",
+  "scripts": {
+    "simulate": "node scripts/simulate.js",
+    "simulate:week": "node scripts/simulate.js 7",
+    "serve": "python3 -m http.server 4173"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
