@@ -93,6 +93,10 @@ function slugify(value) {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
 
+function clone(value) {
+  return JSON.parse(JSON.stringify(value));
+}
+
 function loadWorld() {
   return JSON.parse(fs.readFileSync(WORLD_PATH, "utf8"));
 }
@@ -235,12 +239,22 @@ function regrowFood(rng, world) {
 
 function createNovelSpecies(rng, world, source) {
   const preferredBiome = choose(rng, Object.keys(BIOME_GROWTH));
-  const name = `${choose(rng, SPECIES_PREFIXES)}${choose(rng, SPECIES_SUFFIXES)}`;
-  const idBase = slugify(name);
+  const baseName = `${choose(rng, SPECIES_PREFIXES)}${choose(rng, SPECIES_SUFFIXES)}`;
+  const idBase = slugify(baseName);
+  const usedIds = new Set([
+    ...world.species.map((species) => species.id),
+    ...world.extinctions.map((entry) => entry.species)
+  ]);
+  const usedNames = new Set([
+    ...world.species.map((species) => species.name),
+    ...world.extinctions.map((entry) => entry.name)
+  ]);
+  let name = baseName;
   let id = idBase;
   let suffix = 2;
-  while (world.species.some((species) => species.id === id)) {
+  while (usedIds.has(id) || usedNames.has(name)) {
     id = `${idBase}-${suffix}`;
+    name = `${baseName} ${suffix}`;
     suffix += 1;
   }
 
@@ -294,13 +308,21 @@ function recordHistory(world) {
 
 function recordExtinctions(world, events) {
   const known = new Set(world.extinctions.map((entry) => entry.species));
+  const livingSpecies = [];
 
   for (const species of world.species) {
-    if (species.population === 0 && !known.has(species.id)) {
+    if (species.population > 0) {
+      livingSpecies.push(species);
+      continue;
+    }
+
+    if (!known.has(species.id)) {
       const extinction = {
         tick: world.tick,
         species: species.id,
         name: species.name,
+        traits: clone(species.traits),
+        origin: species.origin ?? { tick: 0, type: "seed" },
         message: `${species.name} went extinct at tick ${world.tick}.`
       };
       world.extinctions.push(extinction);
@@ -312,6 +334,8 @@ function recordExtinctions(world, events) {
       });
     }
   }
+
+  world.species = livingSpecies;
 }
 
 function nextTickTimestamp(world) {

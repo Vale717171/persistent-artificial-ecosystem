@@ -10,7 +10,7 @@ Live demo: <https://vale717171.github.io/persistent-artificial-ecosystem/>
 
 This is a small artificial ecosystem that treats GitHub as the habitat. There is no backend server, database, queue, or hosted worker. The world lives in [`data/world.json`](data/world.json), GitHub Actions evolves that JSON on a schedule, and GitHub Pages displays the latest committed state.
 
-Every scheduled commit becomes part of the fossil layer: the repository history is the persistence model and the audit trail.
+The UI fossil record is based on retained extinction data. The deeper fossil layer is the [`data/world.json` commit history](https://github.com/Vale717171/persistent-artificial-ecosystem/commits/main/data/world.json): the repository history is the persistence model and the audit trail.
 
 ## Why GitHub?
 
@@ -18,7 +18,7 @@ GitHub is not just hosting for this project. It is the machinery of the world:
 
 - **Actions are the clock:** scheduled workflow runs advance the simulation every six hours.
 - **JSON is the world state:** `data/world.json` is the current map, species list, event log, and RNG state.
-- **Commits are the fossil record:** each automated state update becomes a permanent historical layer.
+- **Commits are the fossil record:** each automated state update becomes a permanent historical layer in the [`data/world.json` history](https://github.com/Vale717171/persistent-artificial-ecosystem/commits/main/data/world.json).
 - **Pages is the observatory:** the static web UI lets visitors inspect the latest committed world.
 
 ## Current Features
@@ -58,19 +58,27 @@ You can also use any static file server. A server is recommended because browser
 
 ## Long-Term Analysis
 
-Generate a Markdown stability report from an in-memory copy of the current world:
+Generate stability reports from an in-memory copy of the current world:
 
 ```bash
 node scripts/long-run-report.js
 ```
 
-By default this simulates 1,000 ticks and writes `reports/long-run-1000.md` without modifying `data/world.json`.
+By default this simulates 1,000 ticks and writes Markdown, HTML, and JSON outputs under `reports/long-run-1000.*` without modifying `data/world.json`.
 
 You can pass a custom tick count and output path:
 
 ```bash
 node scripts/long-run-report.js 2500 reports/long-run-2500.md
 ```
+
+Run a multi-seed stability sweep:
+
+```bash
+node scripts/stability-summary.js
+```
+
+By default this tests 30 seeds x 1,000 ticks and writes `reports/stability-summary.json` and `reports/stability-summary.html`.
 
 ## GitHub Pages Deployment
 
@@ -122,6 +130,9 @@ It is intentionally simple, but the fun part is the persistence model: GitHub hi
 │   └── ecosystem-screenshot.jpg README screenshot
 ├── data/
 │   └── world.json              Persistent world state
+├── reports/
+│   ├── long-run-1000.html      Reference long-run report
+│   └── stability-summary.html  Multi-seed stability summary
 ├── scripts/
 │   └── simulate.js             Node-based simulation tick runner
 └── .github/workflows/

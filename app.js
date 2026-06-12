@@ -34,6 +34,17 @@ async function loadWorld() {
   return world;
 }
 
+async function loadLongRunSummary() {
+  const response = await fetch(`reports/long-run-1000.json?v=${Date.now()}`, {
+    cache: "no-store",
+    headers: { "cache-control": "no-cache" }
+  });
+  if (!response.ok) {
+    throw new Error(`Could not load long-run report: ${response.status}`);
+  }
+  return response.json();
+}
+
 function formatDate(value) {
   return new Intl.DateTimeFormat(undefined, {
     dateStyle: "medium",
@@ -100,6 +111,33 @@ function renderMeta(world) {
   document.querySelector("#tick").textContent = world.tick;
   document.querySelector("#updated-at").textContent = formatDate(world.updatedAt);
   document.querySelector("#data-source").textContent = `cadence: every ${world.tickIntervalHours ?? 6} hours`;
+}
+
+function renderLongRunSummary(summary) {
+  const container = document.querySelector("#long-run-summary");
+  const items = [
+    ["Classification", summary.classificationText],
+    ["Seed", summary.seed],
+    ["Living species", `${summary.initial.livingSpecies} to ${summary.final.livingSpecies}`],
+    ["Biodiversity", `${summary.initial.biodiversity.toFixed(3)} to ${summary.final.biodiversity.toFixed(3)}`],
+    ["Immigration", `${summary.turnover.immigrationEvents} events`],
+    ["Speciation", `${summary.turnover.speciationEvents} events`],
+    ["Extinction", `${summary.turnover.extinctionEvents} events`]
+  ];
+
+  container.innerHTML = items
+    .map(
+      ([label, value]) => `
+        <div><dt>${label}</dt><dd>${value}</dd></div>
+      `
+    )
+    .join("");
+}
+
+function renderLongRunFallback() {
+  document.querySelector("#long-run-summary").innerHTML = `
+    <div><dt>Status</dt><dd>report unavailable</dd></div>
+  `;
 }
 
 function renderWorldMemory(world) {
@@ -351,6 +389,11 @@ async function init() {
     renderEvents(world);
     renderTrends(world);
     renderFossilRecord(world);
+    try {
+      renderLongRunSummary(await loadLongRunSummary());
+    } catch (error) {
+      renderLongRunFallback();
+    }
   } catch (error) {
     document.body.innerHTML = `<main class="layout"><p>${error.message}</p></main>`;
   }

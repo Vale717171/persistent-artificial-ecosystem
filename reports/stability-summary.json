@@ -1,0 +1,461 @@
+{
+  "generatedAt": "2026-06-12T18:29:05.981Z",
+  "source": "data/world.json",
+  "seedCount": 30,
+  "ticksPerSeed": 1000,
+  "outcomeDistribution": {
+    "dynamic": 30
+  },
+  "statistics": {
+    "finalLivingSpecies": {
+      "min": 4,
+      "max": 9,
+      "mean": 6.833333333333333,
+      "median": 7
+    },
+    "finalBiodiversity": {
+      "min": 0.9581441416558178,
+      "max": 1.7971227972159431,
+      "mean": 1.3671477142127608,
+      "median": 1.3877945687332214
+    },
+    "finalTotalPopulation": {
+      "min": 368,
+      "max": 3185,
+      "mean": 1311.7666666666667,
+      "median": 1048
+    },
+    "immigrationEvents": {
+      "min": 8,
+      "max": 18,
+      "mean": 12.6,
+      "median": 12
+    },
+    "speciationEvents": {
+      "min": 5,
+      "max": 17,
+      "mean": 10.166666666666666,
+      "median": 10
+    },
+    "extinctionEvents": {
+      "min": 12,
+      "max": 27,
+      "mean": 19.933333333333334,
+      "median": 19
+    }
+  },
+  "notableRuns": {
+    "worst": [
+      {
+        "seed": 4230236794,
+        "classification": "dynamic",
+        "finalLivingSpecies": 4,
+        "finalBiodiversity": 1.2252091936450729,
+        "finalTotalPopulation": 1048,
+        "immigrationEvents": 11,
+        "speciationEvents": 10,
+        "extinctionEvents": 21
+      },
+      {
+        "seed": 2462612178,
+        "classification": "dynamic",
+        "finalLivingSpecies": 5,
+        "finalBiodiversity": 0.9581441416558178,
+        "finalTotalPopulation": 3185,
+        "immigrationEvents": 10,
+        "speciationEvents": 12,
+        "extinctionEvents": 21
+      },
+      {
+        "seed": 631046365,
+        "classification": "dynamic",
+        "finalLivingSpecies": 5,
+        "finalBiodiversity": 1.016877362744827,
+        "finalTotalPopulation": 859,
+        "immigrationEvents": 8,
+        "speciationEvents": 8,
+        "extinctionEvents": 15
+      },
+      {
+        "seed": 3854165912,
+        "classification": "dynamic",
+        "finalLivingSpecies": 5,
+        "finalBiodiversity": 1.2176223127070345,
+        "finalTotalPopulation": 1389,
+        "immigrationEvents": 11,
+        "speciationEvents": 17,
+        "extinctionEvents": 27
+      },
+      {
+        "seed": 2654435769,
+        "classification": "dynamic",
+        "finalLivingSpecies": 5,
+        "finalBiodiversity": 1.4227225007933917,
+        "finalTotalPopulation": 1484,
+        "immigrationEvents": 8,
+        "speciationEvents": 10,
+        "extinctionEvents": 17
+      }
+    ],
+    "best": [
+      {
+        "seed": 694987562,
+        "classification": "dynamic",
+        "finalLivingSpecies": 8,
+        "finalBiodiversity": 1.7971227972159431,
+        "finalTotalPopulation": 833,
+        "immigrationEvents": 15,
+        "speciationEvents": 7,
+        "extinctionEvents": 18
+      },
+      {
+        "seed": 1958658902,
+        "classification": "dynamic",
+        "finalLivingSpecies": 8,
+        "finalBiodiversity": 1.7029893776501943,
+        "finalTotalPopulation": 1563,
+        "immigrationEvents": 12,
+        "speciationEvents": 10,
+        "extinctionEvents": 18
+      },
+      {
+        "seed": 3030506651,
+        "classification": "dynamic",
+        "finalLivingSpecies": 9,
+        "finalBiodiversity": 1.6777173695249892,
+        "finalTotalPopulation": 947,
+        "immigrationEvents": 18,
+        "speciationEvents": 14,
+        "extinctionEvents": 27
+      },
+      {
+        "seed": 3158389045,
+        "classification": "dynamic",
+        "finalLivingSpecies": 9,
+        "finalBiodiversity": 1.6247530308213343,
+        "finalTotalPopulation": 847,
+        "immigrationEvents": 11,
+        "speciationEvents": 13,
+        "extinctionEvents": 19
+      },
+      {
+        "seed": 63151892,
+        "classification": "dynamic",
+        "finalLivingSpecies": 6,
+        "finalBiodiversity": 1.6244964014814431,
+        "finalTotalPopulation": 426,
+        "immigrationEvents": 17,
+        "speciationEvents": 7,
+        "extinctionEvents": 22
+      }
+    ]
+  },
+  "classificationCriteria": {
+    "collapsed": "No living population, or severe unreplenished diversity loss.",
+    "stagnated": "Low population movement and no ecological turnover.",
+    "exploded": "Runaway population growth.",
+    "dynamic": "None of the above; the run keeps population and turnover activity."
+  },
+  "runs": [
+    {
+      "seed": 2654435769,
+      "classification": "dynamic",
+      "finalLivingSpecies": 5,
+      "finalBiodiversity": 1.4227225007933917,
+      "finalTotalPopulation": 1484,
+      "immigrationEvents": 8,
+      "speciationEvents": 10,
+      "extinctionEvents": 17
+    },
+    {
+      "seed": 191034286,
+      "classification": "dynamic",
+      "finalLivingSpecies": 7,
+      "finalBiodiversity": 1.6018040174604913,
+      "finalTotalPopulation": 945,
+      "immigrationEvents": 10,
+      "speciationEvents": 5,
+      "extinctionEvents": 12
+    },
+    {
+      "seed": 2022600099,
+      "classification": "dynamic",
+      "finalLivingSpecies": 6,
+      "finalBiodiversity": 1.4029263885262706,
+      "finalTotalPopulation": 479,
+      "immigrationEvents": 16,
+      "speciationEvents": 10,
+      "extinctionEvents": 24
+    },
+    {
+      "seed": 3854165912,
+      "classification": "dynamic",
+      "finalLivingSpecies": 5,
+      "finalBiodiversity": 1.2176223127070345,
+      "finalTotalPopulation": 1389,
+      "immigrationEvents": 11,
+      "speciationEvents": 17,
+      "extinctionEvents": 27
+    },
+    {
+      "seed": 1390764429,
+      "classification": "dynamic",
+      "finalLivingSpecies": 9,
+      "finalBiodiversity": 1.3762291361230876,
+      "finalTotalPopulation": 865,
+      "immigrationEvents": 10,
+      "speciationEvents": 10,
+      "extinctionEvents": 15
+    },
+    {
+      "seed": 3222330242,
+      "classification": "dynamic",
+      "finalLivingSpecies": 8,
+      "finalBiodiversity": 1.4952498694619853,
+      "finalTotalPopulation": 700,
+      "immigrationEvents": 16,
+      "speciationEvents": 13,
+      "extinctionEvents": 25
+    },
+    {
+      "seed": 758928759,
+      "classification": "dynamic",
+      "finalLivingSpecies": 7,
+      "finalBiodiversity": 1.1367099671102365,
+      "finalTotalPopulation": 936,
+      "immigrationEvents": 9,
+      "speciationEvents": 13,
+      "extinctionEvents": 19
+    },
+    {
+      "seed": 2590494572,
+      "classification": "dynamic",
+      "finalLivingSpecies": 9,
+      "finalBiodiversity": 1.4639246879744074,
+      "finalTotalPopulation": 1718,
+      "immigrationEvents": 12,
+      "speciationEvents": 12,
+      "extinctionEvents": 19
+    },
+    {
+      "seed": 127093089,
+      "classification": "dynamic",
+      "finalLivingSpecies": 9,
+      "finalBiodiversity": 1.2835744192308474,
+      "finalTotalPopulation": 2768,
+      "immigrationEvents": 11,
+      "speciationEvents": 11,
+      "extinctionEvents": 17
+    },
+    {
+      "seed": 1958658902,
+      "classification": "dynamic",
+      "finalLivingSpecies": 8,
+      "finalBiodiversity": 1.7029893776501943,
+      "finalTotalPopulation": 1563,
+      "immigrationEvents": 12,
+      "speciationEvents": 10,
+      "extinctionEvents": 18
+    },
+    {
+      "seed": 3790224715,
+      "classification": "dynamic",
+      "finalLivingSpecies": 7,
+      "finalBiodiversity": 1.2058507861618513,
+      "finalTotalPopulation": 711,
+      "immigrationEvents": 9,
+      "speciationEvents": 11,
+      "extinctionEvents": 17
+    },
+    {
+      "seed": 1326823232,
+      "classification": "dynamic",
+      "finalLivingSpecies": 6,
+      "finalBiodiversity": 1.2022225401278033,
+      "finalTotalPopulation": 1567,
+      "immigrationEvents": 17,
+      "speciationEvents": 11,
+      "extinctionEvents": 26
+    },
+    {
+      "seed": 3158389045,
+      "classification": "dynamic",
+      "finalLivingSpecies": 9,
+      "finalBiodiversity": 1.6247530308213343,
+      "finalTotalPopulation": 847,
+      "immigrationEvents": 11,
+      "speciationEvents": 13,
+      "extinctionEvents": 19
+    },
+    {
+      "seed": 694987562,
+      "classification": "dynamic",
+      "finalLivingSpecies": 8,
+      "finalBiodiversity": 1.7971227972159431,
+      "finalTotalPopulation": 833,
+      "immigrationEvents": 15,
+      "speciationEvents": 7,
+      "extinctionEvents": 18
+    },
+    {
+      "seed": 2526553375,
+      "classification": "dynamic",
+      "finalLivingSpecies": 6,
+      "finalBiodiversity": 1.1514627231690882,
+      "finalTotalPopulation": 1762,
+      "immigrationEvents": 13,
+      "speciationEvents": 7,
+      "extinctionEvents": 18
+    },
+    {
+      "seed": 63151892,
+      "classification": "dynamic",
+      "finalLivingSpecies": 6,
+      "finalBiodiversity": 1.6244964014814431,
+      "finalTotalPopulation": 426,
+      "immigrationEvents": 17,
+      "speciationEvents": 7,
+      "extinctionEvents": 22
+    },
+    {
+      "seed": 1894717705,
+      "classification": "dynamic",
+      "finalLivingSpecies": 6,
+      "finalBiodiversity": 1.1986147012878021,
+      "finalTotalPopulation": 2630,
+      "immigrationEvents": 10,
+      "speciationEvents": 5,
+      "extinctionEvents": 13
+    },
+    {
+      "seed": 3726283518,
+      "classification": "dynamic",
+      "finalLivingSpecies": 7,
+      "finalBiodiversity": 1.0325562964993285,
+      "finalTotalPopulation": 2445,
+      "immigrationEvents": 13,
+      "speciationEvents": 10,
+      "extinctionEvents": 20
+    },
+    {
+      "seed": 1262882035,
+      "classification": "dynamic",
+      "finalLivingSpecies": 7,
+      "finalBiodiversity": 1.597854572076698,
+      "finalTotalPopulation": 618,
+      "immigrationEvents": 14,
+      "speciationEvents": 14,
+      "extinctionEvents": 25
+    },
+    {
+      "seed": 3094447848,
+      "classification": "dynamic",
+      "finalLivingSpecies": 9,
+      "finalBiodiversity": 1.5144227570514261,
+      "finalTotalPopulation": 2106,
+      "immigrationEvents": 15,
+      "speciationEvents": 12,
+      "extinctionEvents": 22
+    },
+    {
+      "seed": 631046365,
+      "classification": "dynamic",
+      "finalLivingSpecies": 5,
+      "finalBiodiversity": 1.016877362744827,
+      "finalTotalPopulation": 859,
+      "immigrationEvents": 8,
+      "speciationEvents": 8,
+      "extinctionEvents": 15
+    },
+    {
+      "seed": 2462612178,
+      "classification": "dynamic",
+      "finalLivingSpecies": 5,
+      "finalBiodiversity": 0.9581441416558178,
+      "finalTotalPopulation": 3185,
+      "immigrationEvents": 10,
+      "speciationEvents": 12,
+      "extinctionEvents": 21
+    },
+    {
+      "seed": 4294177991,
+      "classification": "dynamic",
+      "finalLivingSpecies": 6,
+      "finalBiodiversity": 1.3877945687332214,
+      "finalTotalPopulation": 368,
+      "immigrationEvents": 17,
+      "speciationEvents": 10,
+      "extinctionEvents": 25
+    },
+    {
+      "seed": 1830776508,
+      "classification": "dynamic",
+      "finalLivingSpecies": 7,
+      "finalBiodiversity": 1.3503862556084125,
+      "finalTotalPopulation": 802,
+      "immigrationEvents": 12,
+      "speciationEvents": 10,
+      "extinctionEvents": 19
+    },
+    {
+      "seed": 3662342321,
+      "classification": "dynamic",
+      "finalLivingSpecies": 8,
+      "finalBiodiversity": 1.2126249344159923,
+      "finalTotalPopulation": 2185,
+      "immigrationEvents": 15,
+      "speciationEvents": 7,
+      "extinctionEvents": 18
+    },
+    {
+      "seed": 1198940838,
+      "classification": "dynamic",
+      "finalLivingSpecies": 6,
+      "finalBiodiversity": 1.552668194285759,
+      "finalTotalPopulation": 544,
+      "immigrationEvents": 10,
+      "speciationEvents": 7,
+      "extinctionEvents": 15
+    },
+    {
+      "seed": 3030506651,
+      "classification": "dynamic",
+      "finalLivingSpecies": 9,
+      "finalBiodiversity": 1.6777173695249892,
+      "finalTotalPopulation": 947,
+      "immigrationEvents": 18,
+      "speciationEvents": 14,
+      "extinctionEvents": 27
+    },
+    {
+      "seed": 567105168,
+      "classification": "dynamic",
+      "finalLivingSpecies": 6,
+      "finalBiodiversity": 1.0837662211536654,
+      "finalTotalPopulation": 1427,
+      "immigrationEvents": 11,
+      "speciationEvents": 11,
+      "extinctionEvents": 20
+    },
+    {
+      "seed": 2398670981,
+      "classification": "dynamic",
+      "finalLivingSpecies": 5,
+      "finalBiodiversity": 1.496133901684401,
+      "finalTotalPopulation": 1196,
+      "immigrationEvents": 17,
+      "speciationEvents": 8,
+      "extinctionEvents": 24
+    },
+    {
+      "seed": 4230236794,
+      "classification": "dynamic",
+      "finalLivingSpecies": 4,
+      "finalBiodiversity": 1.2252091936450729,
+      "finalTotalPopulation": 1048,
+      "immigrationEvents": 11,
+      "speciationEvents": 10,
+      "extinctionEvents": 21
+    }
+  ]
+}
