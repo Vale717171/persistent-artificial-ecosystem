@@ -70,6 +70,14 @@ Each run:
 
 This makes GitHub itself the persistence layer. The commit history becomes a durable timeline of ecosystem changes.
 
+## Design Notes
+
+- **Deterministic seed:** the simulation uses a tiny dependency-free `xorshift32` RNG. The current RNG state is stored in `data/world.json`, so each tick is reproducible from the committed state that produced it.
+- **Fair species processing:** living species are shuffled with the seeded RNG before each tick, so earlier species in the JSON array do not always consume food first.
+- **Births and deaths:** rates mean expected births or deaths per individual for a tick. The simulator uses probabilistic rounding instead of multiplying rates by an extra random factor, which makes outcomes easier to reason about while preserving variation.
+- **Autonomous novelty:** rare immigration or speciation events can introduce new species without user input, comments, commands, LLM calls, or external services.
+- **Limits:** this is still a small toy ecosystem. It has no spatial movement, no predator/prey model, no genetics beyond simple trait mutation, and no backend process beyond scheduled GitHub Actions.
+
 ## Reddit-Ready Short Explanation
 
 I built a tiny artificial ecosystem that lives entirely inside a GitHub repo.

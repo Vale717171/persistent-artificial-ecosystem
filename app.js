@@ -13,7 +13,9 @@ const EVENT_LABELS = {
   disturbance: "Disturbance",
   bloom: "Food bloom",
   disease: "Disease",
-  extinction: "Extinction"
+  extinction: "Extinction",
+  immigration: "Immigration",
+  speciation: "Speciation"
 };
 
 async function loadWorld() {
@@ -47,6 +49,15 @@ function formatTraitName(key) {
   return key.replace(/[A-Z]/g, (letter) => ` ${letter.toLowerCase()}`);
 }
 
+function getLatestTickDate(world) {
+  return new Date(world.latestTickAt ?? world.updatedAt);
+}
+
+function getNextTickDate(world) {
+  const intervalHours = world.tickIntervalHours ?? 6;
+  return new Date(getLatestTickDate(world).getTime() + intervalHours * 60 * 60 * 1000);
+}
+
 function getWorldStats(world) {
   const livingSpecies = world.species.filter((species) => species.population > 0);
   const extinctInSpeciesList = world.species.filter((species) => species.population === 0).length;
@@ -71,7 +82,7 @@ function getWorldStats(world) {
 function renderMeta(world) {
   document.querySelector("#tick").textContent = world.tick;
   document.querySelector("#updated-at").textContent = formatDate(world.updatedAt);
-  document.querySelector("#data-source").textContent = "fresh JSON loaded";
+  document.querySelector("#data-source").textContent = `cadence: every ${world.tickIntervalHours ?? 6} hours`;
 }
 
 function renderStatus(world) {
@@ -79,7 +90,9 @@ function renderStatus(world) {
   const status = document.querySelector("#world-status");
   const items = [
     ["Tick", world.tick],
-    ["Updated", formatDate(world.updatedAt)],
+    ["Latest tick", formatDate(getLatestTickDate(world))],
+    ["Approx next tick", formatDate(getNextTickDate(world))],
+    ["Cadence", `Every ${world.tickIntervalHours ?? 6}h`],
     ["Living species", stats.livingSpecies],
     ["Extinct species", stats.extinctSpecies],
     ["Total population", formatNumber(stats.totalPopulation)],
@@ -215,9 +228,8 @@ function renderEvents(world) {
     .join("");
 }
 
-function pointsForHistory(history, speciesId, width, height, padding) {
+function pointsForHistory(history, speciesId, width, height, padding, maxPopulation) {
   const populations = history.map((entry) => entry.populations[speciesId] ?? 0);
-  const maxPopulation = Math.max(1, ...populations);
   const xStep = history.length > 1 ? (width - padding * 2) / (history.length - 1) : 0;
 
   return populations
@@ -237,16 +249,22 @@ function renderTrends(world) {
   const activeSpecies = world.species.filter((species) =>
     world.history.some((entry) => entry.populations[species.id] !== undefined)
   );
+  const maxPopulation = Math.max(
+    1,
+    ...world.history.flatMap((entry) => Object.values(entry.populations))
+  );
 
   svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
   svg.innerHTML = `
     <line x1="${padding}" y1="${height - padding}" x2="${width - padding}" y2="${height - padding}" stroke="#cfd6cc" />
     <line x1="${padding}" y1="${padding}" x2="${padding}" y2="${height - padding}" stroke="#cfd6cc" />
+    <text x="${padding}" y="${padding - 8}" fill="#5c675f" font-size="12" font-weight="700">${maxPopulation} individuals</text>
+    <text x="${padding}" y="${height - 8}" fill="#5c675f" font-size="12" font-weight="700">0</text>
     ${activeSpecies
       .map((species, index) => {
         const hue = (index * 82 + 24) % 360;
         const color = `hsl(${hue} 58% 42%)`;
-        const points = pointsForHistory(world.history, species.id, width, height, padding);
+        const points = pointsForHistory(world.history, species.id, width, height, padding, maxPopulation);
         return `
           <polyline points="${points}" fill="none" stroke="${color}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
           <text x="${width - padding}" y="${padding + index * 20}" fill="${color}" text-anchor="end" font-size="14" font-weight="700">${species.name}</text>
@@ -254,6 +272,8 @@ function renderTrends(world) {
       })
       .join("")}
   `;
+  document.querySelector("#trend-note").textContent =
+    `Absolute population counts over the latest ${world.history.length} recorded ticks; all species share one y-axis.`;
 }
 
 function renderFossilRecord(world) {

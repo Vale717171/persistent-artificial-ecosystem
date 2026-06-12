@@ -106,7 +106,7 @@ section {
 
 .status-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   overflow: hidden;
 }
 
@@ -291,6 +291,12 @@ section {
 
 .chart-wrap {
   padding: 12px;
+}
+
+.chart-note {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.84rem;
 }
 
 .trend-chart {
