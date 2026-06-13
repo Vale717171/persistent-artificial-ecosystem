@@ -56,6 +56,28 @@ function formatNumber(value) {
   return new Intl.NumberFormat().format(value);
 }
 
+function escapeHTML(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function safeClassSuffix(value) {
+  const suffix = String(value).toLowerCase().replace(/[^a-z0-9-]+/g, "-").replace(/(^-|-$)/g, "");
+  return suffix || "unknown";
+}
+
+function speciesColor(speciesId) {
+  let hash = 0;
+  for (const letter of String(speciesId)) {
+    hash = (hash * 31 + letter.charCodeAt(0)) >>> 0;
+  }
+  return `hsl(${hash % 360} 58% 42%)`;
+}
+
 function formatTraitName(key) {
   return key.replace(/[A-Z]/g, (letter) => ` ${letter.toLowerCase()}`);
 }
@@ -128,7 +150,7 @@ function renderLongRunSummary(summary) {
   container.innerHTML = items
     .map(
       ([label, value]) => `
-        <div><dt>${label}</dt><dd>${value}</dd></div>
+        <div><dt>${escapeHTML(label)}</dt><dd>${escapeHTML(value)}</dd></div>
       `
     )
     .join("");
@@ -156,8 +178,8 @@ function renderWorldMemory(world) {
     .map(
       ([label, value]) => `
         <div class="memory-item">
-          <span>${label}</span>
-          <strong>${value}</strong>
+          <span>${escapeHTML(label)}</span>
+          <strong>${escapeHTML(value)}</strong>
         </div>
       `
     )
@@ -184,8 +206,8 @@ function renderStatus(world) {
     .map(
       ([label, value]) => `
         <div class="status-item">
-          <span>${label}</span>
-          <strong>${value}</strong>
+          <span>${escapeHTML(label)}</span>
+          <strong>${escapeHTML(value)}</strong>
         </div>
       `
     )
@@ -200,8 +222,8 @@ function renderLegend(world) {
     .map(
       (biome) => `
         <span class="legend-item">
-          <span class="swatch" style="background:${BIOME_COLORS[biome]}"></span>
-          ${biome}
+          <span class="swatch" style="background:${BIOME_COLORS[biome] ?? "#7c867f"}"></span>
+          ${escapeHTML(biome)}
         </span>
       `
     )
@@ -221,11 +243,11 @@ function renderCellDetails(world, cell) {
   details.innerHTML = `
     <div>
       <span class="detail-kicker">Selected cell</span>
-      <strong>(${cell.x}, ${cell.y}) ${cell.biome}</strong>
+      <strong>(${escapeHTML(cell.x)}, ${escapeHTML(cell.y)}) ${escapeHTML(cell.biome)}</strong>
     </div>
     <dl>
-      <div><dt>Food</dt><dd>${cell.food}/10</dd></div>
-      <div><dt>Likely species</dt><dd>${speciesNames.length ? speciesNames.join(", ") : "none currently adapted"}</dd></div>
+      <div><dt>Food</dt><dd>${escapeHTML(cell.food)}/10</dd></div>
+      <div><dt>Likely species</dt><dd>${speciesNames.length ? escapeHTML(speciesNames.join(", ")) : "none currently adapted"}</dd></div>
     </dl>
   `;
 }
@@ -238,18 +260,19 @@ function renderMap(world) {
     .map((cell) => {
       const foodPercent = `${Math.max(8, cell.food * 10)}%`;
       const adaptedSpecies = speciesForBiome(world, cell.biome).join(", ") || "none";
+      const background = BIOME_COLORS[cell.biome] ?? "#7c867f";
 
       return `
         <button
           type="button"
           class="cell"
-          data-x="${cell.x}"
-          data-y="${cell.y}"
-          aria-label="Cell ${cell.x}, ${cell.y}. ${cell.biome}. Food ${cell.food}. Adapted species: ${adaptedSpecies}."
-          title="(${cell.x}, ${cell.y}) ${cell.biome}. Food ${cell.food}/10. Adapted species: ${adaptedSpecies}."
-          style="background:${BIOME_COLORS[cell.biome]}; --food-level:${foodPercent};"
+          data-x="${escapeHTML(cell.x)}"
+          data-y="${escapeHTML(cell.y)}"
+          aria-label="${escapeHTML(`Cell ${cell.x}, ${cell.y}. ${cell.biome}. Food ${cell.food}. Adapted species: ${adaptedSpecies}.`)}"
+          title="${escapeHTML(`(${cell.x}, ${cell.y}) ${cell.biome}. Food ${cell.food}/10. Adapted species: ${adaptedSpecies}.`)}"
+          style="background:${background}; --food-level:${escapeHTML(foodPercent)};"
         >
-          ${cell.food}
+          ${escapeHTML(cell.food)}
         </button>
       `;
     })
@@ -274,15 +297,18 @@ function renderSpecies(world) {
   list.innerHTML = world.species
     .map((species) => {
       const traits = Object.entries(species.traits)
-        .map(([key, value]) => `<span class="trait"><span>${formatTraitName(key)}</span><strong>${value}</strong></span>`)
+        .map(
+          ([key, value]) =>
+            `<span class="trait"><span>${escapeHTML(formatTraitName(key))}</span><strong>${escapeHTML(value)}</strong></span>`
+        )
         .join("");
       const state = species.population > 0 ? "living" : "extinct";
 
       return `
         <article class="species-card ${state}">
           <div class="species-topline">
-            <span class="species-name">${species.name}</span>
-            <span class="population">${species.population} alive · ${state}</span>
+            <span class="species-name">${escapeHTML(species.name)}</span>
+            <span class="population">${escapeHTML(species.population)} alive · ${escapeHTML(state)}</span>
           </div>
           <div class="traits">${traits}</div>
         </article>
@@ -297,10 +323,10 @@ function renderEvents(world) {
     .slice(0, 20)
     .map(
       (event) => `
-        <li class="event event-${event.type}">
-          <span class="event-type">${EVENT_LABELS[event.type] ?? event.type}</span>
-          <span class="event-tick">Tick ${event.tick}</span>
-          ${event.message}
+        <li class="event event-${safeClassSuffix(event.type)}">
+          <span class="event-type">${escapeHTML(EVENT_LABELS[event.type] ?? event.type)}</span>
+          <span class="event-tick">Tick ${escapeHTML(event.tick)}</span>
+          ${escapeHTML(event.message)}
         </li>
       `
     )
@@ -320,14 +346,58 @@ function pointsForHistory(history, speciesId, width, height, padding, maxPopulat
     .join(" ");
 }
 
+function getTrendSeries(world) {
+  const seriesById = new Map();
+  for (const species of world.species) {
+    seriesById.set(species.id, {
+      id: species.id,
+      name: species.name,
+      state: species.population > 0 ? "living" : "extinct",
+      sortTick: Number.POSITIVE_INFINITY
+    });
+  }
+
+  for (const entry of world.extinctions) {
+    if (!seriesById.has(entry.species)) {
+      seriesById.set(entry.species, {
+        id: entry.species,
+        name: entry.name,
+        state: "extinct",
+        sortTick: entry.tick ?? 0
+      });
+    }
+  }
+
+  for (const entry of world.history) {
+    for (const speciesId of Object.keys(entry.populations)) {
+      if (!seriesById.has(speciesId)) {
+        seriesById.set(speciesId, {
+          id: speciesId,
+          name: speciesId,
+          state: "historical",
+          sortTick: entry.tick ?? 0
+        });
+      }
+    }
+  }
+
+  return [...seriesById.values()]
+    .filter((series) =>
+      world.history.some((entry) => (entry.populations[series.id] ?? 0) > 0) || series.state === "living"
+    )
+    .sort((a, b) => {
+      if (a.state === "living" && b.state !== "living") return -1;
+      if (a.state !== "living" && b.state === "living") return 1;
+      return a.sortTick - b.sortTick || a.name.localeCompare(b.name);
+    });
+}
+
 function renderTrends(world) {
   const svg = document.querySelector("#trend-chart");
   const width = 720;
   const height = 260;
   const padding = 28;
-  const activeSpecies = world.species.filter((species) =>
-    world.history.some((entry) => entry.populations[species.id] !== undefined)
-  );
+  const trendSeries = getTrendSeries(world);
   const maxPopulation = Math.max(
     1,
     ...world.history.flatMap((entry) => Object.values(entry.populations))
@@ -339,20 +409,20 @@ function renderTrends(world) {
     <line x1="${padding}" y1="${padding}" x2="${padding}" y2="${height - padding}" stroke="#cfd6cc" />
     <text x="${padding}" y="${padding - 8}" fill="#5c675f" font-size="12" font-weight="700">${maxPopulation} individuals</text>
     <text x="${padding}" y="${height - 8}" fill="#5c675f" font-size="12" font-weight="700">0</text>
-    ${activeSpecies
+    ${trendSeries
       .map((species, index) => {
-        const hue = (index * 82 + 24) % 360;
-        const color = `hsl(${hue} 58% 42%)`;
+        const color = speciesColor(species.id);
         const points = pointsForHistory(world.history, species.id, width, height, padding, maxPopulation);
+        const label = species.state === "living" ? species.name : `${species.name} extinct`;
         return `
           <polyline points="${points}" fill="none" stroke="${color}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-          <text x="${width - padding}" y="${padding + index * 20}" fill="${color}" text-anchor="end" font-size="14" font-weight="700">${species.name}</text>
+          <text x="${width - padding}" y="${padding + index * 20}" fill="${color}" text-anchor="end" font-size="14" font-weight="700">${escapeHTML(label)}</text>
         `;
       })
       .join("")}
   `;
   document.querySelector("#trend-note").textContent =
-    `Absolute population counts over the latest ${world.history.length} recorded ticks; all species share one y-axis.`;
+    `Absolute population counts over the latest ${world.history.length} recorded ticks; extinct species remain visible and fall to zero.`;
 }
 
 function renderFossilRecord(world) {
@@ -368,9 +438,9 @@ function renderFossilRecord(world) {
     .map(
       (entry) => `
         <article class="fossil">
-          <span class="event-type">Tick ${entry.tick}</span>
-          <strong>${entry.name}</strong>
-          <p>${entry.message}</p>
+          <span class="event-type">Tick ${escapeHTML(entry.tick)}</span>
+          <strong>${escapeHTML(entry.name)}</strong>
+          <p>${escapeHTML(entry.message)}</p>
         </article>
       `
     )
@@ -395,7 +465,7 @@ async function init() {
       renderLongRunFallback();
     }
   } catch (error) {
-    document.body.innerHTML = `<main class="layout"><p>${error.message}</p></main>`;
+    document.body.innerHTML = `<main class="layout"><p>${escapeHTML(error.message)}</p></main>`;
   }
 }
 

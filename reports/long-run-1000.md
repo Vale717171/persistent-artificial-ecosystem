@@ -1,6 +1,6 @@
 # Long-Run Ecosystem Report (1000 ticks)
 
-Generated at: 2026-06-12T18:29:05.661Z
+Generated at: 2026-06-13T04:52:51.881Z
 
 Source state: `data/world.json`
 

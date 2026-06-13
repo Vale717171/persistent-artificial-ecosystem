@@ -133,13 +133,17 @@ function mutateSpecies(rng, species, events, tick) {
   const traitNames = ["size", "speed", "fertility", "resilience", "metabolism"];
   const trait = choose(rng, traitNames);
   const delta = chance(rng, 0.5) ? -1 : 1;
-  species.traits[trait] = clamp(species.traits[trait] + delta, 1, 10);
+  const before = species.traits[trait];
+  const after = clamp(before + delta, 1, 10);
+  if (after === before) return;
+
+  species.traits[trait] = after;
 
   events.push({
     tick,
     type: "mutation",
-    message: `${species.name} mutation shifted ${trait} ${delta > 0 ? "up" : "down"}.`,
-    impact: { species: species.id, trait, delta }
+    message: `${species.name} mutation shifted ${trait} ${after > before ? "up" : "down"}.`,
+    impact: { species: species.id, trait, delta: after - before, before, after }
   });
 }
 
