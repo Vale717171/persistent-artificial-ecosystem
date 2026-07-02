@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "tick": 86,
-  "updatedAt": "2026-07-02T11:43:19.437Z",
+  "tick": 87,
+  "updatedAt": "2026-07-02T17:43:19.437Z",
   "map": {
     "width": 12,
     "height": 8,
@@ -588,7 +588,7 @@
     {
       "id": "mossling",
       "name": "Mossling",
-      "population": 267,
+      "population": 268,
       "traits": {
         "preferredBiome": "forest",
         "size": 2,
@@ -601,7 +601,7 @@
     {
       "id": "reedgrazer",
       "name": "Reedgrazer",
-      "population": 137,
+      "population": 132,
       "traits": {
         "preferredBiome": "wetland",
         "size": 4,
@@ -640,7 +640,7 @@
     {
       "id": "lumenskipper",
       "name": "Lumenskipper",
-      "population": 223,
+      "population": 218,
       "traits": {
         "preferredBiome": "grassland",
         "size": 3,
@@ -657,7 +657,7 @@
     {
       "id": "lumenback",
       "name": "Lumenback",
-      "population": 3,
+      "population": 4,
       "traits": {
         "preferredBiome": "grassland",
         "size": 4,
@@ -674,10 +674,10 @@
     {
       "id": "bluesprout",
       "name": "Bluesprout",
-      "population": 9,
+      "population": 7,
       "traits": {
         "preferredBiome": "wetland",
-        "size": 6,
+        "size": 5,
         "speed": 1,
         "fertility": 4,
         "resilience": 4,
@@ -690,6 +690,104 @@
     }
   ],
   "events": [
+    {
+      "tick": 87,
+      "type": "population",
+      "message": "Lumenback changed by +1 births and -0 deaths.",
+      "impact": {
+        "species": "lumenback",
+        "births": 1,
+        "deaths": 0,
+        "population": 4
+      }
+    },
+    {
+      "tick": 87,
+      "type": "population",
+      "message": "Reedgrazer changed by +11 births and -16 deaths.",
+      "impact": {
+        "species": "reedgrazer",
+        "births": 11,
+        "deaths": 16,
+        "population": 132
+      }
+    },
+    {
+      "tick": 87,
+      "type": "population",
+      "message": "Cragback changed by +4 births and -4 deaths.",
+      "impact": {
+        "species": "cragback",
+        "births": 4,
+        "deaths": 4,
+        "population": 42
+      }
+    },
+    {
+      "tick": 87,
+      "type": "population",
+      "message": "Mossling changed by +35 births and -34 deaths.",
+      "impact": {
+        "species": "mossling",
+        "births": 35,
+        "deaths": 34,
+        "population": 268
+      }
+    },
+    {
+      "tick": 87,
+      "type": "population",
+      "message": "Dustskipper changed by +14 births and -14 deaths.",
+      "impact": {
+        "species": "dustskipper",
+        "births": 14,
+        "deaths": 14,
+        "population": 92
+      }
+    },
+    {
+      "tick": 87,
+      "type": "population",
+      "message": "Lumenskipper changed by +25 births and -30 deaths.",
+      "impact": {
+        "species": "lumenskipper",
+        "births": 25,
+        "deaths": 30,
+        "population": 218
+      }
+    },
+    {
+      "tick": 87,
+      "type": "population",
+      "message": "Bluesprout changed by +0 births and -2 deaths.",
+      "impact": {
+        "species": "bluesprout",
+        "births": 0,
+        "deaths": 2,
+        "population": 7
+      }
+    },
+    {
+      "tick": 87,
+      "type": "mutation",
+      "message": "Bluesprout mutation shifted size down.",
+      "impact": {
+        "species": "bluesprout",
+        "trait": "size",
+        "delta": -1,
+        "before": 6,
+        "after": 5
+      }
+    },
+    {
+      "tick": 87,
+      "type": "disturbance",
+      "message": "A harsh season reduced food across desert cells.",
+      "impact": {
+        "biome": "desert",
+        "cells": 16
+      }
+    },
     {
       "tick": 86,
       "type": "population",
@@ -1475,117 +1573,9 @@
         "deaths": 5,
         "population": 42
       }
-    },
-    {
-      "tick": 77,
-      "type": "population",
-      "message": "Mossling changed by +35 births and -36 deaths.",
-      "impact": {
-        "species": "mossling",
-        "births": 35,
-        "deaths": 36,
-        "population": 272
-      }
-    },
-    {
-      "tick": 77,
-      "type": "population",
-      "message": "Bluesprout changed by +1 births and -1 deaths.",
-      "impact": {
-        "species": "bluesprout",
-        "births": 1,
-        "deaths": 1,
-        "population": 12
-      }
-    },
-    {
-      "tick": 77,
-      "type": "population",
-      "message": "Lumenskipper changed by +30 births and -32 deaths.",
-      "impact": {
-        "species": "lumenskipper",
-        "births": 30,
-        "deaths": 32,
-        "population": 235
-      }
-    },
-    {
-      "tick": 77,
-      "type": "population",
-      "message": "Reedgrazer changed by +13 births and -14 deaths.",
-      "impact": {
-        "species": "reedgrazer",
-        "births": 13,
-        "deaths": 14,
-        "population": 145
-      }
-    },
-    {
-      "tick": 77,
-      "type": "population",
-      "message": "Lumenback changed by +1 births and -3 deaths.",
-      "impact": {
-        "species": "lumenback",
-        "births": 1,
-        "deaths": 3,
-        "population": 9
-      }
-    },
-    {
-      "tick": 77,
-      "type": "population",
-      "message": "Dustskipper changed by +14 births and -17 deaths.",
-      "impact": {
-        "species": "dustskipper",
-        "births": 14,
-        "deaths": 17,
-        "population": 101
-      }
-    },
-    {
-      "tick": 76,
-      "type": "population",
-      "message": "Cragback changed by +4 births and -6 deaths.",
-      "impact": {
-        "species": "cragback",
-        "births": 4,
-        "deaths": 6,
-        "population": 43
-      }
-    },
-    {
-      "tick": 76,
-      "type": "population",
-      "message": "Bluesprout changed by +1 births and -0 deaths.",
-      "impact": {
-        "species": "bluesprout",
-        "births": 1,
-        "deaths": 0,
-        "population": 12
-      }
-    },
-    {
-      "tick": 76,
-      "type": "population",
-      "message": "Lumenback changed by +1 births and -1 deaths.",
-      "impact": {
-        "species": "lumenback",
-        "births": 1,
-        "deaths": 1,
-        "population": 11
-      }
     }
   ],
   "history": [
-    {
-      "tick": 7,
-      "populations": {
-        "mossling": 92,
-        "reedgrazer": 32,
-        "dustskipper": 36,
-        "cragback": 6
-      }
-    },
     {
       "tick": 8,
       "populations": {
@@ -2436,6 +2426,18 @@
         "lumenback": 3,
         "bluesprout": 9
       }
+    },
+    {
+      "tick": 87,
+      "populations": {
+        "mossling": 268,
+        "reedgrazer": 132,
+        "dustskipper": 92,
+        "cragback": 42,
+        "lumenskipper": 218,
+        "lumenback": 4,
+        "bluesprout": 7
+      }
     }
   ],
   "extinctions": [
@@ -2461,8 +2463,8 @@
   "rng": {
     "algorithm": "xorshift32",
     "seed": 439041101,
-    "state": 2943125663
+    "state": 2458040058
   },
-  "latestTickAt": "2026-07-02T11:43:19.437Z",
+  "latestTickAt": "2026-07-02T17:43:19.437Z",
   "tickIntervalHours": 6
 }
