@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "tick": 83,
-  "updatedAt": "2026-07-01T17:43:19.437Z",
+  "tick": 84,
+  "updatedAt": "2026-07-01T23:43:19.437Z",
   "map": {
     "width": 12,
     "height": 8,
@@ -588,7 +588,7 @@
     {
       "id": "mossling",
       "name": "Mossling",
-      "population": 270,
+      "population": 269,
       "traits": {
         "preferredBiome": "forest",
         "size": 2,
@@ -601,7 +601,7 @@
     {
       "id": "reedgrazer",
       "name": "Reedgrazer",
-      "population": 139,
+      "population": 138,
       "traits": {
         "preferredBiome": "wetland",
         "size": 4,
@@ -614,7 +614,7 @@
     {
       "id": "dustskipper",
       "name": "Dustskipper",
-      "population": 91,
+      "population": 92,
       "traits": {
         "preferredBiome": "desert",
         "size": 1,
@@ -627,7 +627,7 @@
     {
       "id": "cragback",
       "name": "Cragback",
-      "population": 42,
+      "population": 41,
       "traits": {
         "preferredBiome": "mountain",
         "size": 6,
@@ -640,7 +640,7 @@
     {
       "id": "lumenskipper",
       "name": "Lumenskipper",
-      "population": 230,
+      "population": 227,
       "traits": {
         "preferredBiome": "grassland",
         "size": 3,
@@ -657,7 +657,7 @@
     {
       "id": "lumenback",
       "name": "Lumenback",
-      "population": 4,
+      "population": 3,
       "traits": {
         "preferredBiome": "grassland",
         "size": 5,
@@ -674,7 +674,7 @@
     {
       "id": "bluesprout",
       "name": "Bluesprout",
-      "population": 6,
+      "population": 7,
       "traits": {
         "preferredBiome": "wetland",
         "size": 6,
@@ -690,6 +690,83 @@
     }
   ],
   "events": [
+    {
+      "tick": 84,
+      "type": "population",
+      "message": "Lumenskipper changed by +29 births and -32 deaths.",
+      "impact": {
+        "species": "lumenskipper",
+        "births": 29,
+        "deaths": 32,
+        "population": 227
+      }
+    },
+    {
+      "tick": 84,
+      "type": "population",
+      "message": "Mossling changed by +35 births and -36 deaths.",
+      "impact": {
+        "species": "mossling",
+        "births": 35,
+        "deaths": 36,
+        "population": 269
+      }
+    },
+    {
+      "tick": 84,
+      "type": "population",
+      "message": "Bluesprout changed by +1 births and -0 deaths.",
+      "impact": {
+        "species": "bluesprout",
+        "births": 1,
+        "deaths": 0,
+        "population": 7
+      }
+    },
+    {
+      "tick": 84,
+      "type": "population",
+      "message": "Cragback changed by +4 births and -5 deaths.",
+      "impact": {
+        "species": "cragback",
+        "births": 4,
+        "deaths": 5,
+        "population": 41
+      }
+    },
+    {
+      "tick": 84,
+      "type": "population",
+      "message": "Lumenback changed by +0 births and -1 deaths.",
+      "impact": {
+        "species": "lumenback",
+        "births": 0,
+        "deaths": 1,
+        "population": 3
+      }
+    },
+    {
+      "tick": 84,
+      "type": "population",
+      "message": "Reedgrazer changed by +12 births and -13 deaths.",
+      "impact": {
+        "species": "reedgrazer",
+        "births": 12,
+        "deaths": 13,
+        "population": 138
+      }
+    },
+    {
+      "tick": 84,
+      "type": "population",
+      "message": "Dustskipper changed by +14 births and -13 deaths.",
+      "impact": {
+        "species": "dustskipper",
+        "births": 14,
+        "deaths": 13,
+        "population": 92
+      }
+    },
     {
       "tick": 83,
       "type": "population",
@@ -1497,93 +1574,9 @@
         "deaths": 19,
         "population": 111
       }
-    },
-    {
-      "tick": 74,
-      "type": "population",
-      "message": "Bluesprout changed by +2 births and -1 deaths.",
-      "impact": {
-        "species": "bluesprout",
-        "births": 2,
-        "deaths": 1,
-        "population": 11
-      }
-    },
-    {
-      "tick": 74,
-      "type": "population",
-      "message": "Silverling changed by +0 births and -1 deaths.",
-      "impact": {
-        "species": "silverling",
-        "births": 0,
-        "deaths": 1,
-        "population": 0
-      }
-    },
-    {
-      "tick": 74,
-      "type": "population",
-      "message": "Lumenback changed by +2 births and -0 deaths.",
-      "impact": {
-        "species": "lumenback",
-        "births": 2,
-        "deaths": 0,
-        "population": 13
-      }
-    },
-    {
-      "tick": 74,
-      "type": "population",
-      "message": "Lumenskipper changed by +31 births and -38 deaths.",
-      "impact": {
-        "species": "lumenskipper",
-        "births": 31,
-        "deaths": 38,
-        "population": 247
-      }
-    },
-    {
-      "tick": 74,
-      "type": "population",
-      "message": "Reedgrazer changed by +16 births and -13 deaths.",
-      "impact": {
-        "species": "reedgrazer",
-        "births": 16,
-        "deaths": 13,
-        "population": 144
-      }
-    },
-    {
-      "tick": 74,
-      "type": "extinction",
-      "message": "Silverling went extinct at tick 74.",
-      "impact": {
-        "species": "silverling"
-      }
-    },
-    {
-      "tick": 73,
-      "type": "mutation",
-      "message": "Silverling mutation shifted resilience down.",
-      "impact": {
-        "species": "silverling",
-        "trait": "resilience",
-        "delta": -1,
-        "before": 7,
-        "after": 6
-      }
     }
   ],
   "history": [
-    {
-      "tick": 4,
-      "populations": {
-        "mossling": 63,
-        "reedgrazer": 23,
-        "dustskipper": 24,
-        "cragback": 8
-      }
-    },
     {
       "tick": 5,
       "populations": {
@@ -2425,6 +2418,18 @@
         "lumenback": 4,
         "bluesprout": 6
       }
+    },
+    {
+      "tick": 84,
+      "populations": {
+        "mossling": 269,
+        "reedgrazer": 138,
+        "dustskipper": 92,
+        "cragback": 41,
+        "lumenskipper": 227,
+        "lumenback": 3,
+        "bluesprout": 7
+      }
     }
   ],
   "extinctions": [
@@ -2450,8 +2455,8 @@
   "rng": {
     "algorithm": "xorshift32",
     "seed": 439041101,
-    "state": 266284886
+    "state": 2253161668
   },
-  "latestTickAt": "2026-07-01T17:43:19.437Z",
+  "latestTickAt": "2026-07-01T23:43:19.437Z",
   "tickIntervalHours": 6
 }
