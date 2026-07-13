@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "tick": 127,
-  "updatedAt": "2026-07-12T17:43:19.437Z",
+  "tick": 128,
+  "updatedAt": "2026-07-12T23:43:19.437Z",
   "map": {
     "width": 12,
     "height": 8,
@@ -550,7 +550,7 @@
         "x": 6,
         "y": 7,
         "biome": "mountain",
-        "food": 4
+        "food": 0
       },
       {
         "x": 7,
@@ -588,7 +588,7 @@
     {
       "id": "mossling",
       "name": "Mossling",
-      "population": 186,
+      "population": 183,
       "traits": {
         "preferredBiome": "forest",
         "size": 2,
@@ -601,7 +601,7 @@
     {
       "id": "reedgrazer",
       "name": "Reedgrazer",
-      "population": 91,
+      "population": 92,
       "traits": {
         "preferredBiome": "wetland",
         "size": 5,
@@ -614,7 +614,7 @@
     {
       "id": "dustskipper",
       "name": "Dustskipper",
-      "population": 78,
+      "population": 81,
       "traits": {
         "preferredBiome": "desert",
         "size": 2,
@@ -657,7 +657,7 @@
     {
       "id": "lumenback",
       "name": "Lumenback",
-      "population": 2,
+      "population": 1,
       "traits": {
         "preferredBiome": "grassland",
         "size": 4,
@@ -674,7 +674,7 @@
     {
       "id": "bluesprout",
       "name": "Bluesprout",
-      "population": 3,
+      "population": 2,
       "traits": {
         "preferredBiome": "wetland",
         "size": 6,
@@ -690,6 +690,83 @@
     }
   ],
   "events": [
+    {
+      "tick": 128,
+      "type": "population",
+      "message": "Mossling changed by +22 births and -25 deaths.",
+      "impact": {
+        "species": "mossling",
+        "births": 22,
+        "deaths": 25,
+        "population": 183
+      }
+    },
+    {
+      "tick": 128,
+      "type": "population",
+      "message": "Cragback changed by +4 births and -4 deaths.",
+      "impact": {
+        "species": "cragback",
+        "births": 4,
+        "deaths": 4,
+        "population": 37
+      }
+    },
+    {
+      "tick": 128,
+      "type": "population",
+      "message": "Reedgrazer changed by +9 births and -8 deaths.",
+      "impact": {
+        "species": "reedgrazer",
+        "births": 9,
+        "deaths": 8,
+        "population": 92
+      }
+    },
+    {
+      "tick": 128,
+      "type": "population",
+      "message": "Bluesprout changed by +0 births and -1 deaths.",
+      "impact": {
+        "species": "bluesprout",
+        "births": 0,
+        "deaths": 1,
+        "population": 2
+      }
+    },
+    {
+      "tick": 128,
+      "type": "population",
+      "message": "Lumenskipper changed by +20 births and -20 deaths.",
+      "impact": {
+        "species": "lumenskipper",
+        "births": 20,
+        "deaths": 20,
+        "population": 178
+      }
+    },
+    {
+      "tick": 128,
+      "type": "population",
+      "message": "Dustskipper changed by +13 births and -10 deaths.",
+      "impact": {
+        "species": "dustskipper",
+        "births": 13,
+        "deaths": 10,
+        "population": 81
+      }
+    },
+    {
+      "tick": 128,
+      "type": "population",
+      "message": "Lumenback changed by +0 births and -1 deaths.",
+      "impact": {
+        "species": "lumenback",
+        "births": 0,
+        "deaths": 1,
+        "population": 1
+      }
+    },
     {
       "tick": 127,
       "type": "population",
@@ -1498,99 +1575,9 @@
         "deaths": 6,
         "population": 83
       }
-    },
-    {
-      "tick": 117,
-      "type": "population",
-      "message": "Lumenback changed by +0 births and -1 deaths.",
-      "impact": {
-        "species": "lumenback",
-        "births": 0,
-        "deaths": 1,
-        "population": 1
-      }
-    },
-    {
-      "tick": 117,
-      "type": "mutation",
-      "message": "Lumenback mutation shifted fertility up.",
-      "impact": {
-        "species": "lumenback",
-        "trait": "fertility",
-        "delta": 1,
-        "before": 5,
-        "after": 6
-      }
-    },
-    {
-      "tick": 117,
-      "type": "population",
-      "message": "Bluesprout changed by +1 births and -1 deaths.",
-      "impact": {
-        "species": "bluesprout",
-        "births": 1,
-        "deaths": 1,
-        "population": 5
-      }
-    },
-    {
-      "tick": 116,
-      "type": "population",
-      "message": "Mossling changed by +31 births and -38 deaths.",
-      "impact": {
-        "species": "mossling",
-        "births": 31,
-        "deaths": 38,
-        "population": 239
-      }
-    },
-    {
-      "tick": 116,
-      "type": "mutation",
-      "message": "Mossling mutation shifted size up.",
-      "impact": {
-        "species": "mossling",
-        "trait": "size",
-        "delta": 1,
-        "before": 1,
-        "after": 2
-      }
-    },
-    {
-      "tick": 116,
-      "type": "population",
-      "message": "Reedgrazer changed by +7 births and -7 deaths.",
-      "impact": {
-        "species": "reedgrazer",
-        "births": 7,
-        "deaths": 7,
-        "population": 81
-      }
-    },
-    {
-      "tick": 116,
-      "type": "population",
-      "message": "Lumenskipper changed by +20 births and -22 deaths.",
-      "impact": {
-        "species": "lumenskipper",
-        "births": 20,
-        "deaths": 22,
-        "population": 184
-      }
     }
   ],
   "history": [
-    {
-      "tick": 48,
-      "populations": {
-        "mossling": 298,
-        "reedgrazer": 118,
-        "dustskipper": 243,
-        "cragback": 47,
-        "lumenskipper": 211,
-        "silverling": 10
-      }
-    },
     {
       "tick": 49,
       "populations": {
@@ -2519,6 +2506,18 @@
         "lumenback": 2,
         "bluesprout": 3
       }
+    },
+    {
+      "tick": 128,
+      "populations": {
+        "mossling": 183,
+        "reedgrazer": 92,
+        "dustskipper": 81,
+        "cragback": 37,
+        "lumenskipper": 178,
+        "lumenback": 1,
+        "bluesprout": 2
+      }
     }
   ],
   "extinctions": [
@@ -2544,8 +2543,8 @@
   "rng": {
     "algorithm": "xorshift32",
     "seed": 439041101,
-    "state": 2868170869
+    "state": 2978328167
   },
-  "latestTickAt": "2026-07-12T17:43:19.437Z",
+  "latestTickAt": "2026-07-12T23:43:19.437Z",
   "tickIntervalHours": 6
 }
