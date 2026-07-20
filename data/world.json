@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "tick": 157,
-  "updatedAt": "2026-07-20T05:43:19.437Z",
+  "tick": 158,
+  "updatedAt": "2026-07-20T11:43:19.437Z",
   "map": {
     "width": 12,
     "height": 8,
@@ -601,7 +601,7 @@
     {
       "id": "reedgrazer",
       "name": "Reedgrazer",
-      "population": 71,
+      "population": 72,
       "traits": {
         "preferredBiome": "wetland",
         "size": 5,
@@ -614,7 +614,7 @@
     {
       "id": "dustskipper",
       "name": "Dustskipper",
-      "population": 52,
+      "population": 53,
       "traits": {
         "preferredBiome": "desert",
         "size": 3,
@@ -656,6 +656,61 @@
     }
   ],
   "events": [
+    {
+      "tick": 158,
+      "type": "population",
+      "message": "Mossling changed by +21 births and -21 deaths.",
+      "impact": {
+        "species": "mossling",
+        "births": 21,
+        "deaths": 21,
+        "population": 169
+      }
+    },
+    {
+      "tick": 158,
+      "type": "population",
+      "message": "Dustskipper changed by +8 births and -7 deaths.",
+      "impact": {
+        "species": "dustskipper",
+        "births": 8,
+        "deaths": 7,
+        "population": 53
+      }
+    },
+    {
+      "tick": 158,
+      "type": "population",
+      "message": "Reedgrazer changed by +7 births and -6 deaths.",
+      "impact": {
+        "species": "reedgrazer",
+        "births": 7,
+        "deaths": 6,
+        "population": 72
+      }
+    },
+    {
+      "tick": 158,
+      "type": "population",
+      "message": "Lumenskipper changed by +20 births and -20 deaths.",
+      "impact": {
+        "species": "lumenskipper",
+        "births": 20,
+        "deaths": 20,
+        "population": 178
+      }
+    },
+    {
+      "tick": 158,
+      "type": "population",
+      "message": "Cragback changed by +5 births and -5 deaths.",
+      "impact": {
+        "species": "cragback",
+        "births": 5,
+        "deaths": 5,
+        "population": 42
+      }
+    },
     {
       "tick": 157,
       "type": "population",
@@ -1491,73 +1546,9 @@
         "deaths": 8,
         "population": 58
       }
-    },
-    {
-      "tick": 145,
-      "type": "population",
-      "message": "Bluesprout changed by +0 births and -1 deaths.",
-      "impact": {
-        "species": "bluesprout",
-        "births": 0,
-        "deaths": 1,
-        "population": 0
-      }
-    },
-    {
-      "tick": 145,
-      "type": "population",
-      "message": "Lumenskipper changed by +20 births and -19 deaths.",
-      "impact": {
-        "species": "lumenskipper",
-        "births": 20,
-        "deaths": 19,
-        "population": 176
-      }
-    },
-    {
-      "tick": 145,
-      "type": "population",
-      "message": "Cragback changed by +4 births and -3 deaths.",
-      "impact": {
-        "species": "cragback",
-        "births": 4,
-        "deaths": 3,
-        "population": 34
-      }
-    },
-    {
-      "tick": 145,
-      "type": "population",
-      "message": "Mossling changed by +21 births and -22 deaths.",
-      "impact": {
-        "species": "mossling",
-        "births": 21,
-        "deaths": 22,
-        "population": 173
-      }
-    },
-    {
-      "tick": 145,
-      "type": "extinction",
-      "message": "Bluesprout went extinct at tick 145.",
-      "impact": {
-        "species": "bluesprout"
-      }
     }
   ],
   "history": [
-    {
-      "tick": 78,
-      "populations": {
-        "mossling": 271,
-        "reedgrazer": 145,
-        "dustskipper": 99,
-        "cragback": 41,
-        "lumenskipper": 233,
-        "lumenback": 9,
-        "bluesprout": 9
-      }
-    },
     {
       "tick": 79,
       "populations": {
@@ -2464,6 +2455,16 @@
         "cragback": 42,
         "lumenskipper": 178
       }
+    },
+    {
+      "tick": 158,
+      "populations": {
+        "mossling": 169,
+        "reedgrazer": 72,
+        "dustskipper": 53,
+        "cragback": 42,
+        "lumenskipper": 178
+      }
     }
   ],
   "extinctions": [
@@ -2525,8 +2526,8 @@
   "rng": {
     "algorithm": "xorshift32",
     "seed": 439041101,
-    "state": 998792584
+    "state": 3046463950
   },
-  "latestTickAt": "2026-07-20T05:43:19.437Z",
+  "latestTickAt": "2026-07-20T11:43:19.437Z",
   "tickIntervalHours": 6
 }
