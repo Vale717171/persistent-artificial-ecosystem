@@ -1,6 +1,6 @@
 # Long-Run Ecosystem Report (1000 ticks)
 
-Generated at: 2026-06-13T04:52:51.881Z
+Generated at: 2026-07-25T06:20:50.149Z
 
 Source state: `data/world.json`
 
@@ -14,75 +14,79 @@ The world **remained dynamic** over 1000 simulated ticks.
 
 | Metric | Initial | Final |
 | --- | --- | --- |
-| Tick | 8 | 1008 |
-| Living species | 4 | 6 |
-| Extinct species | 0 | 23 |
-| Total population | 196 | 2,536 |
-| Biodiversity index | 1.073 | 1.128 |
+| Tick | 176 | 1176 |
+| Living species | 5 | 10 |
+| Extinct species | 3 | 36 |
+| Total population | 437 | 2,012 |
+| Biodiversity index | 1.546 | 1.298 |
 
 ## Turnover
 
 | Metric | Value |
 | --- | --- |
-| Total species seen | 29 |
-| Living at end | 6 |
-| Extinct at end | 23 |
-| Immigration events | 12 |
-| Speciation events | 13 |
-| Extinction events | 23 |
+| Total species seen | 46 |
+| Living at end | 10 |
+| Extinct at end | 36 |
+| Immigration events | 0 |
+| Speciation events | 38 |
+| Extinction events | 33 |
 
 ## Population And Biodiversity Range
 
 | Metric | Value |
 | --- | --- |
-| Minimum total population reached | 196 |
-| Maximum total population reached | 2,812 |
-| Minimum biodiversity reached | 0.830 |
-| Maximum biodiversity reached | 1.946 |
+| Minimum total population reached | 120 |
+| Maximum total population reached | 2,030 |
+| Minimum biodiversity reached | 0.424 |
+| Maximum biodiversity reached | 2.168 |
 
 ## Trend Samples
 
 | Simulated tick offset | World tick | Living species | Extinct species | Total population | Biodiversity |
 | --- | --- | --- | --- | --- | --- |
-| 0 | 8 | 4 | 0 | 196 | 1.073 |
-| 100 | 108 | 7 | 1 | 679 | 1.453 |
-| 200 | 208 | 6 | 3 | 443 | 1.655 |
-| 300 | 308 | 6 | 4 | 419 | 1.599 |
-| 400 | 408 | 6 | 8 | 380 | 1.642 |
-| 500 | 508 | 7 | 10 | 315 | 1.705 |
-| 600 | 608 | 6 | 12 | 301 | 1.595 |
-| 700 | 708 | 9 | 13 | 634 | 1.784 |
-| 800 | 808 | 7 | 17 | 971 | 1.205 |
-| 900 | 908 | 8 | 19 | 2,400 | 1.010 |
-| 1000 | 1008 | 6 | 23 | 2,536 | 1.128 |
+| 0 | 176 | 5 | 3 | 437 | 1.546 |
+| 100 | 276 | 5 | 3 | 143 | 1.529 |
+| 200 | 376 | 5 | 7 | 132 | 0.711 |
+| 300 | 476 | 7 | 12 | 447 | 1.297 |
+| 400 | 576 | 10 | 13 | 1,237 | 1.541 |
+| 500 | 676 | 11 | 18 | 807 | 1.867 |
+| 600 | 776 | 11 | 19 | 1,629 | 1.153 |
+| 700 | 876 | 7 | 26 | 1,051 | 1.464 |
+| 800 | 976 | 10 | 28 | 1,063 | 1.587 |
+| 900 | 1076 | 10 | 30 | 1,590 | 1.449 |
+| 1000 | 1176 | 10 | 36 | 2,012 | 1.298 |
 
 ## Final Living Species
 
 | Species | Population | Preferred biome | Origin |
 | --- | --- | --- | --- |
-| Silverskipper | 19 | desert | speciation at tick 179 |
-| Silversinger | 73 | mountain | speciation at tick 278 |
-| Lumensinger | 712 | grassland | immigration at tick 679 |
-| Bluesinger | 1,344 | forest | speciation at tick 692 |
-| Silversinger 2 | 384 | wetland | speciation at tick 763 |
-| Rustmote | 4 | mountain | speciation at tick 950 |
+| Dawnmote | 1,254 | mountain | speciation at tick 612 |
+| Cinderweaver 2 | 293 | desert | speciation at tick 877 |
+| Lumensinger | 170 | desert | speciation at tick 966 |
+| Amberskipper | 74 | mountain | speciation at tick 1007 |
+| Bluemote | 65 | mountain | speciation at tick 1078 |
+| Dawnmote 2 | 6 | mountain | speciation at tick 1103 |
+| Blueweaver 2 | 10 | mountain | speciation at tick 1104 |
+| Frostgrazer | 74 | desert | speciation at tick 1125 |
+| Rustskipper | 64 | mountain | speciation at tick 1160 |
+| Amberrunner | 2 | desert | speciation at tick 1175 |
 
 ## Recently Extinct Species
 
 | Species | Extinction tick | Preferred biome | Origin |
 | --- | --- | --- | --- |
-| Lumengrazer | 601 | mountain | speciation at tick 484 |
-| Lumengrazer 2 | 624 | desert | speciation at tick 502 |
-| Mossling | 720 | forest | seed at tick 0 |
-| Lumenskipper | 732 | grassland | immigration at tick 12 |
-| Reedgrazer | 770 | wetland | seed at tick 0 |
-| Frostback | 781 | wetland | immigration at tick 759 |
-| Dawnweaver | 871 | forest | immigration at tick 683 |
-| Lumenling | 886 | wetland | immigration at tick 869 |
-| Dawnsprout | 909 | wetland | speciation at tick 660 |
-| Silverweaver | 925 | grassland | immigration at tick 862 |
-| Thornling | 955 | grassland | speciation at tick 902 |
-| Dawnmote | 1007 | forest | immigration at tick 959 |
+| Cinderweaver | 802 | desert | speciation at tick 458 |
+| Blueskipper | 864 | mountain | speciation at tick 812 |
+| Silvermote | 958 | mountain | speciation at tick 918 |
+| Rustmote | 968 | mountain | speciation at tick 962 |
+| Lumenskipper 2 | 1000 | mountain | speciation at tick 956 |
+| Thornmote 2 | 1033 | mountain | speciation at tick 613 |
+| Cinderrunner | 1101 | desert | speciation at tick 823 |
+| Lumenmote | 1102 | desert | speciation at tick 452 |
+| Silversprout | 1108 | desert | speciation at tick 999 |
+| Ambersinger | 1118 | mountain | speciation at tick 874 |
+| Cragback | 1121 | mountain | seed at tick 0 |
+| Thornmote | 1121 | desert | speciation at tick 465 |
 
 ## Classification Criteria
 
@@ -94,6 +98,6 @@ The world **remained dynamic** over 1000 simulated ticks.
 ## Notes
 
 - Seed: `439041101`
-- Initial RNG state: `{"algorithm":"xorshift32","seed":439041101,"state":1826426339}`
-- Final RNG state: `{"algorithm":"xorshift32","seed":439041101,"state":2800733124}`
+- Initial RNG state: `{"algorithm":"xorshift32","seed":439041101,"state":1847235685}`
+- Final RNG state: `{"algorithm":"xorshift32","seed":439041101,"state":2792537148}`
 - Extinct species are listed separately from active living species to keep the report readable.

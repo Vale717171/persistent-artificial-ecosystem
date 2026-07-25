@@ -1,180 +1,208 @@
 {
-  "generatedAt": "2026-06-13T04:52:51.881Z",
+  "generatedAt": "2026-07-25T06:20:50.149Z",
   "source": "data/world.json",
   "ticks": 1000,
   "seed": 439041101,
   "initialRngState": {
     "algorithm": "xorshift32",
     "seed": 439041101,
-    "state": 1826426339
+    "state": 1847235685
   },
   "finalRngState": {
     "algorithm": "xorshift32",
     "seed": 439041101,
-    "state": 2800733124
+    "state": 2792537148
   },
   "classification": "dynamic",
   "classificationText": "remained dynamic",
   "initial": {
-    "tick": 8,
-    "livingSpecies": 4,
-    "extinctSpecies": 0,
-    "totalPopulation": 196,
-    "biodiversity": 1.0727743739229634
+    "tick": 176,
+    "livingSpecies": 5,
+    "extinctSpecies": 3,
+    "totalPopulation": 437,
+    "biodiversity": 1.5456719872305398
   },
   "final": {
-    "tick": 1008,
-    "livingSpecies": 6,
-    "extinctSpecies": 23,
-    "totalPopulation": 2536,
-    "biodiversity": 1.1279378381489273
+    "tick": 1176,
+    "livingSpecies": 10,
+    "extinctSpecies": 36,
+    "totalPopulation": 2012,
+    "biodiversity": 1.2981380794824129
   },
   "turnover": {
-    "totalSpeciesSeen": 29,
-    "livingAtEnd": 6,
-    "extinctAtEnd": 23,
-    "immigrationEvents": 12,
-    "speciationEvents": 13,
-    "extinctionEvents": 23
+    "totalSpeciesSeen": 46,
+    "livingAtEnd": 10,
+    "extinctAtEnd": 36,
+    "immigrationEvents": 0,
+    "speciationEvents": 38,
+    "extinctionEvents": 33
   },
   "ranges": {
-    "minPopulation": 196,
-    "maxPopulation": 2812,
-    "minBiodiversity": 0.8304865990758517,
-    "maxBiodiversity": 1.9455614576272966
+    "minPopulation": 120,
+    "maxPopulation": 2030,
+    "minBiodiversity": 0.42389397222944825,
+    "maxBiodiversity": 2.1676341608773377
   },
   "samples": [
     {
       "offset": 0,
-      "tick": 8,
-      "livingSpecies": 4,
-      "extinctSpecies": 0,
-      "totalPopulation": 196,
-      "biodiversity": 1.0727743739229634
+      "tick": 176,
+      "livingSpecies": 5,
+      "extinctSpecies": 3,
+      "totalPopulation": 437,
+      "biodiversity": 1.5456719872305398
     },
     {
       "offset": 100,
-      "tick": 108,
-      "livingSpecies": 7,
-      "extinctSpecies": 1,
-      "totalPopulation": 679,
-      "biodiversity": 1.4531332554331635
+      "tick": 276,
+      "livingSpecies": 5,
+      "extinctSpecies": 3,
+      "totalPopulation": 143,
+      "biodiversity": 1.5294116019061916
     },
     {
       "offset": 200,
-      "tick": 208,
-      "livingSpecies": 6,
-      "extinctSpecies": 3,
-      "totalPopulation": 443,
-      "biodiversity": 1.6547394662223225
+      "tick": 376,
+      "livingSpecies": 5,
+      "extinctSpecies": 7,
+      "totalPopulation": 132,
+      "biodiversity": 0.710531137094633
     },
     {
       "offset": 300,
-      "tick": 308,
-      "livingSpecies": 6,
-      "extinctSpecies": 4,
-      "totalPopulation": 419,
-      "biodiversity": 1.5990408257008766
+      "tick": 476,
+      "livingSpecies": 7,
+      "extinctSpecies": 12,
+      "totalPopulation": 447,
+      "biodiversity": 1.2971499775933724
     },
     {
       "offset": 400,
-      "tick": 408,
-      "livingSpecies": 6,
-      "extinctSpecies": 8,
-      "totalPopulation": 380,
-      "biodiversity": 1.6422919281245554
+      "tick": 576,
+      "livingSpecies": 10,
+      "extinctSpecies": 13,
+      "totalPopulation": 1237,
+      "biodiversity": 1.5406329828108185
     },
     {
       "offset": 500,
-      "tick": 508,
-      "livingSpecies": 7,
-      "extinctSpecies": 10,
-      "totalPopulation": 315,
-      "biodiversity": 1.7046148528612828
+      "tick": 676,
+      "livingSpecies": 11,
+      "extinctSpecies": 18,
+      "totalPopulation": 807,
+      "biodiversity": 1.867428646993919
     },
     {
       "offset": 600,
-      "tick": 608,
-      "livingSpecies": 6,
-      "extinctSpecies": 12,
-      "totalPopulation": 301,
-      "biodiversity": 1.594775486487114
+      "tick": 776,
+      "livingSpecies": 11,
+      "extinctSpecies": 19,
+      "totalPopulation": 1629,
+      "biodiversity": 1.1528277104565716
     },
     {
       "offset": 700,
-      "tick": 708,
-      "livingSpecies": 9,
-      "extinctSpecies": 13,
-      "totalPopulation": 634,
-      "biodiversity": 1.7842116816971978
+      "tick": 876,
+      "livingSpecies": 7,
+      "extinctSpecies": 26,
+      "totalPopulation": 1051,
+      "biodiversity": 1.4635859223926253
     },
     {
       "offset": 800,
-      "tick": 808,
-      "livingSpecies": 7,
-      "extinctSpecies": 17,
-      "totalPopulation": 971,
-      "biodiversity": 1.205199118348499
+      "tick": 976,
+      "livingSpecies": 10,
+      "extinctSpecies": 28,
+      "totalPopulation": 1063,
+      "biodiversity": 1.5869608710011853
     },
     {
       "offset": 900,
-      "tick": 908,
-      "livingSpecies": 8,
-      "extinctSpecies": 19,
-      "totalPopulation": 2400,
-      "biodiversity": 1.0100069842877848
+      "tick": 1076,
+      "livingSpecies": 10,
+      "extinctSpecies": 30,
+      "totalPopulation": 1590,
+      "biodiversity": 1.4489843484622096
     },
     {
       "offset": 1000,
-      "tick": 1008,
-      "livingSpecies": 6,
-      "extinctSpecies": 23,
-      "totalPopulation": 2536,
-      "biodiversity": 1.1279378381489273
+      "tick": 1176,
+      "livingSpecies": 10,
+      "extinctSpecies": 36,
+      "totalPopulation": 2012,
+      "biodiversity": 1.2981380794824129
     }
   ],
   "finalLivingSpecies": [
     {
-      "id": "silverskipper",
-      "name": "Silverskipper",
-      "population": 19,
-      "preferredBiome": "desert",
-      "origin": "speciation at tick 179"
+      "id": "dawnmote",
+      "name": "Dawnmote",
+      "population": 1254,
+      "preferredBiome": "mountain",
+      "origin": "speciation at tick 612"
     },
     {
-      "id": "silversinger",
-      "name": "Silversinger",
-      "population": 73,
-      "preferredBiome": "mountain",
-      "origin": "speciation at tick 278"
+      "id": "cinderweaver-2",
+      "name": "Cinderweaver 2",
+      "population": 293,
+      "preferredBiome": "desert",
+      "origin": "speciation at tick 877"
     },
     {
       "id": "lumensinger",
       "name": "Lumensinger",
-      "population": 712,
-      "preferredBiome": "grassland",
-      "origin": "immigration at tick 679"
+      "population": 170,
+      "preferredBiome": "desert",
+      "origin": "speciation at tick 966"
     },
     {
-      "id": "bluesinger",
-      "name": "Bluesinger",
-      "population": 1344,
-      "preferredBiome": "forest",
-      "origin": "speciation at tick 692"
-    },
-    {
-      "id": "silversinger-2",
-      "name": "Silversinger 2",
-      "population": 384,
-      "preferredBiome": "wetland",
-      "origin": "speciation at tick 763"
-    },
-    {
-      "id": "rustmote",
-      "name": "Rustmote",
-      "population": 4,
+      "id": "amberskipper",
+      "name": "Amberskipper",
+      "population": 74,
       "preferredBiome": "mountain",
-      "origin": "speciation at tick 950"
+      "origin": "speciation at tick 1007"
+    },
+    {
+      "id": "bluemote",
+      "name": "Bluemote",
+      "population": 65,
+      "preferredBiome": "mountain",
+      "origin": "speciation at tick 1078"
+    },
+    {
+      "id": "dawnmote-2",
+      "name": "Dawnmote 2",
+      "population": 6,
+      "preferredBiome": "mountain",
+      "origin": "speciation at tick 1103"
+    },
+    {
+      "id": "blueweaver-2",
+      "name": "Blueweaver 2",
+      "population": 10,
+      "preferredBiome": "mountain",
+      "origin": "speciation at tick 1104"
+    },
+    {
+      "id": "frostgrazer",
+      "name": "Frostgrazer",
+      "population": 74,
+      "preferredBiome": "desert",
+      "origin": "speciation at tick 1125"
+    },
+    {
+      "id": "rustskipper",
+      "name": "Rustskipper",
+      "population": 64,
+      "preferredBiome": "mountain",
+      "origin": "speciation at tick 1160"
+    },
+    {
+      "id": "amberrunner",
+      "name": "Amberrunner",
+      "population": 2,
+      "preferredBiome": "desert",
+      "origin": "speciation at tick 1175"
     }
   ],
   "extinctSpecies": [
@@ -200,144 +228,235 @@
       "origin": "speciation at tick 72"
     },
     {
-      "id": "dustskipper",
-      "name": "Dustskipper",
-      "tick": 282,
-      "preferredBiome": "desert",
-      "origin": "seed at tick 0"
-    },
-    {
-      "id": "lumenskipper-2",
-      "name": "Lumenskipper 2",
-      "tick": 365,
-      "preferredBiome": "wetland",
-      "origin": "immigration at tick 343"
-    },
-    {
-      "id": "amberweaver",
-      "name": "Amberweaver",
-      "tick": 373,
-      "preferredBiome": "wetland",
-      "origin": "immigration at tick 349"
-    },
-    {
-      "id": "cragback",
-      "name": "Cragback",
-      "tick": 380,
+      "id": "silverweaver",
+      "name": "Silverweaver",
+      "tick": 322,
       "preferredBiome": "mountain",
-      "origin": "seed at tick 0"
-    },
-    {
-      "id": "blueweaver",
-      "name": "Blueweaver",
-      "tick": 404,
-      "preferredBiome": "forest",
-      "origin": "speciation at tick 335"
-    },
-    {
-      "id": "blueback",
-      "name": "Blueback",
-      "tick": 424,
-      "preferredBiome": "forest",
-      "origin": "speciation at tick 407"
-    },
-    {
-      "id": "blueling",
-      "name": "Blueling",
-      "tick": 450,
-      "preferredBiome": "desert",
-      "origin": "immigration at tick 421"
-    },
-    {
-      "id": "silverling-2",
-      "name": "Silverling 2",
-      "tick": 579,
-      "preferredBiome": "mountain",
-      "origin": "immigration at tick 565"
-    },
-    {
-      "id": "lumengrazer",
-      "name": "Lumengrazer",
-      "tick": 601,
-      "preferredBiome": "mountain",
-      "origin": "speciation at tick 484"
-    },
-    {
-      "id": "lumengrazer-2",
-      "name": "Lumengrazer 2",
-      "tick": 624,
-      "preferredBiome": "desert",
-      "origin": "speciation at tick 502"
-    },
-    {
-      "id": "mossling",
-      "name": "Mossling",
-      "tick": 720,
-      "preferredBiome": "forest",
-      "origin": "seed at tick 0"
-    },
-    {
-      "id": "lumenskipper",
-      "name": "Lumenskipper",
-      "tick": 732,
-      "preferredBiome": "grassland",
-      "origin": "immigration at tick 12"
+      "origin": "speciation at tick 282"
     },
     {
       "id": "reedgrazer",
       "name": "Reedgrazer",
-      "tick": 770,
+      "tick": 334,
       "preferredBiome": "wetland",
       "origin": "seed at tick 0"
     },
     {
+      "id": "silverback",
+      "name": "Silverback",
+      "tick": 341,
+      "preferredBiome": "desert",
+      "origin": "speciation at tick 338"
+    },
+    {
+      "id": "lumenskipper",
+      "name": "Lumenskipper",
+      "tick": 362,
+      "preferredBiome": "grassland",
+      "origin": "immigration at tick 12"
+    },
+    {
+      "id": "mossling",
+      "name": "Mossling",
+      "tick": 386,
+      "preferredBiome": "forest",
+      "origin": "seed at tick 0"
+    },
+    {
+      "id": "cinderback",
+      "name": "Cinderback",
+      "tick": 428,
+      "preferredBiome": "desert",
+      "origin": "speciation at tick 401"
+    },
+    {
+      "id": "ambermote",
+      "name": "Ambermote",
+      "tick": 446,
+      "preferredBiome": "desert",
+      "origin": "speciation at tick 374"
+    },
+    {
+      "id": "thornsprout",
+      "name": "Thornsprout",
+      "tick": 465,
+      "preferredBiome": "mountain",
+      "origin": "speciation at tick 339"
+    },
+    {
+      "id": "lumengrazer",
+      "name": "Lumengrazer",
+      "tick": 466,
+      "preferredBiome": "mountain",
+      "origin": "speciation at tick 447"
+    },
+    {
       "id": "frostback",
       "name": "Frostback",
-      "tick": 781,
-      "preferredBiome": "wetland",
-      "origin": "immigration at tick 759"
+      "tick": 483,
+      "preferredBiome": "desert",
+      "origin": "speciation at tick 476"
     },
     {
-      "id": "dawnweaver",
-      "name": "Dawnweaver",
-      "tick": 871,
-      "preferredBiome": "forest",
-      "origin": "immigration at tick 683"
+      "id": "blueback",
+      "name": "Blueback",
+      "tick": 581,
+      "preferredBiome": "desert",
+      "origin": "speciation at tick 535"
     },
     {
-      "id": "lumenling",
-      "name": "Lumenling",
-      "tick": 886,
-      "preferredBiome": "wetland",
-      "origin": "immigration at tick 869"
+      "id": "thornskipper",
+      "name": "Thornskipper",
+      "tick": 582,
+      "preferredBiome": "desert",
+      "origin": "speciation at tick 533"
     },
     {
-      "id": "dawnsprout",
-      "name": "Dawnsprout",
-      "tick": 909,
-      "preferredBiome": "wetland",
-      "origin": "speciation at tick 660"
+      "id": "silverweaver-2",
+      "name": "Silverweaver 2",
+      "tick": 585,
+      "preferredBiome": "desert",
+      "origin": "speciation at tick 583"
     },
     {
-      "id": "silverweaver",
-      "name": "Silverweaver",
-      "tick": 925,
-      "preferredBiome": "grassland",
-      "origin": "immigration at tick 862"
+      "id": "dawnling",
+      "name": "Dawnling",
+      "tick": 625,
+      "preferredBiome": "desert",
+      "origin": "speciation at tick 565"
     },
     {
-      "id": "thornling",
-      "name": "Thornling",
-      "tick": 955,
-      "preferredBiome": "grassland",
-      "origin": "speciation at tick 902"
+      "id": "blueweaver",
+      "name": "Blueweaver",
+      "tick": 664,
+      "preferredBiome": "desert",
+      "origin": "speciation at tick 629"
     },
     {
-      "id": "dawnmote",
-      "name": "Dawnmote",
-      "tick": 1007,
-      "preferredBiome": "forest",
-      "origin": "immigration at tick 959"
+      "id": "dawnback",
+      "name": "Dawnback",
+      "tick": 772,
+      "preferredBiome": "desert",
+      "origin": "speciation at tick 417"
+    },
+    {
+      "id": "thornrunner",
+      "name": "Thornrunner",
+      "tick": 784,
+      "preferredBiome": "desert",
+      "origin": "speciation at tick 624"
+    },
+    {
+      "id": "thornskipper-2",
+      "name": "Thornskipper 2",
+      "tick": 788,
+      "preferredBiome": "mountain",
+      "origin": "speciation at tick 573"
+    },
+    {
+      "id": "dawnskipper",
+      "name": "Dawnskipper",
+      "tick": 795,
+      "preferredBiome": "desert",
+      "origin": "speciation at tick 628"
+    },
+    {
+      "id": "dustskipper",
+      "name": "Dustskipper",
+      "tick": 797,
+      "preferredBiome": "desert",
+      "origin": "seed at tick 0"
+    },
+    {
+      "id": "thornrunner-2",
+      "name": "Thornrunner 2",
+      "tick": 798,
+      "preferredBiome": "mountain",
+      "origin": "speciation at tick 701"
+    },
+    {
+      "id": "cinderweaver",
+      "name": "Cinderweaver",
+      "tick": 802,
+      "preferredBiome": "desert",
+      "origin": "speciation at tick 458"
+    },
+    {
+      "id": "blueskipper",
+      "name": "Blueskipper",
+      "tick": 864,
+      "preferredBiome": "mountain",
+      "origin": "speciation at tick 812"
+    },
+    {
+      "id": "silvermote",
+      "name": "Silvermote",
+      "tick": 958,
+      "preferredBiome": "mountain",
+      "origin": "speciation at tick 918"
+    },
+    {
+      "id": "rustmote",
+      "name": "Rustmote",
+      "tick": 968,
+      "preferredBiome": "mountain",
+      "origin": "speciation at tick 962"
+    },
+    {
+      "id": "lumenskipper-2",
+      "name": "Lumenskipper 2",
+      "tick": 1000,
+      "preferredBiome": "mountain",
+      "origin": "speciation at tick 956"
+    },
+    {
+      "id": "thornmote-2",
+      "name": "Thornmote 2",
+      "tick": 1033,
+      "preferredBiome": "mountain",
+      "origin": "speciation at tick 613"
+    },
+    {
+      "id": "cinderrunner",
+      "name": "Cinderrunner",
+      "tick": 1101,
+      "preferredBiome": "desert",
+      "origin": "speciation at tick 823"
+    },
+    {
+      "id": "lumenmote",
+      "name": "Lumenmote",
+      "tick": 1102,
+      "preferredBiome": "desert",
+      "origin": "speciation at tick 452"
+    },
+    {
+      "id": "silversprout",
+      "name": "Silversprout",
+      "tick": 1108,
+      "preferredBiome": "desert",
+      "origin": "speciation at tick 999"
+    },
+    {
+      "id": "ambersinger",
+      "name": "Ambersinger",
+      "tick": 1118,
+      "preferredBiome": "mountain",
+      "origin": "speciation at tick 874"
+    },
+    {
+      "id": "cragback",
+      "name": "Cragback",
+      "tick": 1121,
+      "preferredBiome": "mountain",
+      "origin": "seed at tick 0"
+    },
+    {
+      "id": "thornmote",
+      "name": "Thornmote",
+      "tick": 1121,
+      "preferredBiome": "desert",
+      "origin": "speciation at tick 465"
     }
   ]
 }
