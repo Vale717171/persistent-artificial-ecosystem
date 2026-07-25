@@ -15,7 +15,14 @@ const EVENT_LABELS = {
   disease: "Disease",
   extinction: "Extinction",
   immigration: "Immigration",
-  speciation: "Speciation"
+  speciation: "Speciation",
+  climate: "Climate shift",
+  era: "New era",
+  catastrophe: "Catastrophe",
+  migration: "Migration",
+  predation: "Predation",
+  innovation: "Innovation",
+  milestone: "Milestone"
 };
 
 async function loadWorld() {
@@ -199,6 +206,9 @@ function renderStatus(world) {
     ["Total population", formatNumber(stats.totalPopulation)],
     ["Biodiversity index", stats.biodiversity.toFixed(3)],
     ["Average food", stats.averageFood.toFixed(1)],
+    ["Current era", world.environment?.era?.name ?? "unrecorded"],
+    ["Temperature", world.environment ? `${Math.round(world.environment.temperature * 100)}%` : "unknown"],
+    ["Moisture", world.environment ? `${Math.round(world.environment.moisture * 100)}%` : "unknown"],
     ["Recent events", world.events.length]
   ];
 
@@ -230,15 +240,20 @@ function renderLegend(world) {
     .join("");
 }
 
-function speciesForBiome(world, biome) {
+function speciesForCell(world, cell) {
   return world.species
-    .filter((species) => species.population > 0 && species.traits.preferredBiome === biome)
-    .map((species) => species.name);
+    .map((species) => {
+      const local = species.range?.find((entry) => entry.x === cell.x && entry.y === cell.y);
+      return local ? { name: species.name, population: local.population } : null;
+    })
+    .filter(Boolean)
+    .sort((a, b) => b.population - a.population);
 }
 
 function renderCellDetails(world, cell) {
   const details = document.querySelector("#cell-details");
-  const speciesNames = speciesForBiome(world, cell.biome);
+  const localSpecies = speciesForCell(world, cell);
+  const speciesNames = localSpecies.map((species) => `${species.name} (${species.population})`);
 
   details.innerHTML = `
     <div>
@@ -247,7 +262,7 @@ function renderCellDetails(world, cell) {
     </div>
     <dl>
       <div><dt>Food</dt><dd>${escapeHTML(cell.food)}/10</dd></div>
-      <div><dt>Likely species</dt><dd>${speciesNames.length ? escapeHTML(speciesNames.join(", ")) : "none currently adapted"}</dd></div>
+      <div><dt>Local populations</dt><dd>${speciesNames.length ? escapeHTML(speciesNames.join(", ")) : "unoccupied"}</dd></div>
     </dl>
   `;
 }
@@ -259,7 +274,9 @@ function renderMap(world) {
   map.innerHTML = world.map.cells
     .map((cell) => {
       const foodPercent = `${Math.max(8, cell.food * 10)}%`;
-      const adaptedSpecies = speciesForBiome(world, cell.biome).join(", ") || "none";
+      const localSpecies = speciesForCell(world, cell);
+      const adaptedSpecies = localSpecies.map((species) => `${species.name} (${species.population})`).join(", ") || "none";
+      const localPopulation = localSpecies.reduce((sum, species) => sum + species.population, 0);
       const background = BIOME_COLORS[cell.biome] ?? "#7c867f";
 
       return `
@@ -268,11 +285,12 @@ function renderMap(world) {
           class="cell"
           data-x="${escapeHTML(cell.x)}"
           data-y="${escapeHTML(cell.y)}"
-          aria-label="${escapeHTML(`Cell ${cell.x}, ${cell.y}. ${cell.biome}. Food ${cell.food}. Adapted species: ${adaptedSpecies}.`)}"
-          title="${escapeHTML(`(${cell.x}, ${cell.y}) ${cell.biome}. Food ${cell.food}/10. Adapted species: ${adaptedSpecies}.`)}"
+          aria-label="${escapeHTML(`Cell ${cell.x}, ${cell.y}. ${cell.biome}. Food ${cell.food}. Local populations: ${adaptedSpecies}.`)}"
+          title="${escapeHTML(`(${cell.x}, ${cell.y}) ${cell.biome}. Food ${cell.food}/10. Local populations: ${adaptedSpecies}.`)}"
           style="background:${background}; --food-level:${escapeHTML(foodPercent)};"
         >
-          ${escapeHTML(cell.food)}
+          <span class="cell-food">${escapeHTML(cell.food)}</span>
+          ${localPopulation > 0 ? `<span class="cell-population">${escapeHTML(localPopulation)}</span>` : ""}
         </button>
       `;
     })
@@ -303,6 +321,10 @@ function renderSpecies(world) {
         )
         .join("");
       const state = species.population > 0 ? "living" : "extinct";
+      const ecology = species.ecology?.diet ?? "unknown";
+      const capabilities = species.capabilities?.length ? species.capabilities.join(", ") : "none yet";
+      const occupiedCells = species.range?.length ?? 0;
+      const lineage = species.lineage?.parent ? `descended from ${species.lineage.parent}` : "founding lineage";
 
       return `
         <article class="species-card ${state}">
@@ -310,6 +332,8 @@ function renderSpecies(world) {
             <span class="species-name">${escapeHTML(species.name)}</span>
             <span class="population">${escapeHTML(species.population)} alive · ${escapeHTML(state)}</span>
           </div>
+          <p class="species-ecology">${escapeHTML(ecology)} · ${escapeHTML(occupiedCells)} occupied cells · ${escapeHTML(lineage)}</p>
+          <p class="species-capabilities"><strong>Innovations:</strong> ${escapeHTML(capabilities)}</p>
           <div class="traits">${traits}</div>
         </article>
       `;

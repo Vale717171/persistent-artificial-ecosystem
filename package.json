@@ -6,6 +6,7 @@
   "scripts": {
     "simulate": "node scripts/simulate.js",
     "simulate:week": "node scripts/simulate.js 7",
+    "test": "node --test",
     "serve": "python3 -m http.server 4173"
   },
   "engines": {

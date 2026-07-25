@@ -29,7 +29,12 @@ GitHub is not just hosting for this project. It is the machinery of the world:
 - Local and GitHub Actions simulation runner.
 - Grid map with biomes, food values, and per-cell details.
 - Species with simple traits: preferred biome, size, speed, fertility, resilience, and metabolism.
-- Reproduction, mutation, death, and extinction events.
+- Spatial populations that migrate, colonize cells, and become geographically isolated.
+- Climate drift, named ecological eras, local catastrophes, and biome-specific productivity.
+- Emergent grazer, omnivore, and predator interactions where ranges overlap.
+- Lineage-aware speciation that splits a real parent population.
+- Rare irreversible innovations such as flight, venom, dormancy, and photosynthesis.
+- Reproduction, mutation, predation, death, extinction, and milestone events.
 - Browser UI for world status, map, species list, event timeline, fossil record, and population trends.
 - Biodiversity index, living/extinct species counts, total population, and average food metrics.
 - Cache-busted `data/world.json` loading so the Pages UI asks for fresh state on every page load.
@@ -111,7 +116,9 @@ This makes GitHub itself the persistence layer. The commit history becomes a dur
 - **Fair species processing:** living species are shuffled with the seeded RNG before each tick, so earlier species in the JSON array do not always consume food first.
 - **Births and deaths:** rates mean expected births or deaths per individual for a tick. The simulator uses probabilistic rounding instead of multiplying rates by an extra random factor, which makes outcomes easier to reason about while preserving variation.
 - **Autonomous novelty:** rare immigration or speciation events can introduce new species without user input, comments, commands, LLM calls, or external services.
-- **Limits:** this is still a small toy ecosystem. It has no spatial movement, no predator/prey model, no genetics beyond simple trait mutation, and no backend process beyond scheduled GitHub Actions.
+- **Open-ended pressure:** climate, movement, local encounters, lineage divergence, and irreversible innovations interact. There is no scripted target state or predetermined ending.
+- **Migration:** old version-1 worlds are upgraded lazily on their next tick. The existing tick count, event history, RNG state, and fossil record remain intact.
+- **Limits:** this remains a toy ecosystem rather than a biological model. Its rules are deliberately legible and dependency-free.
 
 ## Reddit-Ready Short Explanation
 
@@ -141,14 +148,15 @@ It is intentionally simple, but the fun part is the persistence model: GitHub hi
     └── evolve-world.yml        Scheduled world evolution
 ```
 
-The simulation is intentionally simple:
+The simulation is intentionally compact but now produces interacting histories:
 
-- Food regrows by biome each tick.
-- Species consume food from their preferred biome.
-- Births are affected by fertility, food availability, and size.
-- Deaths are affected by scarcity, metabolism, and resilience.
-- Mutations occasionally nudge numeric traits up or down.
-- Random events can reduce food, create blooms, or cause disease.
+- Climate drifts and changes how productive each biome is.
+- Populations migrate toward locally suitable neighboring cells.
+- Births and deaths respond to food, habitat stress, metabolism, and resilience.
+- Predators can hunt only prey whose spatial ranges overlap.
+- Mutations accumulate divergence; isolated populations can split into descendant species.
+- Rare innovations permanently add new ecological capabilities.
+- Random events range from food blooms and disease to localized catastrophes.
 - Any species reaching zero population is recorded as extinct.
 
 ## Data Model
@@ -158,18 +166,18 @@ The simulation is intentionally simple:
 - `tick`: current simulation tick.
 - `updatedAt`: last evolution timestamp.
 - `map`: grid dimensions and cells.
-- `species`: living or extinct species and their traits.
+- `environment`: climate, volatility, current named era, and era history.
+- `species`: living species, traits, ecology, capabilities, lineage, and per-cell ranges.
 - `events`: recent event log.
 - `history`: population snapshots for trend rendering.
 - `extinctions`: permanent extinction records.
+- `milestones`: first occurrences and major thresholds reached by the world.
+- `rng`: persistent seed and state for reproducible histories.
 
 ## Future Roadmap
 
-- Add species positions and movement between cells.
-- Add predator/prey relationships and trophic levels.
-- Add seeded randomness for reproducible simulation runs.
 - Split world data into multiple JSON files once the ecosystem grows.
 - Add visual overlays for population density and food pressure.
 - Add branch-based experiments for alternate evolutionary histories.
-- Add GitHub issue generation for major ecological events.
+- Add optional GitHub issue generation for major ecological events.
 - Add import/export tools for user-created species and maps.

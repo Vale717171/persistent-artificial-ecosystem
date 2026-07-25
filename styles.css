@@ -286,6 +286,25 @@ code {
   background: rgba(255, 255, 255, 0.55);
 }
 
+.cell-food,
+.cell-population {
+  position: relative;
+  z-index: 1;
+}
+
+.cell-population {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  min-width: 16px;
+  padding: 2px 4px;
+  border-radius: 999px;
+  background: rgba(24, 32, 27, 0.82);
+  color: #fff;
+  font-size: 0.58rem;
+  line-height: 1.2;
+}
+
 .cell:hover,
 .cell:focus-visible {
   outline: 3px solid rgba(24, 32, 27, 0.55);
@@ -364,6 +383,13 @@ code {
   font-variant-numeric: tabular-nums;
 }
 
+.species-ecology,
+.species-capabilities {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
 .traits {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -433,12 +459,21 @@ code {
 
 .event-disturbance::before,
 .event-disease::before,
-.event-extinction::before {
+.event-extinction::before,
+.event-catastrophe::before {
   background: var(--danger);
 }
 
-.event-bloom::before {
+.event-bloom::before,
+.event-era::before,
+.event-climate::before {
   background: var(--grassland);
+}
+
+.event-innovation::before,
+.event-speciation::before,
+.event-milestone::before {
+  background: #7a4fa3;
 }
 
 .event-type {

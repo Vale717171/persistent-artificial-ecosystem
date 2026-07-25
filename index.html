@@ -37,9 +37,10 @@
           <p>
             This abstract world evolves every 6 hours. GitHub Actions runs the simulation,
             <code>data/world.json</code> stores the current state, and the UI fossil record
-            lists retained extinctions. Git commit history is the deeper fossil layer. The
-            system is autonomous, not user-controlled, and is a toy ecosystem rather than a
-            biological model.
+            lists retained extinctions. Populations migrate between cells, climate creates
+            named eras, predators and prey meet locally, and isolated populations can become
+            new species. Rare innovations and catastrophes can redirect the world for good.
+            Git commit history is the deeper fossil layer.
           </p>
           <a href="https://github.com/Vale717171/persistent-artificial-ecosystem/commits/main/data/world.json">View world-state commit history</a>
         </div>
@@ -51,7 +52,7 @@
           <a href="reports/long-run-1000.html">Read the HTML report</a>
           <a href="reports/stability-summary.html">Compare 30 seeded runs</a>
           <p class="report-caveat">
-            Across 30 seeds × 1,000 ticks, none collapsed or exploded under the current parameters.
+            The reference sweep tests whether open-ended evolution remains active across many possible histories.
           </p>
         </aside>
       </section>
