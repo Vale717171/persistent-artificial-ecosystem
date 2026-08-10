@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "tick": 242,
-  "updatedAt": "2026-08-10T11:43:19.437Z",
+  "tick": 243,
+  "updatedAt": "2026-08-10T17:43:19.437Z",
   "map": {
     "width": 12,
     "height": 8,
@@ -46,19 +46,19 @@
         "x": 6,
         "y": 0,
         "biome": "wetland",
-        "food": 0
+        "food": 2
       },
       {
         "x": 7,
         "y": 0,
         "biome": "wetland",
-        "food": 0
+        "food": 2
       },
       {
         "x": 8,
         "y": 0,
         "biome": "wetland",
-        "food": 6
+        "food": 0
       },
       {
         "x": 9,
@@ -118,13 +118,13 @@
         "x": 6,
         "y": 1,
         "biome": "wetland",
-        "food": 0
+        "food": 2
       },
       {
         "x": 7,
         "y": 1,
         "biome": "wetland",
-        "food": 0
+        "food": 2
       },
       {
         "x": 8,
@@ -286,13 +286,13 @@
         "x": 10,
         "y": 3,
         "biome": "mountain",
-        "food": 3
+        "food": 0
       },
       {
         "x": 11,
         "y": 3,
         "biome": "mountain",
-        "food": 0
+        "food": 1
       },
       {
         "x": 0,
@@ -604,24 +604,29 @@
           "population": 16
         },
         {
-          "x": 0,
-          "y": 0,
+          "x": 1,
+          "y": 1,
           "population": 6
         },
         {
-          "x": 1,
-          "y": 1,
+          "x": 0,
+          "y": 0,
           "population": 5
         },
         {
           "x": 0,
           "y": 2,
-          "population": 5
+          "population": 4
         },
         {
           "x": 1,
           "y": 0,
           "population": 4
+        },
+        {
+          "x": 2,
+          "y": 0,
+          "population": 1
         }
       ],
       "ecology": {
@@ -653,7 +658,7 @@
         {
           "x": 7,
           "y": 0,
-          "population": 12
+          "population": 11
         },
         {
           "x": 6,
@@ -669,6 +674,11 @@
           "x": 7,
           "y": 1,
           "population": 2
+        },
+        {
+          "x": 8,
+          "y": 0,
+          "population": 1
         }
       ],
       "ecology": {
@@ -688,7 +698,7 @@
     {
       "id": "dustskipper",
       "name": "Dustskipper",
-      "population": 30,
+      "population": 28,
       "traits": {
         "preferredBiome": "desert",
         "size": 3,
@@ -711,12 +721,17 @@
         {
           "x": 4,
           "y": 3,
-          "population": 5
+          "population": 4
         },
         {
           "x": 3,
           "y": 3,
           "population": 4
+        },
+        {
+          "x": 3,
+          "y": 2,
+          "population": 3
         },
         {
           "x": 5,
@@ -726,16 +741,6 @@
         {
           "x": 5,
           "y": 3,
-          "population": 2
-        },
-        {
-          "x": 3,
-          "y": 2,
-          "population": 2
-        },
-        {
-          "x": 4,
-          "y": 4,
           "population": 1
         }
       ],
@@ -753,7 +758,7 @@
     {
       "id": "cragback",
       "name": "Cragback",
-      "population": 45,
+      "population": 44,
       "traits": {
         "preferredBiome": "mountain",
         "size": 5,
@@ -766,22 +771,27 @@
         {
           "x": 11,
           "y": 1,
-          "population": 21
+          "population": 20
         },
         {
           "x": 11,
           "y": 2,
-          "population": 11
+          "population": 10
         },
         {
           "x": 11,
           "y": 0,
-          "population": 10
+          "population": 9
         },
         {
           "x": 10,
           "y": 2,
           "population": 3
+        },
+        {
+          "x": 10,
+          "y": 1,
+          "population": 2
         }
       ],
       "ecology": {
@@ -798,7 +808,7 @@
     {
       "id": "lumenskipper",
       "name": "Lumenskipper",
-      "population": 24,
+      "population": 23,
       "traits": {
         "preferredBiome": "grassland",
         "size": 2,
@@ -825,7 +835,7 @@
         {
           "x": 4,
           "y": 1,
-          "population": 3
+          "population": 2
         },
         {
           "x": 2,
@@ -858,6 +868,61 @@
     }
   ],
   "events": [
+    {
+      "tick": 243,
+      "type": "population",
+      "message": "Cragback changed by +5 births and -6 deaths.",
+      "impact": {
+        "species": "cragback",
+        "births": 5,
+        "deaths": 6,
+        "population": 44
+      }
+    },
+    {
+      "tick": 243,
+      "type": "population",
+      "message": "Lumenskipper changed by +3 births and -4 deaths.",
+      "impact": {
+        "species": "lumenskipper",
+        "births": 3,
+        "deaths": 4,
+        "population": 23
+      }
+    },
+    {
+      "tick": 243,
+      "type": "population",
+      "message": "Reedgrazer changed by +2 births and -2 deaths.",
+      "impact": {
+        "species": "reedgrazer",
+        "births": 2,
+        "deaths": 2,
+        "population": 20
+      }
+    },
+    {
+      "tick": 243,
+      "type": "population",
+      "message": "Dustskipper changed by +4 births and -6 deaths.",
+      "impact": {
+        "species": "dustskipper",
+        "births": 4,
+        "deaths": 6,
+        "population": 28
+      }
+    },
+    {
+      "tick": 243,
+      "type": "population",
+      "message": "Mossling changed by +4 births and -4 deaths.",
+      "impact": {
+        "species": "mossling",
+        "births": 4,
+        "deaths": 4,
+        "population": 36
+      }
+    },
     {
       "tick": 242,
       "type": "population",
@@ -1674,75 +1739,9 @@
         "before": 3,
         "after": 2
       }
-    },
-    {
-      "tick": 229,
-      "type": "population",
-      "message": "Mossling changed by +7 births and -8 deaths.",
-      "impact": {
-        "species": "mossling",
-        "births": 7,
-        "deaths": 8,
-        "population": 58
-      }
-    },
-    {
-      "tick": 229,
-      "type": "population",
-      "message": "Dustskipper changed by +4 births and -3 deaths.",
-      "impact": {
-        "species": "dustskipper",
-        "births": 4,
-        "deaths": 3,
-        "population": 28
-      }
-    },
-    {
-      "tick": 229,
-      "type": "population",
-      "message": "Lumenskipper changed by +3 births and -5 deaths.",
-      "impact": {
-        "species": "lumenskipper",
-        "births": 3,
-        "deaths": 5,
-        "population": 26
-      }
-    },
-    {
-      "tick": 229,
-      "type": "mutation",
-      "message": "Lumenskipper mutation shifted metabolism up.",
-      "impact": {
-        "species": "lumenskipper",
-        "trait": "metabolism",
-        "delta": 1,
-        "before": 7,
-        "after": 8
-      }
-    },
-    {
-      "tick": 229,
-      "type": "population",
-      "message": "Cragback changed by +4 births and -4 deaths.",
-      "impact": {
-        "species": "cragback",
-        "births": 4,
-        "deaths": 4,
-        "population": 28
-      }
     }
   ],
   "history": [
-    {
-      "tick": 163,
-      "populations": {
-        "mossling": 166,
-        "reedgrazer": 71,
-        "dustskipper": 60,
-        "cragback": 47,
-        "lumenskipper": 135
-      }
-    },
     {
       "tick": 164,
       "populations": {
@@ -2532,6 +2531,16 @@
         "cragback": 45,
         "lumenskipper": 24
       }
+    },
+    {
+      "tick": 243,
+      "populations": {
+        "mossling": 36,
+        "reedgrazer": 20,
+        "dustskipper": 28,
+        "cragback": 44,
+        "lumenskipper": 23
+      }
     }
   ],
   "extinctions": [
@@ -2593,16 +2602,16 @@
   "rng": {
     "algorithm": "xorshift32",
     "seed": 439041101,
-    "state": 938640585
+    "state": 1805876960
   },
-  "latestTickAt": "2026-08-10T11:43:19.437Z",
+  "latestTickAt": "2026-08-10T17:43:19.437Z",
   "tickIntervalHours": 6,
   "environment": {
-    "temperature": 0.775571898443183,
-    "moisture": 0.8005807671682754,
+    "temperature": 0.7837651347549559,
+    "moisture": 0.7940072301937654,
     "volatility": 0.14210653207264842,
-    "temperatureTrend": 0.010053692508015624,
-    "moistureTrend": 0.003690202825342722,
+    "temperatureTrend": 0.009902887120395389,
+    "moistureTrend": -0.0032601502170374187,
     "era": {
       "name": "Long Summer",
       "kind": "warm",
