@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "tick": 357,
-  "updatedAt": "2026-09-08T05:43:19.437Z",
+  "tick": 358,
+  "updatedAt": "2026-09-08T11:43:19.437Z",
   "map": {
     "width": 12,
     "height": 8,
@@ -52,7 +52,7 @@
         "x": 7,
         "y": 0,
         "biome": "wetland",
-        "food": 3
+        "food": 4
       },
       {
         "x": 8,
@@ -76,7 +76,7 @@
         "x": 11,
         "y": 0,
         "biome": "mountain",
-        "food": 1
+        "food": 0
       },
       {
         "x": 0,
@@ -94,7 +94,7 @@
         "x": 2,
         "y": 1,
         "biome": "grassland",
-        "food": 2
+        "food": 3
       },
       {
         "x": 3,
@@ -280,7 +280,7 @@
         "x": 9,
         "y": 3,
         "biome": "mountain",
-        "food": 8
+        "food": 10
       },
       {
         "x": 10,
@@ -538,7 +538,7 @@
         "x": 4,
         "y": 7,
         "biome": "mountain",
-        "food": 8
+        "food": 9
       },
       {
         "x": 5,
@@ -630,10 +630,10 @@
     {
       "id": "dustskipper",
       "name": "Dustskipper",
-      "population": 93,
+      "population": 86,
       "traits": {
         "preferredBiome": "desert",
-        "size": 3,
+        "size": 2,
         "speed": 7,
         "fertility": 6,
         "resilience": 2,
@@ -643,36 +643,31 @@
         {
           "x": 4,
           "y": 3,
-          "population": 40
+          "population": 39
         },
         {
           "x": 4,
           "y": 4,
-          "population": 20
+          "population": 21
         },
         {
           "x": 3,
           "y": 3,
-          "population": 15
+          "population": 14
         },
         {
           "x": 3,
-          "y": 2,
-          "population": 8
-        },
-        {
-          "x": 4,
           "y": 2,
           "population": 6
         },
         {
-          "x": 5,
-          "y": 3,
-          "population": 3
+          "x": 4,
+          "y": 2,
+          "population": 5
         },
         {
           "x": 5,
-          "y": 2,
+          "y": 3,
           "population": 1
         }
       ],
@@ -685,15 +680,15 @@
         "generation": 0,
         "bornAt": 0
       },
-      "divergence": 14
+      "divergence": 15
     },
     {
       "id": "cragback",
       "name": "Cragback",
-      "population": 33,
+      "population": 30,
       "traits": {
         "preferredBiome": "mountain",
-        "size": 6,
+        "size": 5,
         "speed": 1,
         "fertility": 7,
         "resilience": 8,
@@ -703,7 +698,7 @@
         {
           "x": 11,
           "y": 2,
-          "population": 14
+          "population": 12
         },
         {
           "x": 11,
@@ -713,7 +708,7 @@
         {
           "x": 10,
           "y": 2,
-          "population": 7
+          "population": 6
         },
         {
           "x": 10,
@@ -732,12 +727,12 @@
         "generation": 0,
         "bornAt": 0
       },
-      "divergence": 9
+      "divergence": 10
     },
     {
       "id": "lumenskipper",
       "name": "Lumenskipper",
-      "population": 3,
+      "population": 2,
       "traits": {
         "preferredBiome": "grassland",
         "size": 4,
@@ -760,11 +755,6 @@
           "x": 4,
           "y": 0,
           "population": 1
-        },
-        {
-          "x": 3,
-          "y": 0,
-          "population": 1
         }
       ],
       "ecology": {
@@ -784,7 +774,7 @@
     {
       "id": "thornsprout",
       "name": "Thornsprout",
-      "population": 19,
+      "population": 21,
       "traits": {
         "preferredBiome": "mountain",
         "size": 6,
@@ -814,7 +804,7 @@
         {
           "x": 11,
           "y": 1,
-          "population": 13
+          "population": 15
         },
         {
           "x": 11,
@@ -835,6 +825,85 @@
     }
   ],
   "events": [
+    {
+      "tick": 358,
+      "type": "population",
+      "message": "Mossling changed by +1 births and -1 deaths.",
+      "impact": {
+        "species": "mossling",
+        "births": 1,
+        "deaths": 1,
+        "population": 6
+      }
+    },
+    {
+      "tick": 358,
+      "type": "population",
+      "message": "Lumenskipper changed by +0 births and -1 deaths.",
+      "impact": {
+        "species": "lumenskipper",
+        "births": 0,
+        "deaths": 1,
+        "population": 2
+      }
+    },
+    {
+      "tick": 358,
+      "type": "population",
+      "message": "Thornsprout changed by +3 births and -1 deaths.",
+      "impact": {
+        "species": "thornsprout",
+        "births": 3,
+        "deaths": 1,
+        "population": 21
+      }
+    },
+    {
+      "tick": 358,
+      "type": "population",
+      "message": "Dustskipper changed by +10 births and -17 deaths.",
+      "impact": {
+        "species": "dustskipper",
+        "births": 10,
+        "deaths": 17,
+        "population": 86
+      }
+    },
+    {
+      "tick": 358,
+      "type": "mutation",
+      "message": "Dustskipper mutation shifted size down.",
+      "impact": {
+        "species": "dustskipper",
+        "trait": "size",
+        "delta": -1,
+        "before": 3,
+        "after": 2
+      }
+    },
+    {
+      "tick": 358,
+      "type": "population",
+      "message": "Cragback changed by +3 births and -6 deaths.",
+      "impact": {
+        "species": "cragback",
+        "births": 3,
+        "deaths": 6,
+        "population": 30
+      }
+    },
+    {
+      "tick": 358,
+      "type": "mutation",
+      "message": "Cragback mutation shifted size down.",
+      "impact": {
+        "species": "cragback",
+        "trait": "size",
+        "delta": -1,
+        "before": 6,
+        "after": 5
+      }
+    },
     {
       "tick": 357,
       "type": "population",
@@ -1639,96 +1708,9 @@
         "deaths": 2,
         "population": 7
       }
-    },
-    {
-      "tick": 345,
-      "type": "population",
-      "message": "Mossling changed by +0 births and -2 deaths.",
-      "impact": {
-        "species": "mossling",
-        "births": 0,
-        "deaths": 2,
-        "population": 8
-      }
-    },
-    {
-      "tick": 345,
-      "type": "population",
-      "message": "Lumenskipper changed by +2 births and -1 deaths.",
-      "impact": {
-        "species": "lumenskipper",
-        "births": 2,
-        "deaths": 1,
-        "population": 9
-      }
-    },
-    {
-      "tick": 345,
-      "type": "population",
-      "message": "Dustskipper changed by +11 births and -14 deaths.",
-      "impact": {
-        "species": "dustskipper",
-        "births": 11,
-        "deaths": 14,
-        "population": 89
-      }
-    },
-    {
-      "tick": 344,
-      "type": "population",
-      "message": "Dustskipper changed by +12 births and -13 deaths.",
-      "impact": {
-        "species": "dustskipper",
-        "births": 12,
-        "deaths": 13,
-        "population": 92
-      }
-    },
-    {
-      "tick": 344,
-      "type": "population",
-      "message": "Thornsprout changed by +1 births and -0 deaths.",
-      "impact": {
-        "species": "thornsprout",
-        "births": 1,
-        "deaths": 0,
-        "population": 9
-      }
-    },
-    {
-      "tick": 344,
-      "type": "population",
-      "message": "Lumenskipper changed by +1 births and -3 deaths.",
-      "impact": {
-        "species": "lumenskipper",
-        "births": 1,
-        "deaths": 3,
-        "population": 8
-      }
-    },
-    {
-      "tick": 344,
-      "type": "population",
-      "message": "Cragback changed by +7 births and -2 deaths.",
-      "impact": {
-        "species": "cragback",
-        "births": 7,
-        "deaths": 2,
-        "population": 45
-      }
     }
   ],
   "history": [
-    {
-      "tick": 278,
-      "populations": {
-        "mossling": 24,
-        "reedgrazer": 14,
-        "dustskipper": 29,
-        "cragback": 58,
-        "lumenskipper": 24
-      }
-    },
     {
       "tick": 279,
       "populations": {
@@ -2556,6 +2538,16 @@
         "lumenskipper": 3,
         "thornsprout": 19
       }
+    },
+    {
+      "tick": 358,
+      "populations": {
+        "mossling": 6,
+        "dustskipper": 86,
+        "cragback": 30,
+        "lumenskipper": 2,
+        "thornsprout": 21
+      }
     }
   ],
   "extinctions": [
@@ -2708,16 +2700,16 @@
   "rng": {
     "algorithm": "xorshift32",
     "seed": 439041101,
-    "state": 896692337
+    "state": 1975233097
   },
-  "latestTickAt": "2026-09-08T05:43:19.437Z",
+  "latestTickAt": "2026-09-08T11:43:19.437Z",
   "tickIntervalHours": 6,
   "environment": {
-    "temperature": 0.9265869009222364,
-    "moisture": 0.07531295498366117,
+    "temperature": 0.9323581709904792,
+    "moisture": 0.06831034308168747,
     "volatility": 0.14210653207264842,
-    "temperatureTrend": 0.00554217651051717,
-    "moistureTrend": -0.01193718741986643,
+    "temperatureTrend": 0.005459043862859413,
+    "moistureTrend": -0.011758129608568433,
     "era": {
       "name": "Long Summer",
       "kind": "warm",
