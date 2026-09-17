@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "tick": 385,
-  "updatedAt": "2026-09-15T05:43:19.437Z",
+  "tick": 386,
+  "updatedAt": "2026-09-15T11:43:19.437Z",
   "map": {
     "width": 12,
     "height": 8,
@@ -22,7 +22,7 @@
         "x": 2,
         "y": 0,
         "biome": "forest",
-        "food": 3
+        "food": 4
       },
       {
         "x": 3,
@@ -52,7 +52,7 @@
         "x": 7,
         "y": 0,
         "biome": "wetland",
-        "food": 6
+        "food": 7
       },
       {
         "x": 8,
@@ -76,7 +76,7 @@
         "x": 11,
         "y": 0,
         "biome": "mountain",
-        "food": 1
+        "food": 2
       },
       {
         "x": 0,
@@ -154,7 +154,7 @@
         "x": 0,
         "y": 2,
         "biome": "forest",
-        "food": 3
+        "food": 4
       },
       {
         "x": 1,
@@ -214,7 +214,7 @@
         "x": 10,
         "y": 2,
         "biome": "mountain",
-        "food": 1
+        "food": 0
       },
       {
         "x": 11,
@@ -286,7 +286,7 @@
         "x": 10,
         "y": 3,
         "biome": "mountain",
-        "food": 0
+        "food": 1
       },
       {
         "x": 11,
@@ -586,41 +586,9 @@
   },
   "species": [
     {
-      "id": "mossling",
-      "name": "Mossling",
-      "population": 1,
-      "traits": {
-        "preferredBiome": "forest",
-        "size": 5,
-        "speed": 4,
-        "fertility": 2,
-        "resilience": 9,
-        "metabolism": 4
-      },
-      "range": [
-        {
-          "x": 0,
-          "y": 1,
-          "population": 1
-        }
-      ],
-      "ecology": {
-        "diet": "grazer"
-      },
-      "capabilities": [
-        "nocturnal"
-      ],
-      "lineage": {
-        "parent": null,
-        "generation": 0,
-        "bornAt": 0
-      },
-      "divergence": 25
-    },
-    {
       "id": "dustskipper",
       "name": "Dustskipper",
-      "population": 161,
+      "population": 155,
       "traits": {
         "preferredBiome": "desert",
         "size": 3,
@@ -638,17 +606,17 @@
         {
           "x": 3,
           "y": 3,
-          "population": 26
+          "population": 29
         },
         {
           "x": 5,
           "y": 3,
-          "population": 20
+          "population": 19
         },
         {
           "x": 4,
           "y": 4,
-          "population": 18
+          "population": 15
         },
         {
           "x": 4,
@@ -658,17 +626,17 @@
         {
           "x": 5,
           "y": 2,
-          "population": 12
+          "population": 10
         },
         {
           "x": 3,
           "y": 2,
-          "population": 10
+          "population": 9
         },
         {
           "x": 5,
           "y": 1,
-          "population": 3
+          "population": 1
         }
       ],
       "ecology": {
@@ -685,7 +653,7 @@
     {
       "id": "cragback",
       "name": "Cragback",
-      "population": 19,
+      "population": 22,
       "traits": {
         "preferredBiome": "mountain",
         "size": 6,
@@ -698,17 +666,17 @@
         {
           "x": 11,
           "y": 3,
-          "population": 12
+          "population": 13
         },
         {
           "x": 10,
           "y": 3,
-          "population": 3
+          "population": 4
         },
         {
           "x": 11,
           "y": 2,
-          "population": 2
+          "population": 3
         },
         {
           "x": 10,
@@ -814,6 +782,58 @@
     }
   ],
   "events": [
+    {
+      "tick": 386,
+      "type": "population",
+      "message": "Thornsprout changed by +1 births and -1 deaths.",
+      "impact": {
+        "species": "thornsprout",
+        "births": 1,
+        "deaths": 1,
+        "population": 4
+      }
+    },
+    {
+      "tick": 386,
+      "type": "population",
+      "message": "Mossling changed by +0 births and -1 deaths.",
+      "impact": {
+        "species": "mossling",
+        "births": 0,
+        "deaths": 1,
+        "population": 0
+      }
+    },
+    {
+      "tick": 386,
+      "type": "population",
+      "message": "Cragback changed by +4 births and -1 deaths.",
+      "impact": {
+        "species": "cragback",
+        "births": 4,
+        "deaths": 1,
+        "population": 22
+      }
+    },
+    {
+      "tick": 386,
+      "type": "population",
+      "message": "Dustskipper changed by +18 births and -24 deaths.",
+      "impact": {
+        "species": "dustskipper",
+        "births": 18,
+        "deaths": 24,
+        "population": 155
+      }
+    },
+    {
+      "tick": 386,
+      "type": "extinction",
+      "message": "Mossling went extinct at tick 386.",
+      "impact": {
+        "species": "mossling"
+      }
+    },
     {
       "tick": 385,
       "type": "population",
@@ -1655,76 +1675,9 @@
         "before": 2,
         "after": 3
       }
-    },
-    {
-      "tick": 369,
-      "type": "population",
-      "message": "Thornsprout changed by +2 births and -2 deaths.",
-      "impact": {
-        "species": "thornsprout",
-        "births": 2,
-        "deaths": 2,
-        "population": 18
-      }
-    },
-    {
-      "tick": 368,
-      "type": "population",
-      "message": "Dustskipper changed by +14 births and -17 deaths.",
-      "impact": {
-        "species": "dustskipper",
-        "births": 14,
-        "deaths": 17,
-        "population": 100
-      }
-    },
-    {
-      "tick": 368,
-      "type": "population",
-      "message": "Thornsprout changed by +3 births and -1 deaths.",
-      "impact": {
-        "species": "thornsprout",
-        "births": 3,
-        "deaths": 1,
-        "population": 18
-      }
-    },
-    {
-      "tick": 368,
-      "type": "mutation",
-      "message": "Thornsprout mutation shifted metabolism up.",
-      "impact": {
-        "species": "thornsprout",
-        "trait": "metabolism",
-        "delta": 1,
-        "before": 4,
-        "after": 5
-      }
-    },
-    {
-      "tick": 368,
-      "type": "population",
-      "message": "Cragback changed by +3 births and -5 deaths.",
-      "impact": {
-        "species": "cragback",
-        "births": 3,
-        "deaths": 5,
-        "population": 28
-      }
     }
   ],
   "history": [
-    {
-      "tick": 306,
-      "populations": {
-        "mossling": 29,
-        "reedgrazer": 8,
-        "dustskipper": 68,
-        "cragback": 94,
-        "lumenskipper": 17,
-        "silverweaver": 1
-      }
-    },
     {
       "tick": 307,
       "populations": {
@@ -2515,6 +2468,15 @@
         "thornsprout": 4,
         "ambermote": 1
       }
+    },
+    {
+      "tick": 386,
+      "populations": {
+        "dustskipper": 155,
+        "cragback": 22,
+        "thornsprout": 4,
+        "ambermote": 1
+      }
     }
   ],
   "extinctions": [
@@ -2693,21 +2655,51 @@
         "type": "immigration"
       },
       "message": "Lumenskipper went extinct at tick 362."
+    },
+    {
+      "tick": 386,
+      "species": "mossling",
+      "name": "Mossling",
+      "traits": {
+        "preferredBiome": "forest",
+        "size": 5,
+        "speed": 4,
+        "fertility": 2,
+        "resilience": 9,
+        "metabolism": 4
+      },
+      "ecology": {
+        "diet": "grazer"
+      },
+      "capabilities": [
+        "nocturnal"
+      ],
+      "lineage": {
+        "parent": null,
+        "generation": 0,
+        "bornAt": 0
+      },
+      "lastRange": [],
+      "origin": {
+        "tick": 0,
+        "type": "seed"
+      },
+      "message": "Mossling went extinct at tick 386."
     }
   ],
   "rng": {
     "algorithm": "xorshift32",
     "seed": 439041101,
-    "state": 1678087831
+    "state": 2032635315
   },
-  "latestTickAt": "2026-09-15T05:43:19.437Z",
+  "latestTickAt": "2026-09-15T11:43:19.437Z",
   "tickIntervalHours": 6,
   "environment": {
-    "temperature": 0.96,
+    "temperature": 0.9595835482535123,
     "moisture": 0.04,
     "volatility": 0.14210653207264842,
-    "temperatureTrend": 0.0036299012238952045,
-    "moistureTrend": -0.00895878600662189,
+    "temperatureTrend": 0.0035754527055367764,
+    "moistureTrend": -0.008824404216522561,
     "era": {
       "name": "Long Summer",
       "kind": "warm",
