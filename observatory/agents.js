@@ -139,6 +139,14 @@ export class AgentSystem {
         until: this.time + 40
       });
       agent.homeCell = { x: destinationCell.x, y: destinationCell.y };
+      // The colonists remember the new land: without this they would drift
+      // back to the old range within seconds of arriving.
+      const knowsDestination = agent.rangeCells.some(
+        (cell) => cell.x === destinationCell.x && cell.y === destinationCell.y
+      );
+      if (!knowsDestination) {
+        agent.rangeCells.push({ x: destinationCell.x, y: destinationCell.y });
+      }
     });
     return list;
   }
@@ -626,7 +634,7 @@ class Agent {
 
       case "stalk": {
         const prey = this.stateData.prey;
-        if (!prey || prey.state === "dead" || prey.hidden || this.stateT > (this.stateData.duration ?? 5)) {
+        if (!prey || prey.state === "dead" || prey.hidden || prey.state === "burrow" || this.stateT > (this.stateData.duration ?? 5)) {
           this.think();
           break;
         }
@@ -646,7 +654,7 @@ class Agent {
 
       case "charge": {
         const prey = this.stateData.prey;
-        if (!prey || prey.state === "dead" || prey.hidden) {
+        if (!prey || prey.state === "dead" || prey.hidden || prey.state === "burrow") {
           this.think();
           break;
         }
@@ -939,8 +947,13 @@ class Agent {
     this.hunger = 0.2;
     this.stats = { meals: 0, hunts: 0, huntsWon: 0, escapes: 0, friends: 0 };
 
-    // A new individual deserves a new nameplate.
-    this.group.remove(this.parts.label);
+    // A new individual deserves a new nameplate — dispose of the old one.
+    const oldLabel = this.parts.label;
+    this.group.remove(oldLabel);
+    if (oldLabel.material) {
+      oldLabel.material.map?.dispose();
+      oldLabel.material.dispose();
+    }
     this.parts.label = makeLabel(this.name, this.champion, this.epithet);
     this.parts.label.position.y = 1.5;
     this.group.add(this.parts.label);
@@ -1098,6 +1111,8 @@ class Agent {
     }
     if (this.ctx.director?.followAgent === this) labelOpacity = 1;
     parts.label.material.opacity += (labelOpacity - parts.label.material.opacity) * Math.min(1, dt * 4);
+    // Fully transparent labels stay out of the render list entirely.
+    parts.label.visible = parts.label.material.opacity > 0.02;
   }
 
   /* ---------------------------- helpers ---------------------------- */

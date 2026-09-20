@@ -168,7 +168,9 @@ test("the UI cards render without errors", () => {
   const agent = ctx.agents.agents.find((a) => a.state !== "dead");
   ctx.ui.showAgentCard(agent);
   ctx.ui.showCellCard(WORLD.map.cells[0]);
-  ctx.ui.showFossilCard(WORLD.extinctions[0]);
+  if (WORLD.extinctions.length > 0) {
+    ctx.ui.showFossilCard(WORLD.extinctions[0]);
+  }
   ctx.ui.addChronicle({ icon: "✅", text: "test entry" });
   ctx.ui.setWorldSummary(WORLD);
   ctx.ui.refreshAgentCounts();

@@ -6,10 +6,14 @@
 (function () {
   "use strict";
 
+  // Captured synchronously: document.currentScript is null once we await.
+  const SCRIPT_URL = (document.currentScript && document.currentScript.src)
+    || new URL("observatory/bootstrap.js", document.baseURI).href;
+
+  // Both CDNs serve the raw npm package, so the module path is identical.
   const CDNS = [
     "https://cdn.jsdelivr.net/npm/three@0.169.0",
-    "https://unpkg.com/three@0.169.0",
-    "https://esm.sh/three@0.169.0"
+    "https://unpkg.com/three@0.169.0"
   ];
 
   const status = document.getElementById("loading-status");
@@ -40,6 +44,17 @@
   }
 
   async function boot() {
+    if (typeof window !== "undefined" && !("WebGLRenderingContext" in window)) {
+      fail("Questo dispositivo o browser non supporta WebGL, necessario per il motore 3D.");
+      return;
+    }
+    if (typeof HTMLScriptElement !== "undefined"
+      && typeof HTMLScriptElement.supports === "function"
+      && !HTMLScriptElement.supports("importmap")) {
+      fail("Questo browser non supporta le import map (richieste per caricare three.js). Aggiorna il browser all'ultima versione e ricarica.");
+      return;
+    }
+
     setStatus("Cerco il motore grafico (three.js)…");
     const base = await pickCdn();
     if (!base) {
@@ -55,11 +70,9 @@
     });
     document.head.appendChild(importMap);
 
-    // Dynamic import() inside a classic script resolves relative to the
-    // document, not to this file — so build the module URL explicitly.
-    const scriptUrl = (document.currentScript && document.currentScript.src)
-      || new URL("observatory/bootstrap.js", document.baseURI).href;
-    const mainUrl = new URL("main.js", scriptUrl).href;
+    // Dynamic import() inside a classic script: build the module URL
+    // explicitly so resolution never depends on the caller's base URL.
+    const mainUrl = new URL("main.js", SCRIPT_URL).href;
 
     try {
       const main = await import(mainUrl);

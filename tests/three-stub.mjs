@@ -266,6 +266,7 @@ export class ShaderMaterial extends Material {
 
 export class CanvasTexture {
   constructor(canvas) { this.canvas = canvas; this.colorSpace = ""; this.needsUpdate = false; }
+  dispose() {}
 }
 
 export class Light extends Object3D {

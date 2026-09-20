@@ -55,6 +55,11 @@ export class UI {
     el["btn-speed"]?.addEventListener("click", () => actions.cycleSpeed());
 
     document.addEventListener("keydown", (event) => {
+      // Ignore keys that belong to a focused control, or Space would both
+      // toggle the pause and activate the focused button.
+      const target = event.target;
+      if (target && typeof target.closest === "function"
+        && target.closest("button, a, input, textarea, select")) return;
       if (event.key === "Escape") this.hideCard();
       if (event.key === " ") {
         event.preventDefault();

@@ -203,6 +203,7 @@ export class Effects {
         transparent: true,
         opacity: 0,
         depthWrite: false,
+        fog: false,
         blending: THREE.AdditiveBlending
       });
       const streak = new THREE.Mesh(new THREE.PlaneGeometry(7, 0.22), material);
@@ -214,6 +215,7 @@ export class Effects {
         transparent: true,
         opacity: 0,
         depthWrite: false,
+        fog: false,
         blending: THREE.AdditiveBlending
       }));
       head.scale.set(2.2, 2.2, 1);
@@ -383,7 +385,7 @@ export class Effects {
     if (!entry) {
       const material = new THREE.MeshBasicMaterial({
         color, transparent: true, opacity: 0.8,
-        side: THREE.DoubleSide, depthWrite: false
+        side: THREE.DoubleSide, depthWrite: false, fog: false
       });
       const mesh = new THREE.Mesh(new THREE.RingGeometry(0.48, 0.62, 40), material);
       mesh.rotation.x = -Math.PI / 2;
@@ -407,7 +409,7 @@ export class Effects {
     if (!entry) {
       const material = new THREE.MeshBasicMaterial({
         color, transparent: true, opacity: 0.5,
-        depthWrite: false, blending: THREE.AdditiveBlending,
+        depthWrite: false, fog: false, blending: THREE.AdditiveBlending,
         side: THREE.DoubleSide
       });
       const mesh = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.6, 7, 14, 1, true), material);
@@ -497,7 +499,8 @@ export class Effects {
     this.time += dt;
 
     if (this.active) {
-      for (const particle of [...this.active]) {
+      // Deleting while iterating a Set is safe and avoids a per-frame copy.
+      for (const particle of this.active) {
         particle.life -= dt;
         if (particle.life <= 0) {
           particle.sprite.visible = false;

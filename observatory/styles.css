@@ -19,6 +19,15 @@
   background: #05070d;
   color: var(--obs-text);
   font-family: var(--obs-sans);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* No 300ms delay / double-tap zoom when tapping UI buttons on mobile. */
+.obs-body button,
+.fossil-row,
+.chronicle-entry {
+  touch-action: manipulation;
 }
 
 #obs-canvas {

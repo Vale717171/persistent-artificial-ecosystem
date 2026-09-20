@@ -183,7 +183,9 @@ export function buildCreature(species, options = {}) {
     const leg = new THREE.Group();
     leg.position.set(hipX, 0.02, hipZ);
     const limb = new THREE.Mesh(legGeometry, legMaterial);
-    limb.castShadow = true;
+    // Legs skip shadow casting: the body already grounds the creature and
+    // this halves the shadow-pass draw calls of the whole cast.
+    limb.castShadow = false;
     leg.add(limb);
     rig.add(leg);
     legs.push(leg);
@@ -292,7 +294,7 @@ export function buildCreature(species, options = {}) {
   /* Hit sphere for picking ------------------------------------------ */
   const hitbox = new THREE.Mesh(
     new THREE.SphereGeometry(0.95, 8, 6),
-    new THREE.MeshBasicMaterial({ transparent: true, opacity: 0, depthWrite: false })
+    new THREE.MeshBasicMaterial({ transparent: true, opacity: 0, depthWrite: false, visible: false })
   );
   hitbox.position.y = 0.6;
   group.add(hitbox);

@@ -10,6 +10,13 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const WORLD = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "world.json"), "utf8"));
 
+/** The world served by the stubbed fetch — tests can swap in a synthetic one. */
+let servedWorld = WORLD;
+
+export function setWorld(world) {
+  servedWorld = world;
+}
+
 export const rafQueue = [];
 
 function make2D() {
@@ -95,7 +102,7 @@ export function installGlobals() {
   };
   globalThis.fetch = async (url) => {
     if (String(url).includes("world.json")) {
-      return { ok: true, status: 200, json: async () => WORLD };
+      return { ok: true, status: 200, json: async () => servedWorld };
     }
     return { ok: false, status: 404, json: async () => ({}) };
   };

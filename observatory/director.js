@@ -28,6 +28,9 @@ const ERA_FLAVOR = {
   stable: ["Il mondo respira piano, in perfetto equilibrio."]
 };
 
+/* Scratch vector for the documentary camera (avoids per-frame allocation). */
+const _docBack = new THREE.Vector3();
+
 export class Director {
   constructor(ctx) {
     this.ctx = ctx;
@@ -82,7 +85,9 @@ export class Director {
       this.docSwitchAt = this.ctx.time + 24;
     }
     if (mode === "free" && this.ctx.controls) {
-      this.ctx.controls.syncFromCamera();
+      // Hand over smoothly: the orbit rig must adopt where the cinematic
+      // camera is actually looking, or the view jumps on the switch.
+      this.ctx.controls.syncFromCamera(this.camTarget);
     }
     this.ctx.ui.setMode(mode);
   }
@@ -140,8 +145,8 @@ export class Director {
 
     // Time of day
     this.tDay = (this.tDay + dt / this.dayLength) % 1;
-    ctx.sky.update(dt, this.tDay, ctx.world.environment);
     ctx.sky.eclipse = this.eclipse;
+    ctx.sky.update(dt, this.tDay, ctx.world.environment);
     ctx.terrain.update(dt, ctx.sky.nightFactor);
 
     if (this.clockAt < ctx.time) {
@@ -454,6 +459,7 @@ export class Director {
       }
 
       case "abbeverata": {
+        if (ctx.terrain.waterPools.length === 0) return; // no water, no truce
         const pool = pick(this.rng, ctx.terrain.waterPools);
         const center = pool.mesh.position.clone();
         const delegates = [];
@@ -603,9 +609,11 @@ export class Director {
       }
       if (this.followAgent) {
         const agent = this.followAgent;
-        const back = new THREE.Vector3(Math.sin(agent.heading), 0, Math.cos(agent.heading)).multiplyScalar(-6.5);
-        this.desiredPos.copy(agent.pos).add(back).add(new THREE.Vector3(0, 3.4, 0));
-        this.desiredTarget.copy(agent.pos).add(new THREE.Vector3(0, 0.9, 0));
+        _docBack.set(Math.sin(agent.heading), 0, Math.cos(agent.heading)).multiplyScalar(-6.5);
+        this.desiredPos.copy(agent.pos).add(_docBack);
+        this.desiredPos.y += 3.4;
+        this.desiredTarget.copy(agent.pos);
+        this.desiredTarget.y += 0.9;
         const k = 1 - Math.exp(-dt * 2.2);
         this.camPos.lerp(this.desiredPos, k);
         this.camTarget.lerp(this.desiredTarget, Math.min(1, k * 1.5));

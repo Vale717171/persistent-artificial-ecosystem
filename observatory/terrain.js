@@ -181,7 +181,6 @@ export class Terrain {
       tufts: { geometry: new THREE.ConeGeometry(0.075, 0.5, 4), material: new THREE.MeshStandardMaterial({ color: 0xa8b04a, roughness: 0.95, flatShading: true }), list: [], colored: true },
       flowers: { geometry: new THREE.IcosahedronGeometry(0.1, 0), material: new THREE.MeshStandardMaterial({ roughness: 0.7, flatShading: true }), list: [], colored: true },
       reeds: { geometry: new THREE.CylinderGeometry(0.028, 0.05, 1.05, 4), material: new THREE.MeshStandardMaterial({ color: 0x7fa356, roughness: 1, flatShading: true }), list: [] },
-      lilies: { geometry: new THREE.CircleGeometry(0.3, 9), material: new THREE.MeshStandardMaterial({ color: 0x5fae6b, roughness: 0.8, flatShading: true }), list: [] },
       rocks: { geometry: new THREE.DodecahedronGeometry(0.4, 0), material: new THREE.MeshStandardMaterial({ color: 0x8b857b, roughness: 1, flatShading: true }), list: [], colored: true },
       cacti: { geometry: new THREE.CapsuleGeometry(0.17, 0.55, 3, 8), material: new THREE.MeshStandardMaterial({ color: 0x6da55d, roughness: 0.85, flatShading: true }), list: [] },
       snow: { geometry: new THREE.IcosahedronGeometry(0.42, 0), material: new THREE.MeshStandardMaterial({ color: 0xf4f7fa, roughness: 0.6, flatShading: true }), list: [] },
@@ -277,8 +276,6 @@ export class Terrain {
       mesh.instanceMatrix.needsUpdate = true;
       this.group.add(mesh);
     }
-
-    this.flowerSpots = items.flowers.list.map((item) => new THREE.Vector3(item.x, item.y, item.z));
   }
 
   _buildWater() {
@@ -385,7 +382,7 @@ export class Terrain {
     // Hit target for clicks.
     const hit = new THREE.Mesh(
       new THREE.BoxGeometry(1.1, 2.2, 1.1),
-      new THREE.MeshBasicMaterial({ transparent: true, opacity: 0, depthWrite: false })
+      new THREE.MeshBasicMaterial({ transparent: true, opacity: 0, depthWrite: false, visible: false })
     );
     hit.position.y = 1.05;
     hit.userData.memorial = { extinct, ghost };

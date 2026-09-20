@@ -19,6 +19,16 @@ const NIGHT_BOTTOM = new THREE.Color(0x141c33);
 const HOT_TINT = new THREE.Color(0xd9a06b);
 const DRY_TINT = new THREE.Color(0xdcc39a);
 const WET_TINT = new THREE.Color(0x8fa3ad);
+const STORM_TOP = new THREE.Color(0x2e3540);
+const STORM_BOTTOM = new THREE.Color(0x4a525c);
+const CLOUD_DAY = new THREE.Color(0xffffff);
+const CLOUD_DUSK = new THREE.Color(0xffc9a8);
+const CLOUD_STORM = new THREE.Color(0x2a313c);
+
+/* Scratch colors: sky.update() runs every frame and must not allocate. */
+const _top = new THREE.Color();
+const _bottom = new THREE.Color();
+const _cloud = new THREE.Color();
 
 export class Sky {
   constructor(ctx) {
@@ -49,7 +59,9 @@ export class Sky {
     this.sunLight.castShadow = true;
     this.sunLight.shadow.mapSize.set(2048, 2048);
     this.sunLight.shadow.camera.near = 10;
-    this.sunLight.shadow.camera.far = 220;
+    // The light sits ~200 units away at low sun angles: a short far plane
+    // would clip the island's shadows at dawn and dusk.
+    this.sunLight.shadow.camera.far = 360;
     this.sunLight.shadow.camera.left = -40;
     this.sunLight.shadow.camera.right = 40;
     this.sunLight.shadow.camera.top = 34;
@@ -262,6 +274,7 @@ export class Sky {
       transparent: true,
       opacity: 0,
       depthWrite: false,
+      fog: false,
       blending: THREE.AdditiveBlending
     });
     this.fireflies = new THREE.Points(geometry, this.fireflyMaterial);
@@ -319,48 +332,48 @@ export class Sky {
     const lightScale = 1 - this.eclipse * 0.94;
     this.sunLight.position.copy(sunPos).multiplyScalar(0.5);
     this.sunLight.target.position.set(0, 0, 0);
-    this.sunLight.intensity = (0.35 + this.dayFactor * 2.3) * lightScale;
+    // The sun must go dark below the horizon, or it would uplight the
+    // island from underneath at night.
+    this.sunLight.intensity = this.dayFactor * 2.6 * lightScale;
     this.sunLight.color.setHSL(0.09, 0.55 * (1 - this.dayFactor * 0.6), 0.72);
     this.moonLight.position.copy(moonPos).multiplyScalar(0.5);
-    this.moonLight.intensity = this.nightFactor * 0.42 * lightScale;
-    this.hemi.intensity = 0.18 + this.dayFactor * 0.5 * lightScale;
+    this.moonLight.intensity = this.nightFactor * 0.5 * lightScale;
+    this.hemi.intensity = 0.22 + this.dayFactor * 0.46 * lightScale;
     this.ambient.intensity = 0.1 + this.dayFactor * 0.12 + this.nightFactor * 0.05;
 
     // Sky palette: night/dusk/day, then climate tinting.
-    const top = new THREE.Color();
-    const bottom = new THREE.Color();
     if (elevation > 0.12) {
-      top.copy(DAY_TOP);
-      bottom.copy(DAY_BOTTOM);
+      _top.copy(DAY_TOP);
+      _bottom.copy(DAY_BOTTOM);
     } else if (elevation > -0.12) {
       const duskAmount = 1 - Math.abs(elevation) / 0.12;
-      top.copy(DAY_TOP).lerp(DUSK_TOP, 0.6 + duskAmount * 0.4);
-      bottom.copy(DAY_BOTTOM).lerp(DUSK_BOTTOM, duskAmount);
+      _top.copy(DAY_TOP).lerp(DUSK_TOP, 0.6 + duskAmount * 0.4);
+      _bottom.copy(DAY_BOTTOM).lerp(DUSK_BOTTOM, duskAmount);
     } else {
-      top.copy(NIGHT_TOP);
-      bottom.copy(NIGHT_BOTTOM);
+      _top.copy(NIGHT_TOP);
+      _bottom.copy(NIGHT_BOTTOM);
     }
     const temperature = environment?.temperature ?? 0.55;
     const moisture = environment?.moisture ?? 0.55;
     if (temperature > 0.68) {
-      top.lerp(HOT_TINT, (temperature - 0.68) * 0.9 * this.dayFactor);
-      bottom.lerp(HOT_TINT, (temperature - 0.68) * 1.1 * this.dayFactor);
+      _top.lerp(HOT_TINT, (temperature - 0.68) * 0.9 * this.dayFactor);
+      _bottom.lerp(HOT_TINT, (temperature - 0.68) * 1.1 * this.dayFactor);
     }
-    if (moisture < 0.3) bottom.lerp(DRY_TINT, (0.3 - moisture) * 0.9 * this.dayFactor);
+    if (moisture < 0.3) _bottom.lerp(DRY_TINT, (0.3 - moisture) * 0.9 * this.dayFactor);
     if (moisture > 0.72) {
-      top.lerp(WET_TINT, (moisture - 0.72) * 0.7);
-      bottom.lerp(WET_TINT, (moisture - 0.72) * 0.7);
+      _top.lerp(WET_TINT, (moisture - 0.72) * 0.7);
+      _bottom.lerp(WET_TINT, (moisture - 0.72) * 0.7);
     }
     if (this.stormy) {
-      top.lerp(new THREE.Color(0x2e3540), 0.5);
-      bottom.lerp(new THREE.Color(0x4a525c), 0.5);
+      _top.lerp(STORM_TOP, 0.5);
+      _bottom.lerp(STORM_BOTTOM, 0.5);
     }
-    top.multiplyScalar(lightScale * 0.9 + 0.1);
-    bottom.multiplyScalar(lightScale * 0.9 + 0.1);
+    _top.multiplyScalar(lightScale * 0.9 + 0.1);
+    _bottom.multiplyScalar(lightScale * 0.9 + 0.1);
 
-    this.domeUniforms.topColor.value.copy(top);
-    this.domeUniforms.bottomColor.value.copy(bottom);
-    this.scene.fog.color.copy(bottom);
+    this.domeUniforms.topColor.value.copy(_top);
+    this.domeUniforms.bottomColor.value.copy(_bottom);
+    this.scene.fog.color.copy(_bottom);
     this.scene.fog.density = 0.0032
       + (this.stormy ? 0.004 : 0)
       + (this.fields.rain.level > 0.1 ? 0.0035 : 0)
@@ -372,6 +385,10 @@ export class Sky {
     this.moon.material.opacity = this.nightFactor;
 
     // Clouds
+    _cloud.copy(CLOUD_DAY)
+      .lerp(CLOUD_DUSK, (1 - this.dayFactor) * 0.75)
+      .lerp(CLOUD_STORM, this.stormy ? 0.62 : 0)
+      .multiplyScalar(lightScale * 0.85 + 0.15);
     for (const cloud of this.clouds) {
       const data = cloud.userData;
       data.angle += data.speed * dt * (this.stormy ? 2.4 : 1);
@@ -380,12 +397,8 @@ export class Sky {
         data.height - (this.stormy ? 9 : 0),
         Math.sin(data.angle) * data.radius
       );
-      const tint = new THREE.Color(0xffffff)
-        .lerp(new THREE.Color(0xffc9a8), (1 - this.dayFactor) * 0.75)
-        .lerp(new THREE.Color(0x2a313c), this.stormy ? 0.62 : 0)
-        .multiplyScalar(lightScale * 0.85 + 0.15);
       for (const puff of cloud.children) {
-        puff.material.color.copy(tint);
+        puff.material.color.copy(_cloud);
         puff.material.opacity = this.stormy ? 0.94 : 0.8;
       }
     }
@@ -427,7 +440,8 @@ export class Sky {
       const t = this.ctx.time ?? 0;
       this.fireflyAnchors.forEach((fly, i) => {
         positions[i * 3] = fly.anchor.x + Math.sin(t * 0.5 + fly.phase) * fly.range;
-        positions[i * 3 + 1] = 1 + Math.sin(t * 0.8 + fly.phase * 2) * 0.5 + (this.ctx.terrain ? this.ctx.terrain.heightAt(fly.anchor.x, fly.anchor.z) * 0.4 : 0);
+        positions[i * 3 + 1] = (this.ctx.terrain ? this.ctx.terrain.heightAt(fly.anchor.x, fly.anchor.z) : 0)
+          + 0.55 + Math.sin(t * 0.8 + fly.phase * 2) * 0.45;
         positions[i * 3 + 2] = fly.anchor.z + Math.cos(t * 0.4 + fly.phase) * fly.range;
       });
       this.fireflies.geometry.attributes.position.needsUpdate = true;

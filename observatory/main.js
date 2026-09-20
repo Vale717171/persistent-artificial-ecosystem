@@ -182,9 +182,9 @@ function setupPicking(ctx, ui) {
       ...ctx.terrain.tileMeshes
     ];
     const hits = raycaster.intersectObjects(targets, false);
+    ctx.terrain.highlightCell(null);
     if (!hits.length) {
       ui.hideCard();
-      ctx.terrain.highlightCell(null);
       return;
     }
 

@@ -101,8 +101,17 @@ export class OrbitCam {
     this.tween = 1;
   }
 
-  /** Reads current camera transform back into the orbit state (after cinematic moves). */
-  syncFromCamera() {
+  /**
+   * Reads the current camera transform back into the orbit state, e.g. when
+   * leaving a cinematic mode. `lookTarget` (optional) is where the camera was
+   * actually aiming; without it the orbit keeps its previous pivot and the
+   * view would jump.
+   */
+  syncFromCamera(lookTarget) {
+    if (lookTarget) {
+      this.target.copy(lookTarget);
+      this.goalTarget.copy(lookTarget);
+    }
     const offset = this.camera.position.clone().sub(this.target);
     this.radius = clamp(offset.length(), MIN_RADIUS, MAX_RADIUS);
     this.goalRadius = this.radius;
