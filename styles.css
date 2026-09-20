@@ -551,3 +551,60 @@ code {
     grid-template-columns: 1fr;
   }
 }
+
+/* ------------------------------------------------------------------ */
+/* 3D Observatory hero link                                            */
+/* ------------------------------------------------------------------ */
+
+.observatory-hero {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 auto 26px;
+  padding: 16px 22px;
+  max-width: 1080px;
+  border: 1px solid rgba(127, 216, 200, 0.35);
+  border-radius: 14px;
+  background: linear-gradient(120deg, rgba(23, 42, 56, 0.9), rgba(12, 20, 34, 0.9));
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.observatory-hero:hover {
+  transform: translateY(-2px);
+  border-color: rgba(245, 197, 66, 0.55);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.observatory-hero-icon {
+  font-size: 2rem;
+  filter: drop-shadow(0 0 10px rgba(127, 216, 200, 0.5));
+}
+
+.observatory-hero strong {
+  display: block;
+  font-size: 1.05rem;
+  color: #f2f7ff;
+}
+
+.observatory-hero em {
+  display: block;
+  font-style: normal;
+  font-size: 0.82rem;
+  color: #9fb0c8;
+  margin-top: 3px;
+  max-width: 560px;
+}
+
+.observatory-hero-cta {
+  margin-left: auto;
+  font-size: 0.85rem;
+  color: #f5c542;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .observatory-hero { flex-wrap: wrap; }
+  .observatory-hero-cta { margin-left: 0; }
+}

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta name="description" content="L'Osservatorio 3D: il mondo persistente dell'ecosistema artificiale, vivo in un diorama tridimensionale.">
+    <title>Osservatorio 3D — Persistent Artificial Ecosystem</title>
+    <link rel="stylesheet" href="observatory/styles.css">
+  </head>
+  <body class="obs-body">
+    <canvas id="obs-canvas"></canvas>
+
+    <!-- Loading -->
+    <div id="obs-loading" class="obs-overlay">
+      <div class="loading-card">
+        <div class="loading-orbit"><span></span></div>
+        <h1>L'Osservatorio</h1>
+        <p id="loading-status">Sveglio il mondo…</p>
+      </div>
+    </div>
+
+    <!-- Error -->
+    <div id="obs-error" class="obs-overlay hidden">
+      <div class="loading-card error-card">
+        <h1>Oh no</h1>
+        <p id="error-message">Qualcosa è andato storto.</p>
+        <button id="error-retry" class="ctl-button">Riprova</button>
+      </div>
+    </div>
+
+    <!-- HUD -->
+    <header id="hud" class="obs-panel">
+      <div class="hud-title">
+        <span class="hud-eyebrow">ecosistema persistente · vista dal cielo</span>
+        <h1>L'Osservatorio</h1>
+      </div>
+      <div class="hud-stats">
+        <span id="hud-tick">Tick —</span>
+        <span id="hud-era">—</span>
+        <span class="hud-clock"><span id="hud-phase-icon">☀️</span> <span id="hud-phase">—</span> · <span id="hud-weather">—</span></span>
+        <div class="climate">
+          <span class="climate-row" title="Temperatura"><em>🌡️</em><span class="climate-bar"><span id="bar-temp" class="fill temp"></span></span></span>
+          <span class="climate-row" title="Umidità"><em>💧</em><span class="climate-bar"><span id="bar-moist" class="fill moist"></span></span></span>
+        </div>
+        <span id="hud-pop">—</span>
+        <span id="hud-species">—</span>
+      </div>
+    </header>
+
+    <!-- Species & fossils -->
+    <aside id="species-panel" class="obs-panel">
+      <button id="panel-toggle" title="Apri/chiudi">◂</button>
+      <h2>Le Specie Vive</h2>
+      <div id="species-list"></div>
+      <h2 class="fossil-title">Memoria Fossile</h2>
+      <div id="fossil-list"></div>
+      <a class="back-link" href="index.html">← Torna alla mappa classica</a>
+    </aside>
+
+    <!-- Chronicle -->
+    <section id="chronicle" class="obs-panel">
+      <h2>Cronaca del Mondo</h2>
+      <ol id="chronicle-list"></ol>
+    </section>
+
+    <!-- Controls -->
+    <nav id="controls" class="obs-panel">
+      <button id="btn-pause" class="ctl-button" title="Pausa (spazio)">⏸ Pausa</button>
+      <button id="btn-cinema" class="ctl-button" title="Camera cinematica">🎬 Cinema</button>
+      <button id="btn-doc" class="ctl-button" title="Segui una creatura">🦌 Documentario</button>
+      <button id="btn-free" class="ctl-button" title="Esplora libero">🖐 Libera</button>
+      <button id="btn-sound" class="ctl-button" title="Suoni d'ambiente">🔈 Suono</button>
+      <button id="btn-speed" class="ctl-button" title="Velocità del tempo">⏩ 1×</button>
+    </nav>
+
+    <p id="hint" class="obs-panel">🖱️ Trascina per ruotare · rotella per lo zoom · clicca una creatura, una pietra del Memoriale o una cella per scoprirne la storia</p>
+
+    <!-- Spectacle banner -->
+    <div id="banner">
+      <span id="banner-icon">✨</span>
+      <h2 id="banner-title"></h2>
+      <p id="banner-subtitle"></p>
+    </div>
+
+    <!-- Detail card -->
+    <aside id="card" class="obs-panel">
+      <button id="card-close" title="Chiudi">✕</button>
+      <div id="card-content"></div>
+    </aside>
+
+    <!-- Toast -->
+    <div id="toast"></div>
+
+    <!-- Cinematic letterbox -->
+    <div id="letterbox-top"></div>
+    <div id="letterbox-bottom"></div>
+
+    <!-- Lightning / cut flashes -->
+    <div id="flash"></div>
+    <div id="cut"></div>
+
+    <script src="observatory/bootstrap.js"></script>
+  </body>
+</html>

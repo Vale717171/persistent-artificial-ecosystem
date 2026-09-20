@@ -38,6 +38,59 @@ GitHub is not just hosting for this project. It is the machinery of the world:
 - Browser UI for world status, map, species list, event timeline, fossil record, and population trends.
 - Biodiversity index, living/extinct species counts, total population, and average food metrics.
 - Cache-busted `data/world.json` loading so the Pages UI asks for fresh state on every page load.
+- **3D Observatory** — the world rendered as a living diorama (see below).
+
+## The 3D Observatory
+
+Open [`observatory.html`](observatory.html) (linked from the dashboard as
+"Entra nell'Osservatorio 3D") and the committed world becomes a floating
+sky-island you can simply watch live:
+
+- **The island** — the 12×8 biome grid is extruded into a 3D diorama with
+  instanced trees, grass, cacti, reeds, rocks, water pools and peaks, plus a
+  **Fossil Memorial**: one standing stone per extinct species, glowing softly
+  at night.
+- **Procedural creatures** — every living species is embodied by individual
+  agents whose anatomy is generated from the real traits: size shapes the
+  body, speed the legs, resilience adds armour plates, diet sets the
+  silhouette, and capabilities add wings, stingers or photosynthetic glow.
+- **Characters** — every individual has an Italian name, a gender, a
+  personality archetype (curious, lazy, brave, dreamy, solitary, social,
+  restless, patient) and a memory of meals, hunts, escapes and friendships.
+  Each species' champion wears a crown and an epithet; the last survivors of
+  a dying species are called *l'Ultimo della Stirpe*.
+- **Invented interactions** — grazing, drinking at the ponds, sleeping under
+  the stars, stalking and chasing hunts with ambush lunges, courtship and
+  births (paced by the species' real population trend), cross-species play,
+  curiosity, burrowing through sandstorms, sheltering from thunderstorms.
+- **Spectacles** — a director schedules nine set pieces: the Great Crossing,
+  the Night of Falling Stars, the Truce at the Pond, the Champions' Council,
+  the Dance of Lights, the Blooming Festival, the Eclipse, the Great Cub Race
+  and the Aurora of Winds.
+- **A climate that shows** — the committed temperature/moisture/era drive the
+  sky palette, fog, weather machine (clear, cloudy, rain, storm, snow, dust),
+  lightning, fireflies at dusk and the colour of the clouds.
+- **The chronicle** — the world's real event log is replayed in Italian and
+  dramatized in 3D (blooms burst into flowers, diseases drift as miasma,
+  innovations raise light pillars), side by side with micro-stories of the
+  individuals living right now.
+- **Cameras** — cinematic auto-direction with letterboxing, documentary mode
+  that follows a chosen creature, and free orbit (drag/scroll/pinch). Click
+  any creature, memorial stone or terrain cell for its story.
+
+The observatory is a **lens, not a second simulation**: it never writes to
+`data/world.json`. All individual behaviour is deterministic client-side
+drama generated from the committed state, so the Actions-driven world remains
+the single source of truth. three.js is loaded from a CDN with fallbacks; no
+build step, no bundler, no assets — even the sounds are synthesized.
+
+Headless integration tests boot the entire observatory (terrain, sky,
+creatures, agents, director) against a three.js stub and pump thousands of
+frames of simulation:
+
+```bash
+npm test
+```
 
 ## Local Setup
 
@@ -58,6 +111,9 @@ Serve the static app locally:
 ```bash
 npm run serve
 ```
+
+Then open <http://localhost:4173> for the dashboard or
+<http://localhost:4173/observatory.html> for the 3D observatory.
 
 You can also use any static file server. A server is recommended because browsers may block `fetch("data/world.json")` from local `file://` pages.
 
