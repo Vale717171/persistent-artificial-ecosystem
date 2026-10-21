@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "tick": 503,
-  "updatedAt": "2026-10-14T17:43:19.437Z",
+  "tick": 504,
+  "updatedAt": "2026-10-14T23:43:19.437Z",
   "map": {
     "width": 12,
     "height": 8,
@@ -588,7 +588,7 @@
     {
       "id": "dustskipper",
       "name": "Dustskipper",
-      "population": 583,
+      "population": 688,
       "traits": {
         "preferredBiome": "desert",
         "size": 1,
@@ -601,42 +601,42 @@
         {
           "x": 4,
           "y": 2,
-          "population": 121
-        },
-        {
-          "x": 5,
-          "y": 2,
-          "population": 105
+          "population": 196
         },
         {
           "x": 5,
           "y": 3,
-          "population": 93
+          "population": 127
+        },
+        {
+          "x": 4,
+          "y": 3,
+          "population": 89
+        },
+        {
+          "x": 5,
+          "y": 2,
+          "population": 82
         },
         {
           "x": 4,
           "y": 4,
-          "population": 65
-        },
-        {
-          "x": 3,
-          "y": 3,
-          "population": 61
-        },
-        {
-          "x": 5,
-          "y": 1,
-          "population": 59
-        },
-        {
-          "x": 4,
-          "y": 3,
-          "population": 52
+          "population": 51
         },
         {
           "x": 3,
           "y": 2,
-          "population": 27
+          "population": 50
+        },
+        {
+          "x": 3,
+          "y": 3,
+          "population": 48
+        },
+        {
+          "x": 5,
+          "y": 1,
+          "population": 45
         }
       ],
       "ecology": {
@@ -656,7 +656,7 @@
     {
       "id": "cragback",
       "name": "Cragback",
-      "population": 242,
+      "population": 237,
       "traits": {
         "preferredBiome": "mountain",
         "size": 9,
@@ -669,42 +669,42 @@
         {
           "x": 10,
           "y": 3,
-          "population": 69
+          "population": 70
         },
         {
           "x": 11,
           "y": 3,
-          "population": 59
+          "population": 55
         },
         {
           "x": 11,
           "y": 2,
-          "population": 43
+          "population": 41
         },
         {
           "x": 9,
           "y": 3,
-          "population": 28
+          "population": 26
         },
         {
           "x": 10,
           "y": 2,
-          "population": 19
+          "population": 24
         },
         {
           "x": 11,
           "y": 1,
-          "population": 14
+          "population": 13
         },
         {
           "x": 9,
           "y": 4,
-          "population": 5
+          "population": 4
         },
         {
           "x": 9,
           "y": 2,
-          "population": 4
+          "population": 3
         },
         {
           "x": 10,
@@ -730,7 +730,7 @@
     {
       "id": "dawnback",
       "name": "Dawnback",
-      "population": 34,
+      "population": 31,
       "traits": {
         "preferredBiome": "desert",
         "size": 3,
@@ -762,7 +762,7 @@
         {
           "x": 4,
           "y": 2,
-          "population": 10
+          "population": 8
         },
         {
           "x": 5,
@@ -772,15 +772,15 @@
         {
           "x": 5,
           "y": 1,
-          "population": 6
-        },
-        {
-          "x": 3,
-          "y": 3,
           "population": 4
         },
         {
           "x": 5,
+          "y": 3,
+          "population": 4
+        },
+        {
+          "x": 3,
           "y": 3,
           "population": 3
         },
@@ -791,12 +791,12 @@
         },
         {
           "x": 4,
-          "y": 3,
-          "population": 1
+          "y": 4,
+          "population": 2
         },
         {
           "x": 4,
-          "y": 4,
+          "y": 3,
           "population": 1
         }
       ]
@@ -804,10 +804,10 @@
     {
       "id": "lumenmote",
       "name": "Lumenmote",
-      "population": 29,
+      "population": 34,
       "traits": {
         "preferredBiome": "desert",
-        "size": 1,
+        "size": 2,
         "speed": 10,
         "fertility": 6,
         "resilience": 6,
@@ -830,12 +830,17 @@
         "generation": 1,
         "bornAt": 452
       },
-      "divergence": 5,
+      "divergence": 6,
       "range": [
         {
           "x": 4,
           "y": 2,
-          "population": 8
+          "population": 12
+        },
+        {
+          "x": 3,
+          "y": 2,
+          "population": 9
         },
         {
           "x": 5,
@@ -845,17 +850,12 @@
         {
           "x": 3,
           "y": 3,
-          "population": 5
-        },
-        {
-          "x": 3,
-          "y": 2,
-          "population": 5
+          "population": 3
         },
         {
           "x": 5,
           "y": 3,
-          "population": 3
+          "population": 2
         },
         {
           "x": 4,
@@ -872,7 +872,7 @@
     {
       "id": "cinderweaver",
       "name": "Cinderweaver",
-      "population": 641,
+      "population": 580,
       "traits": {
         "preferredBiome": "desert",
         "size": 2,
@@ -903,55 +903,55 @@
         {
           "x": 4,
           "y": 2,
-          "population": 265
+          "population": 233
         },
         {
-          "x": 5,
-          "y": 2,
-          "population": 90
+          "x": 4,
+          "y": 3,
+          "population": 85
         },
         {
           "x": 5,
           "y": 3,
-          "population": 74
-        },
-        {
-          "x": 3,
-          "y": 3,
-          "population": 73
+          "population": 77
         },
         {
           "x": 5,
           "y": 1,
-          "population": 64
+          "population": 57
+        },
+        {
+          "x": 5,
+          "y": 2,
+          "population": 55
+        },
+        {
+          "x": 3,
+          "y": 3,
+          "population": 44
         },
         {
           "x": 3,
           "y": 2,
-          "population": 30
-        },
-        {
-          "x": 4,
-          "y": 3,
-          "population": 28
+          "population": 19
         },
         {
           "x": 4,
           "y": 4,
-          "population": 17
+          "population": 10
         }
       ]
     },
     {
       "id": "thornmote",
       "name": "Thornmote",
-      "population": 10,
+      "population": 9,
       "traits": {
         "preferredBiome": "desert",
         "size": 2,
         "speed": 8,
         "fertility": 10,
-        "resilience": 4,
+        "resilience": 5,
         "metabolism": 3
       },
       "origin": {
@@ -972,7 +972,7 @@
         "generation": 2,
         "bornAt": 465
       },
-      "divergence": 9,
+      "divergence": 10,
       "range": [
         {
           "x": 4,
@@ -998,16 +998,101 @@
           "x": 5,
           "y": 1,
           "population": 1
-        },
-        {
-          "x": 3,
-          "y": 2,
-          "population": 1
         }
       ]
     }
   ],
   "events": [
+    {
+      "tick": 504,
+      "type": "population",
+      "message": "Dustskipper changed by +113 births and -6 deaths.",
+      "impact": {
+        "species": "dustskipper",
+        "births": 113,
+        "deaths": 6,
+        "population": 690
+      }
+    },
+    {
+      "tick": 504,
+      "type": "population",
+      "message": "Lumenmote changed by +5 births and -0 deaths.",
+      "impact": {
+        "species": "lumenmote",
+        "births": 5,
+        "deaths": 0,
+        "population": 34
+      }
+    },
+    {
+      "tick": 504,
+      "type": "mutation",
+      "message": "Lumenmote mutation shifted size up.",
+      "impact": {
+        "species": "lumenmote",
+        "trait": "size",
+        "delta": 1,
+        "before": 1,
+        "after": 2
+      }
+    },
+    {
+      "tick": 504,
+      "type": "population",
+      "message": "Cinderweaver changed by +56 births and -117 deaths.",
+      "impact": {
+        "species": "cinderweaver",
+        "births": 56,
+        "deaths": 117,
+        "population": 580
+      }
+    },
+    {
+      "tick": 504,
+      "type": "population",
+      "message": "Cragback changed by +27 births and -32 deaths.",
+      "impact": {
+        "species": "cragback",
+        "births": 27,
+        "deaths": 32,
+        "population": 237
+      }
+    },
+    {
+      "tick": 504,
+      "type": "population",
+      "message": "Dawnback changed by +3 births and -6 deaths.",
+      "impact": {
+        "species": "dawnback",
+        "births": 3,
+        "deaths": 6,
+        "population": 31
+      }
+    },
+    {
+      "tick": 504,
+      "type": "population",
+      "message": "Thornmote changed by +1 births and -2 deaths.",
+      "impact": {
+        "species": "thornmote",
+        "births": 1,
+        "deaths": 2,
+        "population": 9
+      }
+    },
+    {
+      "tick": 504,
+      "type": "mutation",
+      "message": "Thornmote mutation shifted resilience up.",
+      "impact": {
+        "species": "thornmote",
+        "trait": "resilience",
+        "delta": 1,
+        "before": 4,
+        "after": 5
+      }
+    },
     {
       "tick": 503,
       "type": "migration",
@@ -1828,108 +1913,9 @@
         "before": 8,
         "after": 9
       }
-    },
-    {
-      "tick": 495,
-      "type": "population",
-      "message": "Dustskipper changed by +66 births and -66 deaths.",
-      "impact": {
-        "species": "dustskipper",
-        "births": 66,
-        "deaths": 66,
-        "population": 538
-      }
-    },
-    {
-      "tick": 495,
-      "type": "mutation",
-      "message": "Dustskipper mutation shifted fertility down.",
-      "impact": {
-        "species": "dustskipper",
-        "trait": "fertility",
-        "delta": -1,
-        "before": 7,
-        "after": 6
-      }
-    },
-    {
-      "tick": 495,
-      "type": "population",
-      "message": "Lumenmote changed by +4 births and -7 deaths.",
-      "impact": {
-        "species": "lumenmote",
-        "births": 4,
-        "deaths": 7,
-        "population": 38
-      }
-    },
-    {
-      "tick": 495,
-      "type": "population",
-      "message": "Dawnback changed by +4 births and -10 deaths.",
-      "impact": {
-        "species": "dawnback",
-        "births": 4,
-        "deaths": 10,
-        "population": 42
-      }
-    },
-    {
-      "tick": 495,
-      "type": "predation",
-      "message": "Dawnback hunted 2 Dustskipper and gained 1.",
-      "impact": {
-        "predator": "dawnback",
-        "prey": "dustskipper",
-        "kills": 2,
-        "predatorGain": 1
-      }
-    },
-    {
-      "tick": 495,
-      "type": "disturbance",
-      "message": "A harsh season reduced food across mountain cells.",
-      "impact": {
-        "biome": "mountain",
-        "cells": 15
-      }
-    },
-    {
-      "tick": 494,
-      "type": "population",
-      "message": "Thornmote changed by +2 births and -0 deaths.",
-      "impact": {
-        "species": "thornmote",
-        "births": 2,
-        "deaths": 0,
-        "population": 10
-      }
-    },
-    {
-      "tick": 494,
-      "type": "mutation",
-      "message": "Thornmote mutation shifted fertility up.",
-      "impact": {
-        "species": "thornmote",
-        "trait": "fertility",
-        "delta": 1,
-        "before": 9,
-        "after": 10
-      }
     }
   ],
   "history": [
-    {
-      "tick": 424,
-      "populations": {
-        "dustskipper": 160,
-        "cragback": 12,
-        "thornsprout": 7,
-        "ambermote": 4,
-        "cinderback": 2,
-        "dawnback": 3
-      }
-    },
     {
       "tick": 425,
       "populations": {
@@ -2788,6 +2774,17 @@
         "cinderweaver": 641,
         "thornmote": 10
       }
+    },
+    {
+      "tick": 504,
+      "populations": {
+        "dustskipper": 688,
+        "cragback": 237,
+        "dawnback": 31,
+        "lumenmote": 34,
+        "cinderweaver": 580,
+        "thornmote": 9
+      }
     }
   ],
   "extinctions": [
@@ -3159,16 +3156,16 @@
   "rng": {
     "algorithm": "xorshift32",
     "seed": 439041101,
-    "state": 3795183052
+    "state": 355572240
   },
-  "latestTickAt": "2026-10-14T17:43:19.437Z",
+  "latestTickAt": "2026-10-14T23:43:19.437Z",
   "tickIntervalHours": 6,
   "environment": {
-    "temperature": 0.7583808894672694,
-    "moisture": 0.27954812303553567,
+    "temperature": 0.7553000423385882,
+    "moisture": 0.28226150702056085,
     "volatility": 0.14210653207264842,
-    "temperatureTrend": -0.0028731844592420914,
-    "moistureTrend": -0.0007786652311185346,
+    "temperatureTrend": -0.00283008669235346,
+    "moistureTrend": -0.0007669852526517566,
     "era": {
       "name": "Long Summer",
       "kind": "warm",
